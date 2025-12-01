@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>ISTP相談室｜ISTPの本音ラインをシミュレーションする相談LINEボット</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="ISTP相談室は、ISTPが監修する相談専用LINEボットです。ISTPの行動・心理パターンをもとに、相談に対してISTP目線でコメントします。"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #10172b;
+      --panel: #151b30;
+      --accent: #f4b000;
+      --accent-soft: rgba(244,176,0,0.15);
+      --text-main: #f9fafb;
+      --text-sub: #cbd5f5;
+      --border-soft: #1f2937;
+      --danger: #f97373;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827, #020617 60%);
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.95),
+        rgba(15, 23, 42, 0.7)
+      );
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #f9fafb, #1f2937 60%);
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      font-size: 13px;
+      color: #e5e7eb;
+    }
+
+    nav a {
+      opacity: 0.85;
+    }
+
+    nav a:hover {
+      opacity: 1;
+      color: var(--accent);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.08s ease, box-shadow 0.08s ease,
+        background 0.1s ease;
+      white-space: nowrap;
+      gap: 6px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #facc15, #f97316);
+      color: #111827;
+      box-shadow: 0 10px 25px rgba(250, 204, 21, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 35px rgba(250, 204, 21, 0.4);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.7);
+      color: #e5e7eb;
+    }
+
+    .btn-outline:hover {
+      background: rgba(31, 41, 55, 0.9);
+    }
+
+    main {
+      padding-bottom: 72px;
+    }
+
+    section {
+      padding: 56px 0;
+    }
+
+    section:nth-of-type(odd) {
+      background: transparent;
+    }
+
+    section:nth-of-type(even) {
+      background: radial-gradient(circle at top, #020617, #020617 60%);
+    }
+
+    .section-title {
+      font-size: 24px;
+      margin-bottom: 10px;
+      letter-spacing: 0.04em;
+    }
+
+    .section-sub {
+      font-size: 14px;
+      color: var(--text-sub);
+      margin-bottom: 32px;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 72px 0 56px;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 11px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      color: #e5e7eb;
+      margin-bottom: 12px;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .hero-title {
+      font-size: clamp(26px, 4vw, 32px);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .hero-highlight {
+      color: var(--accent);
+    }
+
+    .hero-lead {
+      font-size: 14px;
+      color: var(--text-sub);
+      margin-bottom: 20px;
+    }
+
+    .hero-list {
+      margin: 0 0 22px;
+      padding-left: 18px;
+      font-size: 13px;
+      color: var(--text-sub);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .hero-note {
+      font-size: 11px;
+      color: var(--text-sub);
+    }
+
+    .hero-right {
+      justify-self: center;
+    }
+
+    .phone-frame {
+      width: 260px;
+      aspect-ratio: 9 / 16;
+      border-radius: 30px;
+      padding: 10px;
+      background: radial-gradient(circle at top, #111827, #020617 60%);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      position: relative;
+    }
+
+    .phone-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 22px;
+      background: #020617;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .line-header {
+      height: 26px;
+      border-radius: 18px;
+      background: linear-gradient(90deg, #22c55e, #16a34a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #ecfdf5;
+      font-weight: 500;
+    }
+
+    .chat-bubble {
+      border-radius: 18px;
+      padding: 8px 10px;
+      font-size: 11px;
+      max-width: 100%;
+      word-break: break-all;
+      line-height: 1.5;
+    }
+
+    .chat-user {
+      align-self: flex-end;
+      background: #0ea5e9;
+      color: #e0f2fe;
+      border-bottom-right-radius: 4px;
+    }
+
+    .chat-bot {
+      align-self: flex-start;
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      border-bottom-left-radius: 4px;
+    }
+
+    .chat-meta {
+      font-size: 9px;
+      color: #6b7280;
+      text-align: right;
+    }
+
+    .phone-footer {
+      margin-top: auto;
+      font-size: 9px;
+      color: #6b7280;
+      text-align: center;
+    }
+
+    /* Pills */
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+      font-size: 11px;
+    }
+
+    .pill {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      color: var(--text-sub);
+    }
+
+    /* Cards grid */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      border-radius: 18px;
+      background: linear-gradient(145deg, #020617, #020617);
+      border: 1px solid var(--border-soft);
+      padding: 16px 16px 18px;
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.7);
+    }
+
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-sub);
+    }
+
+    .card-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      font-size: 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--text-sub);
+      margin-bottom: 8px;
+    }
+
+    .card-tag span {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      margin-right: 6px;
+    }
+
+    .card-list {
+      margin: 8px 0 0;
+      padding-left: 18px;
+      font-size: 12px;
+      color: var(--text-sub);
+    }
+
+    .card-list li + li {
+      margin-top: 4px;
+    }
+
+    /* Pricing */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .plan-card {
+      border-radius: 18px;
+      padding: 18px 16px 18px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid var(--border-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .plan-card.highlight {
+      border-color: var(--accent);
+      box-shadow: 0 18px 45px rgba(244, 176, 0, 0.35);
+      background: radial-gradient(circle at top, #1f2937, #020617 65%);
+    }
+
+    .plan-name {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .plan-label {
+      font-size: 11px;
+      color: var(--text-sub);
+      margin-bottom: 8px;
+    }
+
+    .plan-price {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .plan-cycle {
+      font-size: 11px;
+      color: var(--text-sub);
+      margin-bottom: 10px;
+    }
+
+    .plan-feature-list {
+      margin: 0 0 14px;
+      padding-left: 18px;
+      font-size: 12px;
+      color: var(--text-sub);
+    }
+
+    .plan-feature-list li + li {
+      margin-top: 4px;
+    }
+
+    .plan-badge {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid rgba(250, 204, 21, 0.6);
+    }
+
+    .plan-footer-note {
+      font-size: 11px;
+      color: var(--text-sub);
+      margin-top: 4px;
+    }
+
+    .pricing-table-wrapper {
+      margin-top: 8px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      min-width: 600px;
+    }
+
+    th, td {
+      padding: 8px 10px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+      text-align: left;
+    }
+
+    th {
+      background: rgba(15, 23, 42, 0.85);
+      font-weight: 500;
+    }
+
+    tr:nth-child(even) td {
+      background: rgba(15, 23, 42, 0.5);
+    }
+
+    /* Flow */
+    .flow-steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      font-size: 12px;
+    }
+
+    .flow-step {
+      padding: 14px 12px 14px;
+      border-radius: 16px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border-soft);
+      position: relative;
+    }
+
+    .flow-step-index {
+      font-size: 11px;
+      color: var(--accent);
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+
+    .flow-step-title {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .flow-step p {
+      margin: 0;
+      color: var(--text-sub);
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .faq-item {
+      padding: 14px 14px 16px;
+      border-radius: 16px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border-soft);
+      font-size: 12px;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .faq-a {
+      color: var(--text-sub);
+    }
+
+    /* Notice */
+    .notice {
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(185, 28, 28, 0.1);
+      border: 1px solid rgba(248, 113, 113, 0.6);
+      font-size: 12px;
+      color: #fecaca;
+    }
+
+    footer {
+      border-top: 1px solid rgba(148, 163, 184, 0.3);
+      padding: 16px 0 26px;
+      background: #020617;
+      font-size: 11px;
+      color: var(--text-sub);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 880px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-right {
+        order: -1;
+      }
+      nav {
+        display: none;
+      }
+      .pricing-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .flow-steps {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .faq-list {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero {
+        padding-top: 56px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-mark">I</div>
+        <div>
+          <div>ISTP相談室</div>
+          <div style="font-size:11px;color:#9ca3af;">ISTP恋愛相談LINEボット</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#features">特徴</a>
+        <a href="#plans">料金プラン</a>
+        <a href="#flow">利用の流れ</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a href="https://line.me/R/ti/p/XXXXXXXX" class="btn btn-primary">
+        LINEで試してみる
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="container hero-inner">
+        <div>
+          <div class="badge">
+            <span class="badge-dot"></span>
+            ISTP男性監修の恋愛相談ボット
+          </div>
+          <h1 class="hero-title">
+            ISTPの<span class="hero-highlight">「本音ライン」</span>を<br />
+            シミュレーションする恋愛相談LINEボット
+          </h1>
+          <p class="hero-lead">
+            「ISTPの彼が何を考えているのか分からない」  
+            「既読スルーやそっけない返事が、脈なしなのか性格なのか判断できない」——  
+            そんなときに、ISTP当事者の視点から、行動と心理を言語化します。
+          </p>
+          <ul class="hero-list">
+            <li>ISTPの脈あり／脈なしラインを、行動ベースで整理</li>
+            <li>LINEの返し方・距離感の詰め方を、ISTP目線で提案</li>
+            <li>「本人には聞けない本音」を、第三者視点でシミュレーション</li>
+          </ul>
+          <div class="hero-actions">
+            <a href="https://line.me/R/ti/p/XXXXXXXX" class="btn btn-primary">
+              無料で5セッション試してみる
+            </a>
+            <a href="#plans" class="btn btn-outline">料金プランを見る</a>
+          </div>
+          <div class="hero-note">
+            ※回答はLINE公式アカウント上のテキストメッセージで返ってきます。<br />
+            ※医療行為・法律相談などの専門領域は対応していません。
+          </div>
+          <div class="pill-row">
+            <div class="pill">ISTPの彼／彼女がよく分からない</div>
+            <div class="pill">直接は聞きづらい本音ラインを知りたい</div>
+            <div class="pill">DMではなくボット相手に相談したい</div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="phone-frame">
+            <div class="phone-inner">
+              <div class="line-header">ISTP相談室（公式）</div>
+              <div class="chat-bubble chat-user">
+                ISTPの彼に既読スルーされて2日です…。<br />
+                もともと返信遅めなんですけど、これは気にしたほうがいいんでしょうか？
+              </div>
+              <div class="chat-bubble chat-bot">
+                ISTPは「今すぐ返さない＝嫌い」ではなく、<br />
+                <strong>・今は他のことに集中したい<br />・感情を整理してから返したい</strong><br />
+                と考えていることも多いです。<br /><br />
+                僕なら、2日だけなら「いつものペースの範囲内」と捉えます。<br />
+                ただし、<strong>会う頻度が急に減っているかどうか</strong>もセットで見ておきたいですね。
+              </div>
+              <div class="chat-meta">※実際の回答イメージ</div>
+              <div class="phone-footer">
+                恋愛相談1回＝1セッション / Freeは月5セッションまで
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features: for who / features -->
+    <section id="features">
+      <div class="container">
+        <h2 class="section-title">ISTP相談室は、こんなときに使えます</h2>
+        <p class="section-sub">
+          「ISTPっぽい相手」を前提に、行動・距離感から本音ラインを推測します。
+        </p>
+
+        <div class="grid-3" style="margin-bottom:24px;">
+          <div class="card">
+            <div class="card-tag"><span></span>こんな人向け</div>
+            <h3>LINEの温度感が読めない</h3>
+            <p>
+              返信がそっけない、既読スルーが多い——。  
+              それが「脈なし」なのか「もともとそういう人」なのかを、ISTP目線で整理します。
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-tag"><span></span>こんな人向け</div>
+            <h3>どう返せばいいか迷う</h3>
+            <p>
+              重くなりすぎず、でも自分の不安は伝えたい。  
+              相手の負担を増やしすぎない返事の例文や、距離の詰め方を一緒に考えます。
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-tag"><span></span>こんな人向け</div>
+            <h3>1人の相手を長期で見ていきたい</h3>
+            <p>
+              Proプランでは、相談者と相手のプロファイルを作成し、  
+              その前提で毎回の相談を積み上げていく「研究モード」も用意しています。
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>1. ISTPの行動パターンに寄せた解釈</h3>
+            <p>
+              MBTI上のISTP傾向と、監修者であるISTP男性「けい」の実体験をベースに、  
+              一般論だけでなく「僕ならこう考える」のラインもセットでお伝えします。
+            </p>
+          </div>
+          <div class="card">
+            <h3>2. DMではなく「ボット」に投げられる</h3>
+            <p>
+              個人アカウント宛てに長文DMを送るのは気が引ける、という人でも、  
+              LINEボット相手なら気楽に投げられます。深夜でも早朝でもOKです。
+            </p>
+          </div>
+          <div class="card">
+            <h3>3. 回数と深さに合わせた料金設計</h3>
+            <p>
+              無料で月5セッションから試せて、  
+              「たまに相談したい」「毎週壁打ちしたい」「一人を研究したい」など、  
+              使い方に応じてプランを選べるようにしています。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="plans">
+      <div class="container">
+        <h2 class="section-title">料金プラン</h2>
+        <p class="section-sub">
+          すべて税込・オンライン決済です。まずはFreeで雰囲気を試してから、必要に応じてアップグレードできます。<br />
+          お支払いにはStripeを利用したクレジットカード決済を使用します。
+        </p>
+
+        <div class="pricing-grid">
+          <div class="plan-card">
+            <div class="plan-name">Freeプラン</div>
+            <div class="plan-label">まずは様子を見たい人向け</div>
+            <div class="plan-price">0円</div>
+            <div class="plan-cycle">月5セッションまで</div>
+            <ul class="plan-feature-list">
+              <li>登録だけで即利用可</li>
+              <li>ISTP相談室の回答の雰囲気をチェック</li>
+              <li>そのまま使い続けるのもOK</li>
+            </ul>
+          </div>
+
+          <div class="plan-card highlight">
+            <div class="plan-badge">おすすめ</div>
+            <div class="plan-name">Lightプラン</div>
+            <div class="plan-label">月額サブスク</div>
+            <div class="plan-price">500円</div>
+            <div class="plan-cycle">月20セッションまで</div>
+            <ul class="plan-feature-list">
+              <li>状況が動くたびに壁打ちしたい人向け</li>
+              <li>回数をそこまで気にせず相談できる</li>
+              <li>解約はLINEで「解約」と送るだけ</li>
+            </ul>
+            <button class="btn btn-primary" style="width:100%;margin-top:4px;">
+              Lightプランに申し込む
+            </button>
+            <div class="plan-footer-note">
+              ※次回更新日まで利用可能。以降は自動課金停止＋Freeに戻ります。
+            </div>
+          </div>
+
+          <div class="plan-card">
+            <div class="plan-name">追加15セッションパック</div>
+            <div class="plan-label">Free/Light向けオプション</div>
+            <div class="plan-price">500円</div>
+            <div class="plan-cycle">＋15セッション分（買い切り）</div>
+            <ul class="plan-feature-list">
+              <li>今月だけ相談が増えたときに追加</li>
+              <li>サブスクに切り替えるほどではない人向け</li>
+            </ul>
+            <div class="plan-footer-note">
+              ※Freeプランでの月またぎ時の扱いなど、詳細は利用規約にて定義します。
+            </div>
+          </div>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="plan-card">
+            <div class="plan-name">Standardプラン</div>
+            <div class="plan-label">買い切り / 相談し放題</div>
+            <div class="plan-price">2,500円</div>
+            <div class="plan-cycle">セッション回数 無制限</div>
+            <ul class="plan-feature-list">
+              <li>サブスクが苦手な人向け</li>
+              <li>月ごとの上限を気にせず相談できる</li>
+              <li>回答ロジックはFree/Lightと同じ</li>
+            </ul>
+          </div>
+
+          <div class="plan-card">
+            <div class="plan-name">Proプラン</div>
+            <div class="plan-label">買い切り / 研究プラン</div>
+            <div class="plan-price">5,000円</div>
+            <div class="plan-cycle">セッション回数 無制限</div>
+            <ul class="plan-feature-list">
+              <li>相談者と相手のプロファイルを作成</li>
+              <li>MBTI / エニアグラムなど類型情報も反映</li>
+              <li>毎回その人前提で深掘りコメント</li>
+            </ul>
+            <div class="plan-footer-note">
+              ※決済後、プロファイル入力フォームをお送りします。入力完了後に本運用開始です。
+            </div>
+          </div>
+
+          <div class="plan-card" style="opacity:0.6;">
+            <div class="plan-name">将来追加予定のプラン枠</div>
+            <div class="plan-label">必要に応じて差し替え可</div>
+            <div class="plan-price">-</div>
+            <div class="plan-cycle">-</div>
+            <div class="plan-footer-note">
+              ※ここは不要であれば削除してOKです。
+            </div>
+          </div>
+        </div>
+
+        <div class="pricing-table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>プラン</th>
+                <th>料金（税込）</th>
+                <th>セッション数</th>
+                <th>形態</th>
+                <th>こんな人向け</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Free</td>
+                <td>0円</td>
+                <td>月5セッション</td>
+                <td>無料</td>
+                <td>まずは気軽に試したい</td>
+              </tr>
+              <tr>
+                <td>Light</td>
+                <td>月500円</td>
+                <td>月20セッション</td>
+                <td>月額サブスク</td>
+                <td>定期的にISTP相談したい</td>
+              </tr>
+              <tr>
+                <td>追加15セッション</td>
+                <td>1回500円</td>
+                <td>＋15セッション</td>
+                <td>買い切り</td>
+                <td>今月だけ枠を増やしたい</td>
+              </tr>
+              <tr>
+                <td>Standard</td>
+                <td>2,500円</td>
+                <td>無制限</td>
+                <td>買い切り</td>
+                <td>サブスクなしで相談し放題にしたい</td>
+              </tr>
+              <tr>
+                <td>Pro</td>
+                <td>5,000円</td>
+                <td>無制限</td>
+                <td>買い切り＋プロファイル作成</td>
+                <td>一人の相手を研究レベルで理解したい</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Flow -->
+    <section id="flow">
+      <div class="container">
+        <h2 class="section-title">ご利用の流れ</h2>
+        <p class="section-sub">
+          友だち追加 → 無料お試し → 必要に応じてプラン変更、というシンプルな流れです。
+        </p>
+
+        <div class="flow-steps">
+          <div class="flow-step">
+            <div class="flow-step-index">STEP 1</div>
+            <div class="flow-step-title">LINEで友だち追加</div>
+            <p>
+              まずは公式LINE「ISTP相談室」を友だち追加します。  
+              追加直後からFreeプラン（月5セッション）で相談を送れます。
+            </p>
+          </div>
+          <div class="flow-step">
+            <div class="flow-step-index">STEP 2</div>
+            <div class="flow-step-title">相談を送ってみる</div>
+            <p>
+              相手との関係性や直近のやり取りを書いて送ってください。  
+              回答は1相談＝1セッションとしてカウントされます。
+            </p>
+          </div>
+          <div class="flow-step">
+            <div class="flow-step-index">STEP 3</div>
+            <div class="flow-step-title">必要ならプランを選ぶ</div>
+            <p>
+              「もっと回数がほしい」「研究モードで見てほしい」と思ったら、  
+              このLPまたはLINE内の案内から、Light / Standard / Pro などへ申し込みます。
+            </p>
+          </div>
+          <div class="flow-step">
+            <div class="flow-step-index">STEP 4</div>
+            <div class="flow-step-title">決済後、そのまま利用</div>
+            <p>
+              Stripe決済完了後、数分以内にプラン変更が反映されます。  
+              Proプランのみ、別途プロファイル入力フォームに回答してから本運用開始です。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <h2 class="section-title">よくある質問</h2>
+        <p class="section-sub">
+          詳細は利用規約にも記載しますが、よく聞かれそうな点を先にまとめておきます。
+        </p>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-q">Q. 本当にISTPの人が答えているんですか？</div>
+            <div class="faq-a">
+              A. 実際の回答はAIですが、その前提となるルールやスタンスはISTP男性「けい」が監修しています。  
+              一般的なISTPの傾向と、自分の実体験・価値観をもとにプロンプトを設計し、  
+              「ISTP当事者ならこう考えそう」というラインに寄せて返すように調整しています。
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Q. ISTP以外のタイプの相談でも使えますか？</div>
+            <div class="faq-a">
+              A. 可能ですが、想定しているメインは「ISTPっぽい相手」に対する相談です。  
+              他タイプでも、「ISTP寄りの特徴が強い人」であればある程度参考になると思います。
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Q. Lightプランの解約はどうすればいいですか？</div>
+            <div class="faq-a">
+              A. LINE公式アカウント上で「解約」とメッセージを送っていただくだけでOKです。  
+              次回更新日以降の自動課金を停止し、その後はFreeプラン（月5セッション）に戻ります。
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Q. 返金はできますか？</div>
+            <div class="faq-a">
+              A. デジタルコンテンツ・オンラインサービスの性質上、  
+              原則として購入後の返金には対応していません。  
+              ただし、明らかなシステムエラーや二重決済などがあった場合は、  
+              個別にお問い合わせいただければ対応を検討します。
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Q. メンタルの不調やDVなども相談できますか？</div>
+            <div class="faq-a">
+              A. いいえ、本サービスは恋愛・対人関係の「整理」と「行動のヒント」を目的としたものであり、  
+              医療・カウンセリング・法律相談の代わりにはなりません。  
+              メンタル疾患やDVなどが疑われる場合は、専門機関や公的窓口への相談をおすすめします。
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Q. 個人情報はどこまで送って大丈夫ですか？</div>
+            <div class="faq-a">
+              A. 苗字・下の名前・イニシャルなど、特定されない範囲での記載を推奨しています。  
+              詳細はプライバシーポリシーにて取り扱い方針を明記します。
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:24px;">
+          <div class="notice">
+            本サービスは、恋愛や対人関係に関するアドバイス・情報提供を目的としたものであり、  
+            医療行為、法律相談、投資助言等を行うものではありません。  
+            心身の不調や暴力被害などの問題を抱えている場合は、医療機関や公的機関等への相談をおすすめします。
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© ISTP相談室 LINEボット</div>
+      <div class="footer-links">
+        <a href="/tokutei.html">特定商取引法に基づく表記</a>
+        <a href="/terms.html">利用規約</a>
+        <a href="/privacy.html">プライバシーポリシー</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
