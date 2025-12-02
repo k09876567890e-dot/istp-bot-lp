@@ -630,10 +630,71 @@
         padding: 0 16px;
       }
     }
+
+    /* スマホ向けの読みやすさ調整 */
+    @media (max-width: 600px) {
+      body {
+        line-height: 1.8;
+      }
+
+      .container {
+        padding: 0 18px;
+      }
+
+      .section-title {
+        font-size: 20px;
+        margin-bottom: 8px;
+      }
+
+      .section-sub {
+        font-size: 13px;
+      }
+
+      .hero-title {
+        font-size: 24px;
+      }
+
+      .hero-lead {
+        font-size: 13px;
+      }
+
+      .hero-list {
+        font-size: 13px;
+      }
+
+      .pill-row {
+        font-size: 12px;
+      }
+
+      .card {
+        padding: 16px 14px 18px;
+      }
+
+      .card h3 {
+        font-size: 15px;
+      }
+
+      .card p {
+        font-size: 13px;
+      }
+
+      .plan-price {
+        font-size: 18px;
+      }
+
+      .plan-cycle,
+      .plan-feature-list,
+      .plan-footer-note {
+        font-size: 12px;
+      }
+
+      .faq-item {
+        font-size: 12px;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- TODO: YOUR_LINE_URL_HERE を自分の公式LINE URLに置き換える -->
   <header>
     <div class="header-inner">
       <div class="logo">
@@ -720,7 +781,7 @@
       </div>
     </section>
 
-     <!-- Features -->
+    <!-- Features -->
     <section id="features">
       <div class="container">
         <h2 class="section-title">ISTP相談室は、こんなときに使えます</h2>
@@ -759,7 +820,7 @@
             <p>
               Proプランでは、相談者と相手のプロファイルを作成し、<br />
               その前提で毎回の相談を積み上げていく「研究モード」を用意しています。<br />
-              「この人だけをじっくり追いかけたい」ケースに向いています。
+              回答の口調や、共感多め／事実ベース多めといったバランスも事前に指定できます。
             </p>
           </div>
         </div>
@@ -794,7 +855,6 @@
         </div>
       </div>
     </section>
-
 
     <!-- Pricing -->
     <section id="plans">
@@ -872,11 +932,12 @@
             <div class="plan-cycle">セッション回数 無制限</div>
             <ul class="plan-feature-list">
               <li>相談者と相手のプロファイルを作成</li>
-              <li>MBTI / エニアグラムなど類型情報も反映</li>
-              <li>毎回その人前提で深掘りコメント</li>
+              <li>MBTI / エニアグラムなどの類型情報も反映</li>
+              <li>回答の口調やトーン（共感多め / 事実ベース多め など）を事前に設定</li>
+              <li>毎回その人前提で、関係の変化を長期的に深掘り</li>
             </ul>
             <div class="plan-footer-note">
-              ※決済後、プロファイル入力フォームをお送りします。入力完了後に本運用開始です。
+              ※決済後、プロファイルと希望トーンの入力フォームをお送りします。入力完了後に本運用開始です。
             </div>
           </div>
 
@@ -1072,15 +1133,15 @@
     </section>
   </main>
 
-<footer>
-  <div class="container footer-inner">
-    <div>© ISTP相談室 LINEボット</div>
-    <div class="footer-links">
-      <a href="tokutei.html">特定商取引法に基づく表記</a>
-      <a href="terms.html">利用規約</a>
-      <a href="privacy.html">プライバシーポリシー</a>
+  <footer>
+    <div class="container footer-inner">
+      <div>© ISTP相談室 LINEボット</div>
+      <div class="footer-links">
+        <a href="tokutei.html">特定商取引法に基づく表記</a>
+        <a href="terms.html">利用規約</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 </body>
 </html>
