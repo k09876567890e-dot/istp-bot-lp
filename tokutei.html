@@ -2,12 +2,8 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <title>特定商取引法に基づく表記｜ISTP相談室 LINEボット</title>
+  <title>特定商取引法に基づく表記｜ISTP相談室</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="ISTP相談室 LINEボットの特定商取引法に基づく表記ページです。販売業者、所在地、連絡先、料金、支払い方法、解約・返金について記載しています。"
-  />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -16,136 +12,221 @@
   />
   <style>
     :root {
-      --bg: #020617;
-      --panel: #020617;
-      --panel-soft: #020617;
-      --accent: #f4b000;
-      --text-main: #f9fafb;
-      --text-sub: #cbd5f5;
-      --border-soft: #1e293b;
+      --bg: #f3f4f6;
+      --bg-soft: #e5e7eb;
+      --panel: #ffffff;
+      --accent: #ea580c;
+      --accent-soft: rgba(234, 88, 12, 0.12);
+      --text-main: #111827;
+      --text-sub: #4b5563;
+      --border-soft: #e5e7eb;
     }
+
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #020617, #020617 60%);
+      background: var(--bg);
       color: var(--text-main);
       line-height: 1.7;
     }
-    a { color: inherit; text-decoration: none; }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
     .container {
+      width: 100%;
       max-width: 900px;
       margin: 0 auto;
-      padding: 24px 16px 40px;
+      padding: 0 20px;
     }
+
     header {
-      border-bottom: 1px solid rgba(148,163,184,0.25);
-      background: #020617;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.96),
+        rgba(15, 23, 42, 0.9)
+      );
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+      color: #e5e7eb;
     }
+
     .header-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 12px 16px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      font-size: 14px;
+      justify-content: space-between;
+      padding: 10px 20px;
+      max-width: 1100px;
+      margin: 0 auto;
     }
+
     .logo {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       font-weight: 600;
+      font-size: 18px;
     }
+
     .logo-mark {
-      width: 24px;
-      height: 24px;
+      width: 28px;
+      height: 28px;
       border-radius: 999px;
       background: radial-gradient(circle at 30% 20%, #f9fafb, #1f2937 60%);
       border: 2px solid var(--accent);
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 15px;
+      color: #111827;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
       font-size: 13px;
+      color: #e5e7eb;
     }
-    .back-link {
-      font-size: 12px;
-      color: var(--text-sub);
-      text-decoration: underline;
-      text-underline-offset: 3px;
+
+    nav a { opacity: 0.85; }
+    nav a:hover { opacity: 1; color: var(--accent); }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #fdba74, #ea580c);
+      color: #ffffff;
+      box-shadow: 0 10px 24px rgba(234, 88, 12, 0.28);
+      text-decoration: none;
+      gap: 6px;
     }
-    h1 {
-      font-size: 22px;
-      margin: 24px 0 8px;
+
+    main {
+      padding: 48px 0 72px;
     }
-    p.lead {
+
+    .page-title {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .page-lead {
       font-size: 13px;
       color: var(--text-sub);
-      margin: 0 0 16px;
+      margin-bottom: 24px;
     }
+
     .panel {
-      margin-top: 16px;
-      border-radius: 16px;
-      background: rgba(15,23,42,0.9);
+      background: var(--panel);
+      border-radius: 18px;
       border: 1px solid var(--border-soft);
-      padding: 20px 18px 10px;
-      font-size: 13px;
+      padding: 20px 18px;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
     }
+
     table {
       width: 100%;
       border-collapse: collapse;
       font-size: 13px;
     }
+
     th, td {
-      padding: 10px 8px;
-      border-bottom: 1px solid rgba(148,163,184,0.3);
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.5);
       vertical-align: top;
     }
+
     th {
       width: 28%;
+      background: #f9fafb;
       font-weight: 500;
-      text-align: left;
-      color: var(--text-sub);
-      white-space: nowrap;
     }
-    td {
-      color: var(--text-main);
-    }
+
+    td { background: #ffffff; }
+
     .note {
       margin-top: 16px;
-      font-size: 11px;
+      font-size: 12px;
       color: var(--text-sub);
     }
+
     footer {
-      border-top: 1px solid rgba(148,163,184,0.3);
-      padding: 16px 16px 24px;
+      border-top: 1px solid rgba(148, 163, 184, 0.3);
+      padding: 16px 0 26px;
+      background: #020617;
       font-size: 11px;
-      color: var(--text-sub);
-      text-align: center;
+      color: #9ca3af;
     }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      color: #e5e7eb;
+    }
+
     @media (max-width: 640px) {
-      .header-inner { flex-direction: column; align-items: flex-start; gap: 4px; }
-      th, td { display: block; width: 100%; }
-      th { border-bottom: none; padding-bottom: 2px; }
-      td { padding-top: 0; margin-bottom: 6px; }
+      .container { padding: 0 16px; }
+      .page-title { font-size: 20px; }
+      th, td {
+        display: block;
+        width: 100%;
+      }
+      th { border-bottom: none; }
+      td { border-top: none; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="header-inner">
-      <div class="logo">
-        <div class="logo-mark">I</div>
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-mark">I</div>
+      <div>
         <div>ISTP相談室</div>
+        <div style="font-size:11px;color:#9ca3af;">ISTP相談LINEボット</div>
       </div>
-      <a href="/istp-bot-lp/" class="back-link">← トップページに戻る</a>
     </div>
-  </header>
+    <nav>
+      <a href="index.html#hero">トップページへ戻る</a>
+    </nav>
+    <a href="https://lin.ee/LgEC1UT" class="btn-primary">公式LINEを友だち追加する</a>
+  </div>
+</header>
 
+<main>
   <div class="container">
-    <h1>特定商取引法に基づく表記</h1>
-    <p class="lead">
+    <h1 class="page-title">特定商取引法に基づく表記</h1>
+    <p class="page-lead">
       本ページは、日本の特定商取引に関する法律第11条に基づき、<br />
       「ISTP相談室 LINEボット」に関する取引条件等を表示するものです。
     </p>
@@ -162,15 +243,12 @@
         </tr>
         <tr>
           <th>所在地</th>
-          <td>
-            神奈川県横浜市栄区元大橋
-          </td>
+          <td>神奈川県横浜市栄区元大橋</td>
         </tr>
         <tr>
           <th>連絡先</th>
           <td>
-            メールアドレス：<br />
-            k09876567890e@gmail.com<br /><br />
+            メールアドレス：k09876567890e@gmail.com<br />
             ※お問い合わせは原則メールにて承ります。<br />
             ※電話番号の開示が必要な場合は、請求があった際に遅滞なく通知いたします。
           </td>
@@ -184,96 +262,83 @@
           <td>
             本サービスはオンライン上のデジタルコンテンツ／オンラインサービスです。<br />
             各プランの料金（税込）は以下のとおりです。<br /><br />
-            ・Freeプラン：0円（月5セッションまで）<br />
-            ・Lightプラン：月額 500円（月20セッションまで）<br />
-            ・追加15セッションパック：500円（＋15セッション分／買い切り）<br />
-            ・Standardプラン：2,500円（セッション無制限／買い切り）<br />
-            ・Proプラン：5,000円（セッション無制限／プロファイル作成付き／買い切り）<br /><br />
-            ※上記以外のプランを提供する場合は、別途ページ上に明記します。
+            Freeプラン：0円<br />
+            Lightプラン：月額500円<br />
+            追加15セッションパック：500円／回（Free・Light向けオプション）<br />
+            Standardプラン：2,500円（買い切り・セッション無制限）<br />
+            Proプラン：5,000円（買い切り・セッション無制限／プロファイル作成込み）
           </td>
         </tr>
         <tr>
-          <th>商品代金以外の必要料金</th>
+          <th>商品代金以外の<br />必要料金</th>
           <td>
-            ・インターネット接続料金、通信料金はお客様のご負担となります。<br />
-            ・クレジットカード等の決済手数料が発生する場合は、各カード会社等の規約に基づきます。
+            インターネット接続料金・通信料は、利用者ご自身の負担となります。<br />
+            クレジットカード決済に伴う手数料が発生する場合は、各カード会社の定めによります。
           </td>
         </tr>
         <tr>
-          <th>支払方法</th>
+          <th>お支払方法</th>
           <td>
-            Stripeを利用したクレジットカード決済（Visa / Mastercard / 他、Stripeが対応するブランド）<br />
-            ※将来的にその他の支払方法を追加する場合は、別途ページ上に表示します。
+            決済代行サービス「Stripe」を利用したクレジットカード等によるオンライン決済のみ対応しています。
           </td>
         </tr>
         <tr>
-          <th>支払時期</th>
+          <th>お支払時期</th>
           <td>
-            ・Lightプラン（月額）：申込時に初回決済が行われ、その後は毎月の契約更新日に自動決済されます。<br />
-            ・Standardプラン / Proプラン / 追加15セッションパック：申込時に都度決済となります（買い切り）。<br />
+            ■ 月額Lightプラン：申込時に初回決済、その後は利用者が解約しない限り毎月自動で決済されます。<br />
+            ■ 買い切りプラン（Standard / Pro / 追加15セッション）：申込時に都度決済となります。
           </td>
         </tr>
         <tr>
-          <th>サービス提供時期</th>
+          <th>役務の提供時期</th>
           <td>
-            ・各プランとも、決済完了後、原則として数分以内にサービスが利用可能になります。<br />
-            ・システムメンテナンス等により開始が遅れる場合は、LINE公式アカウントまたはページ上でお知らせします。
+            決済完了後、原則として数分以内にプラン変更が反映され、本サービスをご利用いただけます。<br />
+            Proプランについては、決済後に送付するプロファイル入力フォームへの回答完了後、本運用開始となります。
           </td>
         </tr>
         <tr>
-          <th>利用可能期間・回数</th>
+          <th>返品・キャンセル</th>
           <td>
-            ・Freeプラン：月5セッションまで利用可能。翌月に残り回数は繰り越されません。<br />
-            ・Lightプラン：月20セッションまで利用可能。翌月に残り回数は繰り越されません。<br />
-            ・追加15セッションパック：購入月の利用回数に＋15セッション分を加算します。<br />
-            　（※Freeプランでの月またぎ時の扱い等、詳細は利用規約にて定義します）<br />
-            ・Standardプラン / Proプラン：セッション回数は無制限です。<br />
+            デジタルコンテンツ／オンラインサービスの特性上、購入手続き完了後の返金・キャンセルは原則として受け付けておりません。<br />
+            ただし、明らかなシステム不具合や二重決済などが確認された場合には、個別に対応を検討します。
           </td>
         </tr>
         <tr>
-          <th>解約・退会について</th>
+          <th>解約について</th>
           <td>
-            ・Lightプランの解約は、LINE公式アカウント上で「解約」とメッセージを送信いただくことで受け付けます。<br />
-            　次回更新日以降の自動課金を停止し、その後はFreeプラン（月5セッション）に戻ります。<br />
-            ・Standardプラン / Proプラン / 追加15セッションパックは買い切りのため、解約という概念はありません。<br />
-          </td>
-        </tr>
-        <tr>
-          <th>返品・返金について</th>
-          <td>
-            サービスの性質上、決済完了後のキャンセル・返金には原則として応じておりません。<br /><br />
-            ただし、以下のようなケースに該当すると判断される場合は、個別に対応を検討いたします。<br />
-            ・システム障害等により、決済完了後も合理的な期間内にサービスが全く提供されなかった場合<br />
-            ・同一プランに対して明らかな二重決済が行われた場合　など<br /><br />
-            返金可否および方法については、個別の事情を確認のうえ判断いたします。
+            月額Lightプランの解約は、公式LINEのリッチメニューにある「解約」ボタンから行えます。<br />
+            解約手続き完了後、次回更新日以降の自動課金は行われず、Freeプラン（月5セッション）に戻ります。
           </td>
         </tr>
         <tr>
           <th>動作環境</th>
           <td>
-            ・インターネット接続環境<br />
-            ・LINEアカウントを利用可能なスマートフォンまたはPC<br />
-            ※通信環境やLINEの仕様変更等により、サービスの一部または全部が利用できなくなる場合があります。
+            LINEアプリが利用可能なスマートフォン端末およびインターネット接続環境が必要です。<br />
+            推奨環境以外での動作は保証いたしかねます。
           </td>
         </tr>
         <tr>
-          <th>個人情報の取り扱い</th>
-          <td>
-            個人情報の取り扱いについては、別途定める「プライバシーポリシー」に従います。<br />
-            （GitHub Pages上にプライバシーポリシーページを設置した場合、そのURLをここに追記してください）
-          </td>
+          <th>制定日</th>
+          <td>2025年12月3日</td>
         </tr>
       </table>
 
-      <div class="note">
-        ※本表記の内容は、サービス内容の変更等に応じて予告なく改訂される場合があります。<br />
-        最新の内容は本ページをご確認ください。
-      </div>
+      <p class="note">
+        上記に記載のない事項についてご不明な点がある場合は、上記連絡先までお問い合わせください。
+      </p>
     </div>
   </div>
+</main>
 
-  <footer>
-    © ISTP相談室 LINEボット
-  </footer>
+<footer>
+  <div class="container footer-inner">
+    <div>© ISTP相談室 LINEボット</div>
+    <div class="footer-links">
+      <a href="tokutei.html">特定商取引法に基づく表記</a>
+      <a href="terms.html">利用規約</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
