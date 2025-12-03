@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <title>特定商取引法に基づく表記｜ISTP相談室</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="ISTP相談室（相談専用LINEボット）に関する特定商取引法に基づく表記です。"
+  />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -13,13 +17,15 @@
   <style>
     :root {
       --bg: #f3f4f6;
-      --bg-soft: #e5e7eb;
       --panel: #ffffff;
-      --accent: #ea580c;
-      --accent-soft: rgba(234, 88, 12, 0.12);
+
+      --accent: #f97316;
+      --accent-soft: rgba(249, 115, 22, 0.12);
+
       --text-main: #111827;
-      --text-sub: #4b5563;
+      --text-sub: #6b7280;
       --border-soft: #e5e7eb;
+      --nav-bg: #020617;
     }
 
     * { box-sizing: border-box; }
@@ -28,7 +34,7 @@
       margin: 0;
       font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", sans-serif;
-      background: var(--bg);
+      background: radial-gradient(circle at top, #e5e7eb 0, #f9fafb 55%);
       color: var(--text-main);
       line-height: 1.7;
     }
@@ -38,24 +44,27 @@
       text-decoration: none;
     }
 
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
     .container {
       width: 100%;
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 0 20px;
     }
+
+    /* header / nav */
 
     header {
       position: sticky;
       top: 0;
       z-index: 20;
       backdrop-filter: blur(16px);
-      background: linear-gradient(
-        to bottom,
-        rgba(15, 23, 42, 0.96),
-        rgba(15, 23, 42, 0.9)
-      );
-      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+      background: var(--nav-bg);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
       color: #e5e7eb;
     }
 
@@ -80,7 +89,7 @@
       width: 28px;
       height: 28px;
       border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, #f9fafb, #1f2937 60%);
+      background: radial-gradient(circle at 30% 20%, #f9fafb, #f59e0b 60%);
       border: 2px solid var(--accent);
       display: flex;
       align-items: center;
@@ -96,81 +105,112 @@
       color: #e5e7eb;
     }
 
-    nav a { opacity: 0.85; }
-    nav a:hover { opacity: 1; color: var(--accent); }
+    nav a {
+      opacity: 0.9;
+    }
 
-    .btn-primary {
+    nav a:hover {
+      opacity: 1;
+      color: #fbbf24;
+    }
+
+    .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 8px 16px;
+      padding: 9px 18px;
       border-radius: 999px;
       font-size: 13px;
       font-weight: 500;
       border: none;
       cursor: pointer;
-      background: linear-gradient(135deg, #fdba74, #ea580c);
-      color: #ffffff;
-      box-shadow: 0 10px 24px rgba(234, 88, 12, 0.28);
-      text-decoration: none;
+      transition: transform 0.08s ease, box-shadow 0.08s ease,
+        background 0.1s ease, opacity 0.1s ease;
+      white-space: nowrap;
       gap: 6px;
     }
 
+    .btn-primary {
+      background: linear-gradient(135deg, #fed7aa, #f97316);
+      color: #111827;
+      box-shadow: 0 10px 24px rgba(249, 115, 22, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 32px rgba(249, 115, 22, 0.5);
+    }
+
     main {
-      padding: 48px 0 72px;
+      padding: 56px 0 80px;
     }
 
     .page-title {
-      font-size: 24px;
+      font-size: 26px;
+      font-weight: 700;
       margin-bottom: 8px;
     }
 
-    .page-lead {
-      font-size: 13px;
+    .page-sub {
+      font-size: 14px;
       color: var(--text-sub);
-      margin-bottom: 24px;
+      margin-bottom: 32px;
     }
 
-    .panel {
+    .legal-card {
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 20px;
       background: var(--panel);
-      border-radius: 18px;
       border: 1px solid var(--border-soft);
-      padding: 20px 18px;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+      padding: 24px 24px 28px;
     }
 
-    table {
+    .legal-card-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .legal-table {
       width: 100%;
       border-collapse: collapse;
       font-size: 13px;
     }
 
-    th, td {
+    .legal-table th,
+    .legal-table td {
       padding: 10px 12px;
-      border-bottom: 1px solid rgba(148, 163, 184, 0.5);
+      border-bottom: 1px solid #e5e7eb;
       vertical-align: top;
     }
 
-    th {
+    .legal-table th {
       width: 28%;
       background: #f9fafb;
       font-weight: 500;
+      color: #374151;
     }
 
-    td { background: #ffffff; }
+    .legal-table tr:last-child th,
+    .legal-table tr:last-child td {
+      border-bottom: none;
+    }
 
-    .note {
+    .legal-note {
       margin-top: 16px;
       font-size: 12px;
       color: var(--text-sub);
     }
 
     footer {
-      border-top: 1px solid rgba(148, 163, 184, 0.3);
+      border-top: 1px solid rgba(148, 163, 184, 0.35);
       padding: 16px 0 26px;
-      background: #020617;
+      background: var(--nav-bg);
       font-size: 11px;
       color: #9ca3af;
+      margin-top: 40px;
     }
 
     .footer-inner {
@@ -191,154 +231,160 @@
       text-decoration: underline;
       text-decoration-thickness: 1px;
       text-underline-offset: 3px;
-      color: #e5e7eb;
     }
 
-    @media (max-width: 640px) {
-      .container { padding: 0 16px; }
-      .page-title { font-size: 20px; }
-      th, td {
+    @media (max-width: 880px) {
+      nav { display:none; }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      main {
+        padding-top: 44px;
+      }
+
+      .legal-card {
+        padding: 20px 16px 22px;
+      }
+
+      .legal-table th,
+      .legal-table td {
         display: block;
         width: 100%;
+        border-bottom: none;
+        padding: 6px 0;
       }
-      th { border-bottom: none; }
-      td { border-top: none; }
+
+      .legal-table tr {
+        border-bottom: 1px solid #e5e7eb;
+        padding: 6px 0;
+      }
+
+      .legal-table tr:last-child {
+        border-bottom: none;
+      }
+
+      .legal-table th {
+        background: transparent;
+        font-size: 12px;
+        color: #6b7280;
+        padding-top: 10px;
+      }
+
+      .legal-table td {
+        padding-bottom: 8px;
+      }
     }
   </style>
 </head>
 <body>
-<header>
-  <div class="header-inner">
-    <div class="logo">
-      <div class="logo-mark">I</div>
-      <div>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">I</div>
         <div>ISTP相談室</div>
-        <div style="font-size:11px;color:#9ca3af;">ISTP相談LINEボット</div>
+      </a>
+      <nav>
+        <a href="index.html#features">特徴</a>
+        <a href="index.html#plans">料金プラン</a>
+        <a href="index.html#flow">利用の流れ</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+      <a href="https://lin.ee/LgEC1UT" class="btn btn-primary">
+        公式LINEを友だち追加する
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1 class="page-title">特定商取引法に基づく表記</h1>
+      <p class="page-sub">
+        ISTP相談室（相談用LINEボット）に関する販売事業者情報を、特定商取引法第11条に基づき表示しています。
+      </p>
+
+      <div class="legal-card">
+        <div class="legal-card-title">事業者情報</div>
+        <table class="legal-table">
+          <tr>
+            <th>販売事業者名</th>
+            <td>（ここに今使っている表記をそのまま入れて）</td>
+          </tr>
+          <tr>
+            <th>運営責任者</th>
+            <td>（氏名）</td>
+          </tr>
+          <tr>
+            <th>所在地</th>
+            <td>（住所　※省略表記の場合はそのまま今の文言）</td>
+          </tr>
+          <tr>
+            <th>問い合わせ先</th>
+            <td>
+              メールアドレス：example@example.com<br />
+              お問い合わせは原則メールまたは公式LINEから承ります。
+            </td>
+          </tr>
+          <tr>
+            <th>販売価格</th>
+            <td>
+              各プランの料金は「料金プラン」ページに税込価格で表示しています。<br />
+              消費税以外に発生する料金（通信料等）はお客様のご負担となります。
+            </td>
+          </tr>
+          <tr>
+            <th>代金の支払方法<br />および時期</th>
+            <td>
+              クレジットカード（Stripe）によるオンライン決済となります。<br />
+              月額プラン：申込時に初回決済、その後毎月自動更新／決済。<br />
+              買い切りプラン・追加パック：申込時に都度決済。
+            </td>
+          </tr>
+          <tr>
+            <th>役務提供の時期</th>
+            <td>
+              決済完了後、数分以内にプランが反映され次第ご利用いただけます。<br />
+              Proプランのみ、別途プロファイル入力後の本運用開始となります。
+            </td>
+          </tr>
+          <tr>
+            <th>返品・キャンセル</th>
+            <td>
+              デジタルコンテンツ／オンラインサービスの性質上、<br />
+              お支払い後の返金には原則として対応しておりません。<br />
+              ただし、明らかなシステム障害や二重決済等が発生した場合は、<br />
+              個別に状況を確認のうえ対応いたします。
+            </td>
+          </tr>
+          <tr>
+            <th>中途解約について</th>
+            <td>
+              月額プランは、次回更新日の前日までに<br />
+              公式LINE内の「解約」メニューから手続きを行うことで、<br />
+              次回以降の自動課金を停止できます。<br />
+              解約月分の日割り精算・返金は行っておりません。
+            </td>
+          </tr>
+        </table>
+
+        <p class="legal-note">
+          ※上記各項目の具体的な文言は、現在お使いの特商法ページの内容に合わせて書き換えてください。<br />
+          （レイアウトだけこのデザインに差し替えれば OK です）
+        </p>
       </div>
     </div>
-    <nav>
-      <a href="index.html#hero">トップページへ戻る</a>
-    </nav>
-    <a href="https://lin.ee/LgEC1UT" class="btn-primary">公式LINEを友だち追加する</a>
-  </div>
-</header>
+  </main>
 
-<main>
-  <div class="container">
-    <h1 class="page-title">特定商取引法に基づく表記</h1>
-    <p class="page-lead">
-      本ページは、日本の特定商取引に関する法律第11条に基づき、<br />
-      「ISTP相談室 LINEボット」に関する取引条件等を表示するものです。
-    </p>
-
-    <div class="panel">
-      <table>
-        <tr>
-          <th>販売業者（屋号）</th>
-          <td>ISTP相談室</td>
-        </tr>
-        <tr>
-          <th>運営責任者</th>
-          <td>工藤 敬斗</td>
-        </tr>
-        <tr>
-          <th>所在地</th>
-          <td>神奈川県横浜市栄区元大橋</td>
-        </tr>
-        <tr>
-          <th>連絡先</th>
-          <td>
-            メールアドレス：k09876567890e@gmail.com<br />
-            ※お問い合わせは原則メールにて承ります。<br />
-            ※電話番号の開示が必要な場合は、請求があった際に遅滞なく通知いたします。
-          </td>
-        </tr>
-        <tr>
-          <th>サービス名</th>
-          <td>ISTP相談室 LINEボット</td>
-        </tr>
-        <tr>
-          <th>販売価格</th>
-          <td>
-            本サービスはオンライン上のデジタルコンテンツ／オンラインサービスです。<br />
-            各プランの料金（税込）は以下のとおりです。<br /><br />
-            Freeプラン：0円<br />
-            Lightプラン：月額500円<br />
-            追加15セッションパック：500円／回（Free・Light向けオプション）<br />
-            Standardプラン：2,500円（買い切り・セッション無制限）<br />
-            Proプラン：5,000円（買い切り・セッション無制限／プロファイル作成込み）
-          </td>
-        </tr>
-        <tr>
-          <th>商品代金以外の<br />必要料金</th>
-          <td>
-            インターネット接続料金・通信料は、利用者ご自身の負担となります。<br />
-            クレジットカード決済に伴う手数料が発生する場合は、各カード会社の定めによります。
-          </td>
-        </tr>
-        <tr>
-          <th>お支払方法</th>
-          <td>
-            決済代行サービス「Stripe」を利用したクレジットカード等によるオンライン決済のみ対応しています。
-          </td>
-        </tr>
-        <tr>
-          <th>お支払時期</th>
-          <td>
-            ■ 月額Lightプラン：申込時に初回決済、その後は利用者が解約しない限り毎月自動で決済されます。<br />
-            ■ 買い切りプラン（Standard / Pro / 追加15セッション）：申込時に都度決済となります。
-          </td>
-        </tr>
-        <tr>
-          <th>役務の提供時期</th>
-          <td>
-            決済完了後、原則として数分以内にプラン変更が反映され、本サービスをご利用いただけます。<br />
-            Proプランについては、決済後に送付するプロファイル入力フォームへの回答完了後、本運用開始となります。
-          </td>
-        </tr>
-        <tr>
-          <th>返品・キャンセル</th>
-          <td>
-            デジタルコンテンツ／オンラインサービスの特性上、購入手続き完了後の返金・キャンセルは原則として受け付けておりません。<br />
-            ただし、明らかなシステム不具合や二重決済などが確認された場合には、個別に対応を検討します。
-          </td>
-        </tr>
-        <tr>
-          <th>解約について</th>
-          <td>
-            月額Lightプランの解約は、公式LINEのリッチメニューにある「解約」ボタンから行えます。<br />
-            解約手続き完了後、次回更新日以降の自動課金は行われず、Freeプラン（月5セッション）に戻ります。
-          </td>
-        </tr>
-        <tr>
-          <th>動作環境</th>
-          <td>
-            LINEアプリが利用可能なスマートフォン端末およびインターネット接続環境が必要です。<br />
-            推奨環境以外での動作は保証いたしかねます。
-          </td>
-        </tr>
-        <tr>
-          <th>制定日</th>
-          <td>2025年12月3日</td>
-        </tr>
-      </table>
-
-      <p class="note">
-        上記に記載のない事項についてご不明な点がある場合は、上記連絡先までお問い合わせください。
-      </p>
+  <footer>
+    <div class="container footer-inner">
+      <div>© ISTP相談室 LINEボット</div>
+      <div class="footer-links">
+        <a href="tokutei.html">特定商取引法に基づく表記</a>
+        <a href="terms.html">利用規約</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+      </div>
     </div>
-  </div>
-</main>
-
-<footer>
-  <div class="container footer-inner">
-    <div>© ISTP相談室 LINEボット</div>
-    <div class="footer-links">
-      <a href="tokutei.html">特定商取引法に基づく表記</a>
-      <a href="terms.html">利用規約</a>
-      <a href="privacy.html">プライバシーポリシー</a>
-    </div>
-  </div>
-</footer>
+  </footer>
 </body>
 </html>
