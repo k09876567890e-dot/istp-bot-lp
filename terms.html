@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <title>利用規約｜ISTP相談室</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="ISTP相談室（相談専用LINEボット）の利用規約です。"
+  />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -13,13 +17,15 @@
   <style>
     :root {
       --bg: #f3f4f6;
-      --bg-soft: #e5e7eb;
       --panel: #ffffff;
-      --accent: #ea580c;
-      --accent-soft: rgba(234, 88, 12, 0.12);
+
+      --accent: #f97316;
+      --accent-soft: rgba(249, 115, 22, 0.12);
+
       --text-main: #111827;
-      --text-sub: #4b5563;
+      --text-sub: #6b7280;
       --border-soft: #e5e7eb;
+      --nav-bg: #020617;
     }
 
     * { box-sizing: border-box; }
@@ -28,7 +34,7 @@
       margin: 0;
       font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", sans-serif;
-      background: var(--bg);
+      background: radial-gradient(circle at top, #e5e7eb 0, #f9fafb 55%);
       color: var(--text-main);
       line-height: 1.7;
     }
@@ -40,22 +46,20 @@
 
     .container {
       width: 100%;
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 0 20px;
     }
+
+    /* header / nav */
 
     header {
       position: sticky;
       top: 0;
       z-index: 20;
       backdrop-filter: blur(16px);
-      background: linear-gradient(
-        to bottom,
-        rgba(15, 23, 42, 0.96),
-        rgba(15, 23, 42, 0.9)
-      );
-      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+      background: var(--nav-bg);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
       color: #e5e7eb;
     }
 
@@ -80,7 +84,7 @@
       width: 28px;
       height: 28px;
       border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, #f9fafb, #1f2937 60%);
+      background: radial-gradient(circle at 30% 20%, #f9fafb, #f59e0b 60%);
       border: 2px solid var(--accent);
       display: flex;
       align-items: center;
@@ -96,64 +100,116 @@
       color: #e5e7eb;
     }
 
-    nav a { opacity: 0.85; }
-    nav a:hover { opacity: 1; color: var(--accent); }
+    nav a {
+      opacity: 0.9;
+    }
 
-    .btn-primary {
+    nav a:hover {
+      opacity: 1;
+      color: #fbbf24;
+    }
+
+    .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 8px 16px;
+      padding: 9px 18px;
       border-radius: 999px;
       font-size: 13px;
       font-weight: 500;
       border: none;
       cursor: pointer;
-      background: linear-gradient(135deg, #fdba74, #ea580c);
-      color: #ffffff;
-      box-shadow: 0 10px 24px rgba(234, 88, 12, 0.28);
-      text-decoration: none;
+      transition: transform 0.08s ease, box-shadow 0.08s ease,
+        background 0.1s ease, opacity 0.1s ease;
+      white-space: nowrap;
       gap: 6px;
     }
 
+    .btn-primary {
+      background: linear-gradient(135deg, #fed7aa, #f97316);
+      color: #111827;
+      box-shadow: 0 10px 24px rgba(249, 115, 22, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 32px rgba(249, 115, 22, 0.5);
+    }
+
     main {
-      padding: 48px 0 72px;
+      padding: 56px 0 80px;
     }
 
     .page-title {
-      font-size: 24px;
+      font-size: 26px;
+      font-weight: 700;
       margin-bottom: 8px;
     }
 
-    .page-lead {
-      font-size: 13px;
+    .page-sub {
+      font-size: 14px;
       color: var(--text-sub);
-      margin-bottom: 24px;
+      margin-bottom: 32px;
     }
 
-    .panel {
+    .legal-card {
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 20px;
       background: var(--panel);
-      border-radius: 18px;
       border: 1px solid var(--border-soft);
-      padding: 20px 18px;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+      padding: 24px 24px 28px;
+    }
+
+    .legal-card-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .legal-body {
       font-size: 13px;
+      color: var(--text-main);
     }
 
-    h2.section-heading {
-      font-size: 16px;
-      margin: 18px 0 6px;
+    .legal-section {
+      margin-bottom: 18px;
     }
 
-    ol { padding-left: 18px; }
-    li + li { margin-top: 4px; }
+    .legal-section-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .legal-section-title span {
+      font-size: 12px;
+      color: var(--text-sub);
+      margin-left: 6px;
+    }
+
+    .legal-body ul {
+      margin: 6px 0 0 1.2em;
+      padding: 0;
+    }
+
+    .legal-body li + li {
+      margin-top: 2px;
+    }
+
+    .legal-meta {
+      margin-top: 18px;
+      font-size: 12px;
+      color: var(--text-sub);
+    }
 
     footer {
-      border-top: 1px solid rgba(148, 163, 184, 0.3);
+      border-top: 1px solid rgba(148, 163, 184, 0.35);
       padding: 16px 0 26px;
-      background: #020617;
+      background: var(--nav-bg);
       font-size: 11px;
       color: #9ca3af;
+      margin-top: 40px;
     }
 
     .footer-inner {
@@ -174,140 +230,183 @@
       text-decoration: underline;
       text-decoration-thickness: 1px;
       text-underline-offset: 3px;
-      color: #e5e7eb;
     }
 
-    @media (max-width: 640px) {
-      .container { padding: 0 16px; }
-      .page-title { font-size: 20px; }
+    @media (max-width: 880px) {
+      nav { display:none; }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      main {
+        padding-top: 44px;
+      }
+
+      .legal-card {
+        padding: 20px 16px 22px;
+      }
     }
   </style>
 </head>
 <body>
-<header>
-  <div class="header-inner">
-    <div class="logo">
-      <div class="logo-mark">I</div>
-      <div>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">I</div>
         <div>ISTP相談室</div>
-        <div style="font-size:11px;color:#9ca3af;">ISTP相談LINEボット</div>
+      </a>
+      <nav>
+        <a href="index.html#features">特徴</a>
+        <a href="index.html#plans">料金プラン</a>
+        <a href="index.html#flow">利用の流れ</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+      <a href="https://lin.ee/LgEC1UT" class="btn btn-primary">
+        公式LINEを友だち追加する
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1 class="page-title">利用規約</h1>
+      <p class="page-sub">
+        ISTP相談室（以下「本サービス」といいます）の利用条件を定めるものです。<br />
+        利用者の皆さまには、本規約の内容に同意いただいたうえで、本サービスをご利用いただきます。
+      </p>
+
+      <div class="legal-card">
+        <div class="legal-card-title">ISTP相談室 利用規約</div>
+        <div class="legal-body">
+
+          <div class="legal-section">
+            <div class="legal-section-title">第1条（適用）</div>
+            <p>
+              本規約は、運営者が提供する本サービスの利用に関する一切の関係に適用されます。<br />
+              運営者が本サービスに関して別途定める各種ガイドライン等は、本規約の一部を構成するものとします。
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <div class="legal-section-title">第2条（定義）</div>
+            <p>本規約における用語の定義は、次の各号のとおりとします。</p>
+            <ul>
+              <li>「運営者」：ISTP相談室を運営する個人または団体</li>
+              <li>「利用者」：本サービスを利用するすべての個人</li>
+              <li>「有料プラン」：Lightプラン、Standardプラン、Proプラン、追加パックなど運営者が有償で提供するプラン</li>
+              <li>「セッション」：本サービスにおける相談1回分としてカウントされるメッセージ単位</li>
+            </ul>
+          </div>
+
+          <div class="legal-section">
+            <div class="legal-section-title">第3条（本サービスの内容）</div>
+            <p>
+              本サービスは、ISTPの行動・思考パターンに関する知見をもとに、AIを用いて相談内容にコメントや提案を行うオンラインサービスです。<br />
+              医療行為、専門的カウンセリング、法律・投資・その他専門分野における助言を提供するものではありません。
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <div class="legal-section-title">第4条（利用登録）</div>
+            <p>
+              利用者は、LINE公式アカウントを友だち追加し、運営者の定める方法により利用登録を行うものとします。<br />
+              有料プランの利用を希望する場合、Stripe等の外部決済サービスにより決済を行った時点で有料プランが有効となります。
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <div class="legal-section-title">第5条（アカウント管理）</div>
+            <p>
+              利用者は、自身のLINEアカウントおよび決済情報を自己の責任において管理するものとし、第三者に利用させてはなりません。<br />
+              アカウントの不正利用により利用者または第三者に損害が生じた場合であっても、運営者に故意または重過失がない限り、運営者は責任を負いません。
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <div class="legal-section-title">第6条（禁止事項）</div>
+            <p>利用者は、本サービスの利用にあたり、次の各号に該当する行為をしてはなりません。</p>
+            <ul>
+              <li>法令または公序良俗に違反する行為</li>
+              <li>犯罪行為に関連する行為</li>
+              <li>運営者または第三者の知的財産権、プライバシー権、名誉権等を侵害する行為</li>
+              <li>本サービスの運営を妨害するおそれのある行為</li>
+              <li>虚偽の情報を用いて本サービスを利用する行為</li>
+              <li>その他、運営者が不適切と判断する行為</li>
+            </ul>
+          </div>
+
+          <div class="legal-section">
+            <div class="legal-section-title">第7条（有料プラン・決済）</div>
+            <p>
+              有料プランの料金、セッション数、提供条件等は、料金プランページに表示する内容に従うものとします。<br />
+              月額プランは毎月自動更新され、利用者が所定の手続により解約しない限り継続します。<br />
+              一度支払われた利用料金は、システム障害や二重決済等の特別な事情がある場合を除き、返金いたしません。
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <div class="legal-section-title">第8条（サービスの変更・中断・終了）</div>
+            <p>
+              運営者は、次の各号のいずれかに該当すると判断した場合、利用者への事前の通知なく、本サービスの全部または一部の提供を変更・中断・終了することができます。
+            </p>
+            <ul>
+              <li>システム保守点検、障害対応等が必要な場合</li>
+              <li>火災・停電・天災地変等の不可抗力が生じた場合</li>
+              <li>外部サービスの仕様変更や停止により提供継続が困難となった場合</li>
+              <li>その他、運営者がやむを得ないと判断した場合</li>
+            </ul>
+          </div>
+
+          <div class="legal-section">
+            <div class="legal-section-title">第9条（免責事項）</div>
+            <p>
+              本サービスから提供される情報・アドバイスは、あくまで参考情報であり、最終的な判断・行動は利用者自身の責任において行うものとします。<br />
+              利用者が本サービスを利用したこと、または利用できなかったことにより生じた損害について、運営者は、運営者に故意または重過失がある場合を除き、一切の責任を負いません。
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <div class="legal-section-title">第10条（個人情報の取扱い）</div>
+            <p>
+              運営者による利用者の個人情報の取扱いについては、別途定めるプライバシーポリシーに従うものとします。
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <div class="legal-section-title">第11条（規約の変更）</div>
+            <p>
+              運営者は、必要と判断した場合、本規約を変更することができます。<br />
+              規約の変更後に利用者が本サービスを利用した場合、変更後の規約に同意したものとみなします。
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <div class="legal-section-title">第12条（準拠法・管轄）</div>
+            <p>
+              本規約の解釈にあたっては、日本法を準拠法とします。<br />
+              本サービスに関して紛争が生じた場合には、運営者の所在地を管轄する日本の裁判所を第一審の専属的合意管轄裁判所とします。
+            </p>
+          </div>
+
+          <div class="legal-meta">
+            制定日：2025年12月3日<br />
+            ※必要に応じて、既存の利用規約文言に差し替えてください。
+          </div>
+        </div>
       </div>
     </div>
-    <nav>
-      <a href="index.html#hero">トップページへ戻る</a>
-    </nav>
-    <a href="https://lin.ee/LgEC1UT" class="btn-primary">公式LINEを友だち追加する</a>
-  </div>
-</header>
+  </main>
 
-<main>
-  <div class="container">
-    <h1 class="page-title">利用規約</h1>
-    <p class="page-lead">
-      ISTP相談室（以下「本サービス」といいます）の利用条件を定めるものです。<br />
-      本サービスを利用される前に、必ず本規約をお読みください。本サービスの利用を開始した時点で、本規約に同意したものとみなします。
-    </p>
-
-    <div class="panel">
-      <h2 class="section-heading">第1条（適用）</h2>
-      <ol>
-        <li>本規約は、本サービスの提供条件および本サービスの利用に関する運営者と利用者との間の権利義務関係を定めるものです。</li>
-        <li>運営者が本サービス上で随時掲載する各種ガイドライン等は、本規約の一部を構成するものとします。</li>
-      </ol>
-
-      <h2 class="section-heading">第2条（本サービスの内容）</h2>
-      <ol>
-        <li>本サービスは、ISTP当事者の視点をベースに設計したAI相談ボットを通じて、恋愛・対人関係に関する状況整理や行動のヒントを提供することを目的としています。</li>
-        <li>本サービスは、医療行為、心理カウンセリング、法律相談、投資助言等を行うものではなく、その代替となるものでもありません。</li>
-        <li>回答の性質上、結果についての完全な正確性・有効性を保証するものではありません。最終的な判断・行動は利用者自身の責任において行ってください。</li>
-      </ol>
-
-      <h2 class="section-heading">第3条（利用登録）</h2>
-      <ol>
-        <li>利用者は、運営者が指定する公式LINEアカウントを友だち追加し、案内に従って登録を行うことで、本サービスを利用できます。</li>
-        <li>運営者は、以下の事由があると判断した場合、利用登録を承認しないことがあります。<br />
-          ① 登録内容に虚偽、誤記、記載漏れがあった場合<br />
-          ② 過去に本規約違反等により本サービスの利用停止等の処分を受けている場合<br />
-          ③ その他、運営者が不適切と判断した場合
-        </li>
-      </ol>
-
-      <h2 class="section-heading">第4条（禁止事項）</h2>
-      <ol>
-        <li>利用者は、本サービスの利用にあたり、以下の行為をしてはなりません。<br />
-          ① 法令または公序良俗に違反する行為<br />
-          ② 犯罪行為に関連する行為<br />
-          ③ 他の利用者または第三者の権利・利益を侵害する行為<br />
-          ④ 本サービスの運営を妨害する行為<br />
-          ⑤ 本サービスから得られた情報を、運営者の事前の許可なく転載・複製・再配布等する行為<br />
-          ⑥ 本サービスを自動ツール等で大量に呼び出す等、サーバーに過度の負荷をかける行為<br />
-          ⑦ その他、運営者が不適切と判断する行為
-        </li>
-      </ol>
-
-      <h2 class="section-heading">第5条（料金・支払方法）</h2>
-      <ol>
-        <li>本サービスの利用料金は、料金プランページに表示された金額とします（すべて税込）。</li>
-        <li>利用者は、決済代行サービス「Stripe」を通じて、クレジットカード等の方法により料金を支払うものとします。</li>
-        <li>月額Lightプランは、利用者が解約手続を行わない限り自動更新されます。買い切りプラン（Standard / Pro / 追加15セッション）の料金は、各申込時に都度支払うものとします。</li>
-      </ol>
-
-      <h2 class="section-heading">第6条（返金・解約）</h2>
-      <ol>
-        <li>デジタルコンテンツ・オンラインサービスの性質上、決済完了後の返金は原則として行いません。</li>
-        <li>ただし、明らかなシステム不具合や二重決済など運営者に責任があると認められる場合には、個別に対応を検討します。</li>
-        <li>月額Lightプランの解約は、公式LINEのリッチメニューに表示される「解約」ボタンから行うものとします。解約後は次回更新日以降の自動課金が停止され、Freeプラン（月5セッション）に戻ります。</li>
-      </ol>
-
-      <h2 class="section-heading">第7条（サービスの変更・中断・終了）</h2>
-      <ol>
-        <li>運営者は、事前の予告なく本サービスの内容を変更することがあります。</li>
-        <li>システム保守、停電、通信回線障害、外部サービスの障害、その他やむを得ない事由により、本サービスの全部または一部を一時的に中断することがあります。</li>
-        <li>運営者は、相当の周知期間を設けた上で、本サービスを終了することができます。</li>
-      </ol>
-
-      <h2 class="section-heading">第8条（免責）</h2>
-      <ol>
-        <li>運営者は、本サービスの提供にあたり、その完全性・正確性・有用性等について保証しません。</li>
-        <li>本サービスの利用に関連して利用者に生じたいかなる損害についても、運営者に故意または重過失がある場合を除き、運営者は責任を負いません。</li>
-        <li>本サービスから外部サービス・外部サイトへのリンクが設定されている場合でも、当該外部サービス・外部サイトの内容について運営者は責任を負いません。</li>
-      </ol>
-
-      <h2 class="section-heading">第9条（個人情報の取扱い）</h2>
-      <ol>
-        <li>運営者は、本サービスの利用に関して取得した利用者の個人情報を、別途定めるプライバシーポリシーに従って適切に取り扱います。</li>
-        <li>本サービスの利用にあたっては、プライバシーポリシーの内容にも同意いただいたものとみなします。</li>
-      </ol>
-
-      <h2 class="section-heading">第10条（規約の変更）</h2>
-      <ol>
-        <li>運営者は、必要と判断した場合、本規約を変更することができます。</li>
-        <li>本規約を変更する場合、変更後の内容および効力発生日を、本サービスのLP等に掲示する方法により周知します。</li>
-        <li>効力発生日以降に利用者が本サービスを利用した場合、変更後の規約に同意したものとみなします。</li>
-      </ol>
-
-      <h2 class="section-heading">第11条（準拠法・裁判管轄）</h2>
-      <ol>
-        <li>本規約の解釈および本サービスに関する紛争については、日本法を準拠法とします。</li>
-        <li>本サービスに関して運営者と利用者の間で紛争が生じた場合、運営者の所在地を管轄する裁判所を第一審の専属的合意管轄裁判所とします。</li>
-      </ol>
-
-      <p style="margin-top:18px;font-size:12px;color:var(--text-sub);">
-        制定日：2025年12月3日
-      </p>
+  <footer>
+    <div class="container footer-inner">
+      <div>© ISTP相談室 LINEボット</div>
+      <div class="footer-links">
+        <a href="tokutei.html">特定商取引法に基づく表記</a>
+        <a href="terms.html">利用規約</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+      </div>
     </div>
-  </div>
-</main>
-
-<footer>
-  <div class="container footer-inner">
-    <div>© ISTP相談室 LINEボット</div>
-    <div class="footer-links">
-      <a href="tokutei.html">特定商取引法に基づく表記</a>
-      <a href="terms.html">利用規約</a>
-      <a href="privacy.html">プライバシーポリシー</a>
-    </div>
-  </div>
-</footer>
+  </footer>
 </body>
 </html>
