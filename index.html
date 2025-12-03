@@ -186,7 +186,7 @@
 
     /* Hero */
     .hero {
-      padding: 80px 0 64px;
+      padding: 72px 0 56px;
     }
 
     .hero-inner {
@@ -206,7 +206,7 @@
       background: rgba(15, 23, 42, 0.96);
       border: 1px solid rgba(148, 163, 184, 0.4);
       color: #e5e7eb;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .badge-dot {
@@ -219,7 +219,8 @@
     .hero-title {
       font-size: clamp(26px, 4vw, 32px);
       font-weight: 700;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
     }
 
     .hero-highlight {
@@ -229,14 +230,23 @@
     .hero-lead {
       font-size: 14px;
       color: var(--text-sub);
-      margin-bottom: 22px;
+      margin-bottom: 18px;
+    }
+
+    .hero-lead strong {
+      color: var(--text-main);
+      font-weight: 600;
     }
 
     .hero-list {
-      margin: 0 0 24px;
+      margin: 0 0 20px;
       padding-left: 18px;
       font-size: 13px;
       color: var(--text-sub);
+    }
+
+    .hero-list li + li {
+      margin-top: 4px;
     }
 
     .hero-actions {
@@ -244,12 +254,17 @@
       flex-wrap: wrap;
       gap: 10px;
       align-items: center;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
 
     .hero-note {
       font-size: 11px;
       color: var(--text-sub);
+    }
+
+    .hero-note strong {
+      color: var(--text-main);
+      font-weight: 600;
     }
 
     .hero-right {
@@ -395,7 +410,7 @@
       color: var(--text-sub);
     }
 
-    /* セクション用タグ（見出しの「すべてのプラン共通」など） */
+    /* セクション用タグ */
     .section-tag {
       display: inline-flex;
       align-items: center;
@@ -448,6 +463,11 @@
       color: var(--text-sub);
     }
 
+    .card p strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
     .card-tag {
       display: inline-flex;
       align-items: center;
@@ -495,6 +515,9 @@
       position: relative;
       overflow: hidden;
       box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
     }
 
     .plan-card.highlight {
@@ -505,30 +528,35 @@
 
     .plan-name {
       font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 4px;
+      font-weight: 700;
+      margin-bottom: 0;
     }
 
     .plan-label {
       font-size: 11px;
       color: var(--text-sub);
-      margin-bottom: 8px;
+      margin-bottom: 4px;
     }
 
     .plan-price {
       font-size: 20px;
       font-weight: 700;
-      margin-bottom: 2px;
+      margin-bottom: 0;
     }
 
     .plan-cycle {
       font-size: 11px;
       color: var(--text-sub);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .plan-cycle strong {
+      color: var(--accent);
     }
 
     .plan-feature-list {
-      margin: 0 0 14px;
+      margin: 0 0 10px;
       padding-left: 18px;
       font-size: 12px;
       color: var(--text-sub);
@@ -636,7 +664,7 @@
     }
 
     .faq-q {
-      font-weight: 500;
+      font-weight: 600;
       margin-bottom: 4px;
     }
 
@@ -682,50 +710,52 @@
       text-underline-offset: 3px;
     }
 
+    /* タブレット以下 */
     @media (max-width: 880px) {
-  .hero-inner {
-    grid-template-columns: minmax(0, 1fr);
-  }
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 24px;
+      }
 
-  .hero-right {
-    order: -1;
-  }
+      .hero-right {
+        order: -1;
+        margin-bottom: 4px;
+      }
 
-  nav {
-    display: none;
-  }
+      nav {
+        display: none;
+      }
 
-  /* ★ ここを 1 カラム → 2 カラムに変更 */
-  .pricing-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-  }
+      /* プランは 2 カラム維持して比較しやすく */
+      .pricing-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
 
-  .grid-3 {
-    grid-template-columns: minmax(0, 1fr);
-  }
+      .grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
 
-  .grid-2 {
-    grid-template-columns: minmax(0, 1fr);
-  }
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
 
-  .flow-steps {
-    grid-template-columns: minmax(0, 1fr);
-  }
+      .flow-steps {
+        grid-template-columns: minmax(0, 1fr);
+      }
 
-  .faq-list {
-    grid-template-columns: minmax(0, 1fr);
-  }
+      .faq-list {
+        grid-template-columns: minmax(0, 1fr);
+      }
 
-  .hero {
-    padding-top: 64px;
-  }
+      .hero {
+        padding-top: 64px;
+      }
 
-  .container {
-    padding: 0 16px;
-  }
-}
-
+      .container {
+        padding: 0 16px;
+      }
+    }
 
     /* スマホ向けの細かい調整 */
     @media (max-width: 600px) {
@@ -742,8 +772,13 @@
         font-size: 13px;
       }
 
+      .hero {
+        padding: 60px 0 48px;
+      }
+
       .hero-title {
-        font-size: 24px;
+        font-size: 22px;
+        margin-bottom: 10px;
       }
 
       .hero-lead,
@@ -751,21 +786,25 @@
         font-size: 13px;
       }
 
+      .hero-actions {
+        margin-bottom: 6px;
+      }
+
+      .hero-note {
+        font-size: 11px;
+      }
+
       .pill-row {
         font-size: 12px;
       }
 
-      .faq-item {
-        font-size: 12px;
-      }
-
       .phone-frame {
-        width: 55vw;
-        margin: 0 auto 4px;
+        width: 52vw;
+        margin: 0 auto 2px;
       }
 
       .phone-inner {
-        padding: 8px 8px 6px;
+        padding: 7px 7px 6px;
       }
 
       .chat-bubble {
@@ -774,6 +813,27 @@
 
       .phone-footer {
         font-size: 8px;
+      }
+
+      /* プランカードを少しコンパクトにして一画面に収めやすく */
+      .plan-card {
+        padding: 14px 10px 14px;
+      }
+
+      .plan-name {
+        font-size: 13px;
+      }
+
+      .plan-price {
+        font-size: 18px;
+      }
+
+      .plan-feature-list {
+        font-size: 11px;
+      }
+
+      .plan-footer-note {
+        font-size: 10px;
       }
     }
   </style>
@@ -814,12 +874,12 @@
             シミュレーションする相談LINEボット
           </h1>
           <p class="hero-lead">
-            「ISTPが何を考えているのか分からない」<br />
-            「ISTPの脈あり、脈なしを判断したい」——<br />
+            <strong>「ISTPが何を考えているのか分からない」</strong><br />
+            <strong>「ISTPの脈あり、脈なしを判断したい」</strong>——<br />
             そんなときに、ISTP当事者の視点から、行動と心理を言語化します。
           </p>
           <ul class="hero-list">
-            <li>ISTPの脈あり／脈なしラインを、行動ベースで整理</li>
+            <li><strong>ISTPの脈あり／脈なしライン</strong>を、行動ベースで整理</li>
             <li>距離感の詰め方を、ISTP目線で提案</li>
             <li>「本人には聞けない本音」を、第三者視点でシミュレーション</li>
           </ul>
@@ -830,8 +890,8 @@
             <a href="#plans" class="btn btn-outline">料金プランを見る</a>
           </div>
           <div class="hero-note">
-            ※回答はLINE公式アカウント上のテキストメッセージで返ってきます。<br />
-            ※医療行為・法律相談などの専門領域には対応していません。
+            ※回答はLINE公式アカウント上の<strong>テキストメッセージ</strong>で返ってきます。<br />
+            ※医療行為・法律相談などの<strong>専門領域には対応していません。</strong>
           </div>
           <div class="pill-row">
             <div class="pill">ISTPの考えていることがよく分からない</div>
@@ -867,7 +927,7 @@
                 ISTPは「今すぐ返さない＝嫌い」ではなく、<br />
                 <strong>・今は他のことに集中したい<br />・感情を整理してから返したい</strong><br />
                 と考えていることも多いです。<br /><br />
-                僕が相談対象の立場なら、2日だけなら「いつものペースの範囲内」と捉えます。<br />
+                僕が相談対象の立場なら、2日だけなら<strong>「いつものペースの範囲内」</strong>と捉えます。<br />
                 ただし、<strong>会う頻度が急に減っているかどうか</strong>もセットで見ておきたいですね。
               </div>
               <div class="chat-meta">※実際の回答イメージ</div>
@@ -897,14 +957,14 @@
             <h3>1. ISTPの行動パターンに寄せた解釈</h3>
             <p>
               一般的なISTPの傾向と、監修者であるけいの実体験をベースに、<br />
-              一般論だけでなく「僕ならこう考える」もセットでお伝えします。
+              一般論だけでなく<strong>「僕ならこう考える」</strong>もセットでお伝えします。
             </p>
           </div>
           <div class="card">
             <h3>2. DMではなく「ボット」に投げられる</h3>
             <p>
               個人アカウント宛てに長文DMを送るのは気が引ける、という人でも、<br />
-              LINEボット相手なら気楽に投げられます。深夜でも早朝でもOKです。
+              LINEボット相手なら<strong>気楽に投げられます。</strong>深夜でも早朝でもOKです。
             </p>
           </div>
           <div class="card">
@@ -912,7 +972,7 @@
             <p>
               無料で月5セッションから試せて、<br />
               「たまに相談したい」「毎週壁打ちしたい」「一人を研究したい」など、<br />
-              使い方に応じてプランを選べるようにしています。
+              使い方に応じて<strong>プランを選べるようにしています。</strong>
             </p>
           </div>
         </div>
@@ -930,7 +990,7 @@
             <h3>LINEの温度感が読めない</h3>
             <p>
               返信がそっけない、既読スルーが多い——。<br />
-              それが「脈なし」なのか「もともとそういう人」なのかを、ISTP目線で整理します。<br />
+              それが<strong>「脈なし」なのか「もともとそういう人」</strong>なのかを、ISTP目線で整理します。<br />
               まずはFreeやLightで様子を見ながら、必要ならStandardで上限を気にせず相談できます。
             </p>
           </div>
@@ -956,7 +1016,7 @@
             <h3>1人の相手を長期で見ていきたい</h3>
             <p>
               Proプランでは、相談者と相手のプロファイルを作成し、<br />
-              その前提で毎回の相談を積み上げていく「研究モード」を用意しています。<br />
+              その前提で毎回の相談を積み上げていく<strong>「研究モード」</strong>を用意しています。<br />
               ボットの口調や、共感寄り／事実寄りといったスタイルも調整しながら、<br />
               「この人だけをじっくり追いかけたい」ケースを想定しています。
             </p>
@@ -979,7 +1039,7 @@
             <div class="plan-name">Freeプラン</div>
             <div class="plan-label">まずは様子を見たい人向け</div>
             <div class="plan-price">0円</div>
-            <div class="plan-cycle">月5セッションまで</div>
+            <div class="plan-cycle"><strong>月5セッションまで</strong></div>
             <ul class="plan-feature-list">
               <li>登録だけで即利用可</li>
               <li>ISTP相談室の回答の雰囲気をチェック</li>
@@ -995,7 +1055,7 @@
             <div class="plan-name">Lightプラン</div>
             <div class="plan-label">月額サブスク</div>
             <div class="plan-price">500円</div>
-            <div class="plan-cycle">月20セッションまで</div>
+            <div class="plan-cycle"><strong>月20セッションまで</strong></div>
             <ul class="plan-feature-list">
               <li>状況が動くたびに壁打ちしたい人向け</li>
               <li>回数をそこまで気にせず相談できる</li>
@@ -1010,7 +1070,7 @@
             <div class="plan-name">追加15セッションパック</div>
             <div class="plan-label">Free/Light向けオプション</div>
             <div class="plan-price">500円</div>
-            <div class="plan-cycle">＋15セッション分（買い切り）</div>
+            <div class="plan-cycle"><strong>＋15セッション分（買い切り）</strong></div>
             <ul class="plan-feature-list">
               <li>今月だけ相談が増えたときに追加</li>
               <li>サブスクに切り替えるほどではない人向け</li>
@@ -1026,7 +1086,7 @@
             <div class="plan-name">Standardプラン</div>
             <div class="plan-label">買い切り / 相談し放題</div>
             <div class="plan-price">2,500円</div>
-            <div class="plan-cycle">セッション回数 無制限</div>
+            <div class="plan-cycle"><strong>セッション回数 無制限</strong></div>
             <ul class="plan-feature-list">
               <li>サブスクが苦手な人向け</li>
               <li>月ごとの上限を気にせず相談できる</li>
@@ -1038,7 +1098,7 @@
             <div class="plan-name">Proプラン</div>
             <div class="plan-label">買い切り / 研究プラン</div>
             <div class="plan-price">5,000円</div>
-            <div class="plan-cycle">セッション回数 無制限</div>
+            <div class="plan-cycle"><strong>セッション回数 無制限</strong></div>
             <ul class="plan-feature-list">
               <li>相談者と相手のプロファイルを作成</li>
               <li>MBTI / エニアグラムなど類型情報も反映</li>
