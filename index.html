@@ -756,26 +756,21 @@
       }
 
       /* 料金カードは横スクロール */
-      .pricing-grid {
-        display: flex;
-        overflow-x: auto;
-        padding-bottom: 8px;
-        gap: 14px;
-      }
+  .pricing-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 14px;
+    padding-bottom: 10px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
 
-      .pricing-grid::-webkit-scrollbar {
-        height: 6px;
-      }
-
-      .pricing-grid::-webkit-scrollbar-thumb {
-        background: #cbd5f5;
-        border-radius: 999px;
-      }
-
-      .plan-card {
-        min-width: 260px;
-        flex: 0 0 260px;
-      }
+  .pricing-grid .plan-card {
+    min-width: 80vw;
+    max-width: 80vw;
+    scroll-snap-align: start;
+  }
 
       .grid-3 {
         grid-template-columns: minmax(0, 1fr);
