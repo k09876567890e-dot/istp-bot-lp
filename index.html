@@ -250,7 +250,7 @@
     }
 
     .phone-frame {
-      width: min(270px, 60vw);
+      width: 270px;
       aspect-ratio: 9 / 16;
       border-radius: 30px;
       padding: 10px;
@@ -631,78 +631,60 @@
       }
     }
 
-/* スマホ向けの読みやすさ＋ヒーローのレイアウト調整 */
-@media (max-width: 600px) {
-  body {
-    line-height: 1.8;
-  }
-
-  .container {
-    padding: 0 18px;
-  }
-
-  .section-title {
-    font-size: 20px;
-    margin-bottom: 8px;
-  }
-
-  .section-sub {
-    font-size: 13px;
-  }
-
-  /* ▼ ヒーロー全体を「重ねられる」ようにする */
-  .hero-inner {
-    display: block;
-    position: relative;
-  }
-
-  /* ▼ タイトルの右側に、電話を置くスペースをあける */
-  .hero-title {
-    font-size: 24px;
-    margin-right: 140px; /* ←ここで電話の幅ぶん空ける */
-  }
-
-  .hero-lead,
-  .hero-list {
-    font-size: 13px;
-  }
-
-  .pill-row {
-    font-size: 12px;
-  }
-
-  /* ▼ スマホでは電話モックを右上に固定 */
-  .hero-right {
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-
-  /* ▼ 電話モック自体を小さくする */
-  .phone-frame {
-    width: 38vw;         /* 画面幅の 38％くらい */
-    min-width: 120px;    /* 小さすぎ防止 */
-    margin: 0;
-    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.7);
-  }
-
-  .phone-inner {
-    padding: 8px 8px 6px;
-  }
-
-  .chat-bubble {
-    font-size: 10px;
-  }
-
-  .phone-footer {
-    font-size: 8px;
-  }
-}
-
-
+    /* スマホ向けの読みやすさ調整 */
+    @media (max-width: 600px) {
+      body {
+        line-height: 1.8;
+      }
+      .container {
+        padding: 0 18px;
+      }
+      .section-title {
+        font-size: 20px;
+        margin-bottom: 8px;
+      }
+      .section-sub {
+        font-size: 13px;
+      }
+      .hero-title {
+        font-size: 24px;
+      }
+      .hero-lead {
+        font-size: 13px;
+      }
+      .hero-list {
+        font-size: 13px;
+      }
+      .pill-row {
+        font-size: 12px;
+      }
+      .card p {
+        font-size: 12px;
+      }
+      .plan-feature-list {
+        font-size: 11px;
+      }
+      .faq-item {
+        font-size: 12px;
+      }
+      .phone-frame {
+        width: 55vw;
+        margin: 0 auto 4px;
+      }
+      .phone-inner {
+        padding: 8px 8px 6px;
+      }
+      .chat-bubble {
+        font-size: 10px;
+      }
+      .phone-footer {
+        font-size: 8px;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- TODO: YOUR_LINE_URL_HERE を自分の公式LINE URLに置き換える -->
   <header>
     <div class="header-inner">
       <div class="logo">
@@ -731,15 +713,15 @@
         <div>
           <div class="badge">
             <span class="badge-dot"></span>
-            ISTP監修の相談ボット
+            ISTP目線の相談ボット
           </div>
           <h1 class="hero-title">
-            ISTPの<span class="hero-highlight">「本音ライン」</span>を<br />
+            ISTPの<span class="hero-highlight">本音</span>を<br />
             シミュレーションする相談LINEボット
           </h1>
           <p class="hero-lead">
-            「ISTPが何を考えているのか分からない」  
-            「既読スルーやそっけない返事が、脈なしなのか性格なのか判断できない」——  
+            「ISTPが何を考えているのか分からない」<br />
+            「ISTPの脈あり、脈なしを判断したい」——<br />
             そんなときに、ISTP当事者の視点から、行動と心理を言語化します。
           </p>
           <ul class="hero-list">
@@ -789,7 +771,7 @@
       </div>
     </section>
 
-    <!-- Features -->
+     <!-- Features -->
     <section id="features">
       <div class="container">
         <h2 class="section-title">ISTP相談室は、こんなときに使えます</h2>
@@ -797,12 +779,39 @@
           ISTP（っぽい）相手への相談を、プランごとの「よくある使い方」のイメージで整理しました。
         </p>
 
-        <!-- 上段：プラン別のおすすめ用途 -->
+        <!-- 上段：すべてのプラン共通の特徴 -->
+        <div class="card-tag" style="margin-bottom:10px;"><span></span>すべてのプラン共通</div>
         <div class="grid-3" style="margin-bottom:28px;">
+          <div class="card">
+            <h3>1. ISTPの行動パターンに寄せた解釈</h3>
+            <p>
+              一般的なISTPの傾向と、監修者であるけいの実体験をベースに、<br />
+              一般論だけでなく「僕ならこう考える」もセットでお伝えします。
+            </p>
+          </div>
+          <div class="card">
+            <h3>2. DMではなく「ボット」に投げられる</h3>
+            <p>
+              個人アカウント宛てに長文DMを送るのは気が引ける、という人でも、<br />
+              LINEボット相手なら気楽に投げられます。深夜でも早朝でもOKです。
+            </p>
+          </div>
+          <div class="card">
+            <h3>3. 回数と深さに合わせた料金設計</h3>
+            <p>
+              無料で月5セッションから試せて、<br />
+              「たまに相談したい」「毎週壁打ちしたい」「一人を研究したい」など、<br />
+              使い方に応じてプランを選べるようにしています。
+            </p>
+          </div>
+        </div>
+
+        <!-- 下段：プラン別のおすすめ用途 -->
+        <div class="grid-3">
           <!-- Free / Light / Standard 向け -->
           <div class="card">
             <div class="card-tag"><span></span>Free / Light / Standard 向け</div>
-            <h3>LINEの温度感が読めない</h3>
+            <h3>温度感が読めない</h3>
             <p>
               返信がそっけない、既読スルーが多い——。<br />
               それが「脈なし」なのか「もともとそういう人」なのかを、ISTP目線で整理します。<br />
@@ -813,7 +822,7 @@
           <!-- Free / Light 向け -->
           <div class="card">
             <div class="card-tag"><span></span>Free / Light 向け</div>
-            <h3>どう返せばいいか迷う</h3>
+            <h3>どう接していけばいいか迷う</h3>
             <p>
               重くなりすぎず、でも自分の不安は伝えたい。<br />
               相手の負担を増やしすぎない返事の方向性や、距離の詰め方について、<br />
@@ -828,41 +837,13 @@
             <p>
               Proプランでは、相談者と相手のプロファイルを作成し、<br />
               その前提で毎回の相談を積み上げていく「研究モード」を用意しています。<br />
-              回答の口調や、共感多め／事実ベース多めといったバランスも事前に指定できます。
-            </p>
-          </div>
-        </div>
-
-        <!-- 下段：すべてのプラン共通の特徴 -->
-        <div class="grid-3">
-          <div class="card">
-            <div class="card-tag"><span></span>すべてのプラン共通</div>
-            <h3>1. ISTPの行動パターンに寄せた解釈</h3>
-            <p>
-              一般的なISTPの傾向と、監修者であるけいの実体験をベースに、<br />
-              一般論だけでなく「僕ならこう考える」もセットでお伝えします。
-            </p>
-          </div>
-          <div class="card">
-            <div class="card-tag"><span></span>すべてのプラン共通</div>
-            <h3>2. DMではなく「ボット」に投げられる</h3>
-            <p>
-              個人アカウント宛てに長文DMを送るのは気が引ける、という人でも、<br />
-              LINEボット相手なら気楽に投げられます。深夜でも早朝でもOKです。
-            </p>
-          </div>
-          <div class="card">
-            <div class="card-tag"><span></span>すべてのプラン共通</div>
-            <h3>3. 回数と深さに合わせた料金設計</h3>
-            <p>
-              無料で月5セッションから試せて、<br />
-              「たまに相談したい」「毎週壁打ちしたい」「一人を研究したい」など、<br />
-              使い方に応じてプランを選べるようにしています。
+              「この人だけをじっくり追いかけたい」ケースに向いています。
             </p>
           </div>
         </div>
       </div>
     </section>
+
 
     <!-- Pricing -->
     <section id="plans">
@@ -870,7 +851,8 @@
         <h2 class="section-title">料金プラン</h2>
         <p class="section-sub">
           すべて税込・オンライン決済です。まずはFreeで雰囲気を試してから、必要に応じてアップグレードできます。<br />
-          決済そのものは、公式LINEアカウント内のメニューから行っていただきます。
+          決済そのものは、公式LINEアカウント内のメニューから行っていただきます。<br />
+          Xなどからこのページに直接来た方も、まずは公式LINEを友だち追加してからプランを選択してください。
         </p>
 
         <div class="pricing-grid">
@@ -940,27 +922,12 @@
             <div class="plan-cycle">セッション回数 無制限</div>
             <ul class="plan-feature-list">
               <li>相談者と相手のプロファイルを作成</li>
-              <li>MBTI / エニアグラムなどの類型情報も反映</li>
-              <li>回答の口調やトーン（共感多め / 事実ベース多め など）を事前に設定</li>
-              <li>毎回その人前提で、関係の変化を長期的に深掘り</li>
+              <li>MBTI / エニアグラムなど類型情報も反映</li>
+              <li>毎回その人前提で深掘りコメント</li>
+              <li>ボットの口調や共感の度合いなど、回答スタイルをある程度指定可能</li>
             </ul>
             <div class="plan-footer-note">
-              ※決済後、プロファイルと希望トーンの入力フォームをお送りします。入力完了後に本運用開始です。
-            </div>
-          </div>
-
-          <div class="plan-card">
-            <div class="plan-name">申込方法</div>
-            <div class="plan-label">すべてLINEから</div>
-            <div class="plan-price">-</div>
-            <div class="plan-cycle">-</div>
-            <ul class="plan-feature-list">
-              <li>このページから友だち追加</li>
-              <li>LINEのリッチメニュー or 案内メッセージからプランを選択</li>
-              <li>Stripeの決済画面に遷移してお支払い</li>
-            </ul>
-            <div class="plan-footer-note">
-              ※Xなどから直接このLPに来た方も、必ず先にLINEを友だち追加してください。
+              ※決済後、プロファイル入力フォームをお送りします。入力完了後に本運用開始です。
             </div>
           </div>
         </div>
@@ -986,14 +953,14 @@
               </tr>
               <tr>
                 <td>Light</td>
-                <td>月500円</td>
+                <td>500円</td>
                 <td>月20セッション</td>
                 <td>月額サブスク</td>
                 <td>定期的にISTP相談したい</td>
               </tr>
               <tr>
                 <td>追加15セッション</td>
-                <td>1回500円</td>
+                <td>500円</td>
                 <td>＋15セッション</td>
                 <td>買い切り</td>
                 <td>今月だけ枠を増やしたい</td>
@@ -1100,7 +1067,7 @@
           <div class="faq-item">
             <div class="faq-q">Q. Lightプランの解約はどうすればいいですか？</div>
             <div class="faq-a">
-              A. LINE公式アカウント上で「解約」とメッセージを送っていただくだけでOKです。  
+              A. LINEトーク画面のリッチメニューの「解約」をタップしていただくだけでOKです。  
               次回更新日以降の自動課金を停止し、その後はFreeプラン（月5セッション）に戻ります。
             </div>
           </div>
@@ -1141,15 +1108,15 @@
     </section>
   </main>
 
-  <footer>
-    <div class="container footer-inner">
-      <div>© ISTP相談室 LINEボット</div>
-      <div class="footer-links">
-        <a href="tokutei.html">特定商取引法に基づく表記</a>
-        <a href="terms.html">利用規約</a>
-        <a href="privacy.html">プライバシーポリシー</a>
-      </div>
+<footer>
+  <div class="container footer-inner">
+    <div>© ISTP相談室 LINEボット</div>
+    <div class="footer-links">
+      <a href="tokutei.html">特定商取引法に基づく表記</a>
+      <a href="terms.html">利用規約</a>
+      <a href="privacy.html">プライバシーポリシー</a>
     </div>
-  </footer>
+  </div>
+</footer>
 </body>
 </html>
