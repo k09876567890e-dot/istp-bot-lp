@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <title>プライバシーポリシー｜ISTP相談室</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="ISTP相談室（相談専用LINEボット）のプライバシーポリシーです。"
+  />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -13,13 +17,15 @@
   <style>
     :root {
       --bg: #f3f4f6;
-      --bg-soft: #e5e7eb;
       --panel: #ffffff;
-      --accent: #ea580c;
-      --accent-soft: rgba(234, 88, 12, 0.12);
+
+      --accent: #f97316;
+      --accent-soft: rgba(249, 115, 22, 0.12);
+
       --text-main: #111827;
-      --text-sub: #4b5563;
+      --text-sub: #6b7280;
       --border-soft: #e5e7eb;
+      --nav-bg: #020617;
     }
 
     * { box-sizing: border-box; }
@@ -28,7 +34,7 @@
       margin: 0;
       font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", sans-serif;
-      background: var(--bg);
+      background: radial-gradient(circle at top, #e5e7eb 0, #f9fafb 55%);
       color: var(--text-main);
       line-height: 1.7;
     }
@@ -40,22 +46,20 @@
 
     .container {
       width: 100%;
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 0 20px;
     }
+
+    /* header / nav */
 
     header {
       position: sticky;
       top: 0;
       z-index: 20;
       backdrop-filter: blur(16px);
-      background: linear-gradient(
-        to bottom,
-        rgba(15, 23, 42, 0.96),
-        rgba(15, 23, 42, 0.9)
-      );
-      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+      background: var(--nav-bg);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
       color: #e5e7eb;
     }
 
@@ -80,7 +84,7 @@
       width: 28px;
       height: 28px;
       border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, #f9fafb, #1f2937 60%);
+      background: radial-gradient(circle at 30% 20%, #f9fafb, #f59e0b 60%);
       border: 2px solid var(--accent);
       display: flex;
       align-items: center;
@@ -96,64 +100,116 @@
       color: #e5e7eb;
     }
 
-    nav a { opacity: 0.85; }
-    nav a:hover { opacity: 1; color: var(--accent); }
+    nav a {
+      opacity: 0.9;
+    }
 
-    .btn-primary {
+    nav a:hover {
+      opacity: 1;
+      color: #fbbf24;
+    }
+
+    .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 8px 16px;
+      padding: 9px 18px;
       border-radius: 999px;
       font-size: 13px;
       font-weight: 500;
       border: none;
       cursor: pointer;
-      background: linear-gradient(135deg, #fdba74, #ea580c);
-      color: #ffffff;
-      box-shadow: 0 10px 24px rgba(234, 88, 12, 0.28);
-      text-decoration: none;
+      transition: transform 0.08s ease, box-shadow 0.08s ease,
+        background 0.1s ease, opacity 0.1s ease;
+      white-space: nowrap;
       gap: 6px;
     }
 
+    .btn-primary {
+      background: linear-gradient(135deg, #fed7aa, #f97316);
+      color: #111827;
+      box-shadow: 0 10px 24px rgba(249, 115, 22, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 32px rgba(249, 115, 22, 0.5);
+    }
+
     main {
-      padding: 48px 0 72px;
+      padding: 56px 0 80px;
     }
 
     .page-title {
-      font-size: 24px;
+      font-size: 26px;
+      font-weight: 700;
       margin-bottom: 8px;
     }
 
-    .page-lead {
-      font-size: 13px;
+    .page-sub {
+      font-size: 14px;
       color: var(--text-sub);
-      margin-bottom: 24px;
+      margin-bottom: 32px;
     }
 
-    .panel {
+    .legal-card {
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 20px;
       background: var(--panel);
-      border-radius: 18px;
       border: 1px solid var(--border-soft);
-      padding: 20px 18px;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+      padding: 24px 24px 28px;
+    }
+
+    .legal-card-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .legal-body {
       font-size: 13px;
+      color: var(--text-main);
     }
 
-    h2.section-heading {
-      font-size: 16px;
-      margin: 18px 0 6px;
+    .legal-section {
+      margin-bottom: 18px;
     }
 
-    ol { padding-left: 18px; }
-    li + li { margin-top: 4px; }
+    .legal-section-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .legal-section-title span {
+      font-size: 12px;
+      color: var(--text-sub);
+      margin-left: 6px;
+    }
+
+    .legal-body ul {
+      margin: 6px 0 0 1.2em;
+      padding: 0;
+    }
+
+    .legal-body li + li {
+      margin-top: 2px;
+    }
+
+    .legal-meta {
+      margin-top: 18px;
+      font-size: 12px;
+      color: var(--text-sub);
+    }
 
     footer {
-      border-top: 1px solid rgba(148, 163, 184, 0.3);
+      border-top: 1px solid rgba(148, 163, 184, 0.35);
       padding: 16px 0 26px;
-      background: #020617;
+      background: var(--nav-bg);
       font-size: 11px;
       color: #9ca3af;
+      margin-top: 40px;
     }
 
     .footer-inner {
@@ -174,122 +230,163 @@
       text-decoration: underline;
       text-decoration-thickness: 1px;
       text-underline-offset: 3px;
-      color: #e5e7eb;
     }
 
-    @media (max-width: 640px) {
-      .container { padding: 0 16px; }
-      .page-title { font-size: 20px; }
+    @media (max-width: 880px) {
+      nav { display:none; }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      main {
+        padding-top: 44px;
+      }
+
+      .legal-card {
+        padding: 20px 16px 22px;
+      }
     }
   </style>
 </head>
 <body>
-<header>
-  <div class="header-inner">
-    <div class="logo">
-      <div class="logo-mark">I</div>
-      <div>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">I</div>
         <div>ISTP相談室</div>
-        <div style="font-size:11px;color:#9ca3af;">ISTP相談LINEボット</div>
+      </a>
+      <nav>
+        <a href="index.html#features">特徴</a>
+        <a href="index.html#plans">料金プラン</a>
+        <a href="index.html#flow">利用の流れ</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+      <a href="https://lin.ee/LgEC1UT" class="btn btn-primary">
+        公式LINEを友だち追加する
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1 class="page-title">プライバシーポリシー</h1>
+      <p class="page-sub">
+        ISTP相談室（以下「本サービス」といいます）は、利用者の個人情報を適切に取り扱うため、以下のとおりプライバシーポリシーを定めます。
+      </p>
+
+      <div class="legal-card">
+        <div class="legal-card-title">ISTP相談室 プライバシーポリシー</div>
+        <div class="legal-body">
+
+          <div class="legal-section">
+            <div class="legal-section-title">1. 基本方針</div>
+            <p>
+              本サービスは、個人情報の保護に関する法令および関連ガイドラインを遵守し、利用者のプライバシー保護に努めます。
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <div class="legal-section-title">2. 取得する情報</div>
+            <p>本サービスでは、主に次の情報を取得する場合があります。</p>
+            <ul>
+              <li>LINEアカウントに紐づくユーザーID（LINE側が発行する識別子）</li>
+              <li>ニックネームなど、利用者が任意に入力したプロフィール情報</li>
+              <li>相談内容として送信されたテキストメッセージ</li>
+              <li>有料プラン利用時の決済に必要な情報（決済サービス側で管理されるID等）</li>
+              <li>アクセスログ、利用履歴、端末情報など、サービス運営に必要な技術情報</li>
+            </ul>
+          </div>
+
+          <div class="legal-section">
+            <div class="legal-section-title">3. 利用目的</div>
+            <p>取得した情報は、以下の目的の範囲内で利用します。</p>
+            <ul>
+              <li>本サービスの提供および運営のため</li>
+              <li>相談内容に対する回答の生成、品質向上のため</li>
+              <li>有料プランの申込・決済・利用状況の管理のため</li>
+              <li>不正利用の防止、トラブル対応等のセキュリティ目的のため</li>
+              <li>サービス改善、新機能の検討、統計的な分析のため（個人を特定しない形式）</li>
+              <li>重要なお知らせや規約変更等の連絡のため</li>
+            </ul>
+          </div>
+
+          <div class="legal-section">
+            <div class="legal-section-title">4. 外部サービスの利用</div>
+            <p>
+              本サービスでは、AI回答の生成や決済処理等のため、Stripe等の外部サービスを利用する場合があります。<br />
+              これら外部サービスに対しては、本サービス運営に必要な範囲でのみ情報を提供し、各サービスのプライバシーポリシーに従って取り扱われます。
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <div class="legal-section-title">5. 第三者提供</div>
+            <p>
+              次のいずれかに該当する場合を除き、利用者の個人情報を第三者に提供することはありません。
+            </p>
+            <ul>
+              <li>利用者本人の同意がある場合</li>
+              <li>法令に基づき開示が求められた場合</li>
+              <li>人の生命・身体・財産の保護のために必要であり、本人の同意を得ることが困難な場合</li>
+              <li>業務委託先に対して、本サービス運営に必要な範囲で個人情報の取扱いを委託する場合</li>
+            </ul>
+          </div>
+
+          <div class="legal-section">
+            <div class="legal-section-title">6. 情報の保存期間</div>
+            <p>
+              相談ログや利用履歴は、サービス運営・品質改善の目的で一定期間保存する場合があります。<br />
+              保存期間は目的達成に必要な範囲に限定し、不要となった情報は適切な方法で削除または匿名化します。
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <div class="legal-section-title">7. 安全管理措置</div>
+            <p>
+              本サービスは、個人情報への不正アクセス、漏えい、滅失、き損等を防止するため、適切な技術的・組織的安全管理措置を講じます。
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <div class="legal-section-title">8. 開示・訂正・利用停止等の請求</div>
+            <p>
+              利用者から、自己の個人情報の開示・訂正・利用停止等を求められた場合は、本人確認のうえ、合理的な範囲で速やかに対応します。<br />
+              ただし、サービス運営上やむを得ない場合や、法令上の保存義務がある情報については、対応できないことがあります。
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <div class="legal-section-title">9. お問い合わせ窓口</div>
+            <p>
+              個人情報の取扱いに関するお問い合わせは、特定商取引法に基づく表記に記載の連絡先、または公式LINEアカウントよりご連絡ください。
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <div class="legal-section-title">10. ポリシーの変更</div>
+            <p>
+              本ポリシーの内容は、必要に応じて変更することがあります。<br />
+              重要な変更がある場合は、本サービス上での掲示等により通知します。
+            </p>
+          </div>
+
+          <div class="legal-meta">
+            制定日：2025年12月3日<br />            
+          </div>
+        </div>
       </div>
     </div>
-    <nav>
-      <a href="index.html#hero">トップページへ戻る</a>
-    </nav>
-    <a href="https://lin.ee/LgEC1UT" class="btn-primary">公式LINEを友だち追加する</a>
-  </div>
-</header>
+  </main>
 
-<main>
-  <div class="container">
-    <h1 class="page-title">プライバシーポリシー</h1>
-    <p class="page-lead">
-      ISTP相談室（以下「本サービス」といいます）は、利用者の個人情報を適切に取り扱うため、以下のとおりプライバシーポリシー（以下「本ポリシー」といいます）を定めます。
-    </p>
-
-    <div class="panel">
-      <h2 class="section-heading">第1条（適用範囲）</h2>
-      <ol>
-        <li>本ポリシーは、本サービスにおいて取得する利用者の情報の取り扱いに関して適用されます。</li>
-        <li>本サービスからリンクする外部サービス・外部サイトにおける個人情報の取り扱いについては、各サービス提供者のポリシーに従うものとし、本サービスは責任を負いません。</li>
-      </ol>
-
-      <h2 class="section-heading">第2条（取得する情報）</h2>
-      <ol>
-        <li>本サービスは、利用者から以下の情報を取得する場合があります。<br />
-          ① LINEユーザーID等、本サービス利用に必要な識別子<br />
-          ② 相談内容として利用者が任意に入力したテキスト情報<br />
-          ③ 購入プラン、決済履歴等の課金に関する情報（Stripe側のトークン情報を含む）<br />
-          ④ アクセス解析のために自動取得される利用端末情報・ブラウザ情報等
-        </li>
-      </ol>
-
-      <h2 class="section-heading">第3条（利用目的）</h2>
-      <ol>
-        <li>取得した情報は、主に以下の目的で利用します。<br />
-          ① 本サービスの提供・運営のため<br />
-          ② 利用者からの問い合わせ対応のため<br />
-          ③ 利用料金の請求・決済・不正利用防止のため<br />
-          ④ サービス品質向上・機能改善・新機能開発のための分析のため<br />
-          ⑤ 規約違反行為への対応やトラブル解決のため
-        </li>
-      </ol>
-
-      <h2 class="section-heading">第4条（第三者提供）</h2>
-      <ol>
-        <li>運営者は、次のいずれかに該当する場合を除き、利用者の個人情報を第三者に提供しません。<br />
-          ① 利用者本人の同意がある場合<br />
-          ② 法令に基づく場合<br />
-          ③ 人の生命・身体・財産の保護のために必要であり、本人の同意取得が困難な場合<br />
-          ④ 業務委託先において本サービスの提供に必要な範囲で個人情報を取り扱う場合
-        </li>
-      </ol>
-
-      <h2 class="section-heading">第5条（外部サービスの利用）</h2>
-      <ol>
-        <li>本サービスでは、決済処理に「Stripe」、チャットボット機能に外部のAIサービス等を利用する場合があります。</li>
-        <li>これら外部サービスに提供される情報は、各サービスのプライバシーポリシーに基づき取り扱われます。</li>
-      </ol>
-
-      <h2 class="section-heading">第6条（安全管理措置）</h2>
-      <ol>
-        <li>運営者は、個人情報への不正アクセス、紛失、破壊、改ざん及び漏えい等を防止するため、合理的な安全管理措置を講じます。</li>
-      </ol>
-
-      <h2 class="section-heading">第7条（開示・訂正・利用停止等の請求）</h2>
-      <ol>
-        <li>利用者は、運営者が保有する自己の個人情報について、開示・訂正・利用停止等を希望する場合、所定の手続により請求することができます。</li>
-        <li>運営者は、本人確認の上、法令に従い合理的な範囲で対応します。</li>
-      </ol>
-
-      <h2 class="section-heading">第8条（プライバシーポリシーの変更）</h2>
-      <ol>
-        <li>運営者は、必要に応じて本ポリシーを変更することがあります。</li>
-        <li>本ポリシーを変更した場合、変更後の内容および効力発生日を本サービスのLP等に掲示する方法により周知します。</li>
-        <li>効力発生日以降に利用者が本サービスを利用した場合、変更後のポリシーに同意したものとみなします。</li>
-      </ol>
-
-      <h2 class="section-heading">第9条（お問い合わせ窓口）</h2>
-      <ol>
-        <li>本ポリシーに関するお問い合わせは、特定商取引法に基づく表記に記載のメールアドレス宛てにご連絡ください。</li>
-      </ol>
-
-      <p style="margin-top:18px;font-size:12px;color:var(--text-sub);">
-        制定日：2025年12月3日
-      </p>
+  <footer>
+    <div class="container footer-inner">
+      <div>© ISTP相談室 LINEボット</div>
+      <div class="footer-links">
+        <a href="tokutei.html">特定商取引法に基づく表記</a>
+        <a href="terms.html">利用規約</a>
+        <a href="privacy.html">プライバシーポリシー</a>
+      </div>
     </div>
-  </div>
-</main>
-
-<footer>
-  <div class="container footer-inner">
-    <div>© ISTP相談室 LINEボット</div>
-    <div class="footer-links">
-      <a href="tokutei.html">特定商取引法に基づく表記</a>
-      <a href="terms.html">利用規約</a>
-      <a href="privacy.html">プライバシーポリシー</a>
-    </div>
-  </div>
-</footer>
+  </footer>
 </body>
 </html>
