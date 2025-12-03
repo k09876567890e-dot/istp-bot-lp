@@ -608,8 +608,13 @@
       color: #fefce8;
     }
 
-    .pricing-table-wrapper {
-      margin-top: 12px;
+       .pricing-table-wrapper {
+      margin-top: 20px;
+      padding: 16px;
+      border-radius: 18px;
+      background: #ffffff; /* セクション背景よりしっかり白く */
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08); /* カードっぽく浮かせる */
+      border: 1px solid #e5e7eb;
       overflow-x: auto;
     }
 
@@ -618,25 +623,24 @@
       border-collapse: collapse;
       font-size: 12px;
       min-width: 600px;
-      background: var(--panel);
+      background: transparent; /* 背景は wrapper に任せる */
       color: var(--text-main);
-      border-radius: 16px;
-      overflow: hidden;
     }
 
-    th, td {
+    th,
+    td {
       padding: 8px 10px;
-      border-bottom: 1px solid var(--border-soft);
+      border-bottom: 1px solid #e5e7eb;
       text-align: left;
     }
 
     th {
-      background: #f9fafb;
+      background: #f3f4f6; /* ヘッダーを少し濃く */
       font-weight: 500;
     }
 
     tr:nth-child(even) td {
-      background: #f9fafb;
+      background: #f9fafb; /* 偶数行をうっすらグレーに */
     }
 
     /* Flow */
