@@ -496,170 +496,151 @@
       margin-top: 4px;
     }
 
-    /* pricing */
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      margin-bottom: 24px;
-    }
+  /* Pricing */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 24px;
+  align-items: stretch;
+}
 
-    .plan-card {
-      border-radius: 18px;
-      padding: 18px 16px 18px;
-      background: #f9fafb;             /* 全カード同じトーン */
-      border: 1px solid var(--border-soft);
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
+.plan-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 18px 18px;
+  border-radius: 18px;
+  background: #f9fafb;
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+}
 
-    .plan-card.highlight {
-      background: linear-gradient(135deg, #fed7aa, #ea580c);
-      border-color: transparent;
-      box-shadow: 0 18px 42px rgba(234, 88, 12, 0.28);
-      color: #fffbeb;
-    }
+/* おすすめ（Light）だけ強調 */
+.plan-card.highlight {
+  background: linear-gradient(135deg, #fed7aa, #f97316);
+  border-color: transparent;
+  box-shadow: 0 18px 42px rgba(234, 88, 12, 0.28);
+  color: #fffbeb;
+}
 
-    .plan-name {
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 0;
-    }
+.plan-name {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
 
-    .plan-label {
-      font-size: 11px;
-      color: var(--text-sub);
-      margin-bottom: 4px;
-    }
+.plan-label {
+  font-size: 11px;
+  color: var(--text-sub);
+  margin-bottom: 10px;
+}
 
-    .plan-price {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 0;
-    }
+.plan-price {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
 
-    .plan-cycle {
-      font-size: 11px;
-      color: var(--text-sub);
-      margin-bottom: 8px;
-      font-weight: 500;
-    }
+.plan-cycle {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
 
-    .plan-cycle strong {
-      color: var(--accent);
-    }
+.plan-cycle strong {
+  font-weight: 700;
+}
 
-    .plan-feature-list {
-      margin: 0 0 10px;
-      padding-left: 18px;
-      font-size: 12px;
-      color: var(--text-sub);
-    }
+/* 箇条書きは左寄せで読みやすく */
+.plan-feature-list {
+  margin: 0 0 10px;
+  padding-left: 18px;
+  font-size: 12px;
+  color: var(--text-sub);
+}
 
-    .plan-feature-list li + li {
-      margin-top: 4px;
-    }
+.plan-feature-list li + li {
+  margin-top: 4px;
+}
 
-    .plan-badge {
-      position: absolute;
-      top: 10px;
-      right: 12px;
-      font-size: 10px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.14);
-      color: #fffbeb;
-      border: 1px solid rgba(15, 23, 42, 0.3);
-    }
+.plan-badge {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.16);
+  color: #fffbeb;
+  border: 1px solid rgba(15, 23, 42, 0.3);
+}
 
-    .plan-footer-note {
-      font-size: 11px;
-      color: var(--text-sub);
-      margin-top: 4px;
-    }
+.plan-footer-note {
+  font-size: 11px;
+  color: var(--text-sub);
+  margin-top: 2px;
+}
 
-    /* Lightカード内の文字色統一 */
-    .plan-card.highlight .plan-name,
-    .plan-card.highlight .plan-label,
-    .plan-card.highlight .plan-price,
-    .plan-card.highlight .plan-cycle,
-    .plan-card.highlight .plan-cycle strong,
-    .plan-card.highlight .plan-feature-list,
-    .plan-card.highlight .plan-feature-list li,
-    .plan-card.highlight .plan-footer-note {
-      color: #fffbeb;
-    }
+/* Lightカード内の文字色を白で統一 */
+.plan-card.highlight .plan-name,
+.plan-card.highlight .plan-label,
+.plan-card.highlight .plan-price,
+.plan-card.highlight .plan-cycle,
+.plan-card.highlight .plan-cycle strong,
+.plan-card.highlight .plan-feature-list,
+.plan-card.highlight .plan-feature-list li,
+.plan-card.highlight .plan-footer-note {
+  color: #fffbeb;
+}
 
-    .plan-card.highlight .plan-cycle strong {
-      font-weight: 700;
-    }
+/* 比較表 */
+.pricing-table-wrapper {
+  margin-top: 12px;
+  overflow-x: auto;
+}
 
-    .pricing-table-wrapper {
-      margin-top: 12px;
-      overflow-x: auto;
-    }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  min-width: 600px;
+  background: #ffffff;
+}
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 12px;
-      min-width: 600px;
-      background: #ffffff;
-    }
+th,
+td {
+  padding: 8px 10px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+  text-align: left;
+}
 
-    th, td {
-      padding: 8px 10px;
-      border-bottom: 1px solid rgba(148, 163, 184, 0.4);
-      text-align: left;
-    }
+th {
+  background: #f9fafb;
+  font-weight: 500;
+}
 
-    th {
-      background: #f9fafb;
-      font-weight: 500;
-    }
+tr:nth-child(even) td {
+  background: #f3f4f6;
+}
 
-    tr:nth-child(even) td {
-      background: #f3f4f6;
-    }
+/* ▼スマホ時：カードを横スクロールで比較しやすく */
+@media (max-width: 880px) {
+  .pricing-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 14px;
+    padding-bottom: 6px;
+    scroll-snap-type: x mandatory;
+  }
 
-    /* flow */
-    .flow-steps {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-      font-size: 12px;
-    }
-
-    .flow-step {
-      padding: 14px 12px 14px;
-      border-radius: 16px;
-      background: var(--panel);
-      border: 1px solid var(--border-soft);
-      position: relative;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
-    }
-
-    .flow-step-index {
-      font-size: 11px;
-      color: var(--accent);
-      margin-bottom: 4px;
-      font-weight: 500;
-    }
-
-    .flow-step-title {
-      font-size: 13px;
-      font-weight: 500;
-      margin-bottom: 4px;
-    }
-
-    .flow-step p {
-      margin: 0;
-      color: var(--text-sub);
-    }
+  .plan-card {
+    min-width: 260px;
+    scroll-snap-align: start;
+  }
+}
 
     /* FAQ */
     .faq-list {
