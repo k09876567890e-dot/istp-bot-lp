@@ -472,59 +472,68 @@
       margin-top: 4px;
     }
 
-    /* Pricing */
+    /* =========================
+       Pricing  （デザイン刷新）
+       ========================= */
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
+      gap: 18px;
       margin-bottom: 24px;
     }
 
     .plan-card {
-      border-radius: 18px;
-      padding: 18px 16px 18px;
-      background: var(--panel);
-      border: 1px solid var(--border-soft);
+      border-radius: 22px;
+      padding: 18px 18px 20px;
+      background: #020617;
+      border: 1px solid #111827;
+      color: #e5e7eb;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.55);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
     .plan-card.highlight {
-      border-color: var(--accent);
-      box-shadow: 0 18px 42px rgba(234, 88, 12, 0.18);
-      background: linear-gradient(180deg, #ffffff, #fff7ed);
+      background: linear-gradient(135deg, #fed7aa, #fb923c, #ea580c);
+      border-color: #f97316;
+      color: #111827;
+      box-shadow: 0 22px 50px rgba(248, 113, 113, 0.55);
     }
 
     .plan-name {
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 600;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
 
     .plan-label {
       font-size: 11px;
-      color: var(--text-sub);
-      margin-bottom: 8px;
+      opacity: 0.85;
+      color: #9ca3af;
     }
 
     .plan-price {
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 700;
-      margin-bottom: 2px;
+      margin-top: 4px;
+      margin-bottom: 0;
     }
 
     .plan-cycle {
       font-size: 11px;
-      color: var(--text-sub);
-      margin-bottom: 10px;
+      opacity: 0.9;
+      color: #9ca3af;
+      margin-bottom: 6px;
     }
 
     .plan-feature-list {
-      margin: 0 0 14px;
+      margin: 0;
       padding-left: 18px;
       font-size: 12px;
-      color: var(--text-sub);
+      color: #e5e7eb;
     }
 
     .plan-feature-list li + li {
@@ -534,23 +543,35 @@
     .plan-badge {
       position: absolute;
       top: 10px;
-      right: 12px;
+      right: 14px;
       font-size: 10px;
-      padding: 2px 8px;
+      padding: 3px 10px;
       border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      border: 1px solid rgba(250, 204, 21, 0.6);
+      background: rgba(15, 23, 42, 0.06);
+      color: #7c2d12;
+      border: 1px solid rgba(124, 45, 18, 0.4);
+      backdrop-filter: blur(6px);
     }
 
     .plan-footer-note {
       font-size: 11px;
-      color: var(--text-sub);
-      margin-top: 4px;
+      margin-top: 6px;
+      color: #9ca3af;
+    }
+
+    /* Highlightカード内のテキスト色調整 */
+    .plan-card.highlight .plan-label,
+    .plan-card.highlight .plan-cycle,
+    .plan-card.highlight .plan-footer-note {
+      color: #4b5563;
+    }
+
+    .plan-card.highlight .plan-feature-list {
+      color: #1f2937;
     }
 
     .pricing-table-wrapper {
-      margin-top: 12px;
+      margin-top: 18px;
       overflow-x: auto;
     }
 
