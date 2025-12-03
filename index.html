@@ -26,6 +26,8 @@
       --text-main: #111827;
       --text-sub: #4b5563;
       --border-soft: #e5e7eb;
+
+      --dark: #020617;
     }
 
     * { box-sizing: border-box; }
@@ -414,7 +416,7 @@
       box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
     }
 
-    /* ▼カード見出し＋おしゃれ下線 */
+    /* カード見出し＋下線 */
     .card h3 {
       margin: 0 0 10px;
       font-size: 16px;
@@ -473,101 +475,132 @@
     }
 
     /* =========================
-       Pricing  （デザイン刷新）
+       Pricing 参考デザイン寄せ
        ========================= */
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      margin-bottom: 24px;
+      gap: 20px;
+      margin-bottom: 28px;
     }
 
     .plan-card {
-      border-radius: 22px;
-      padding: 18px 18px 20px;
-      background: #020617;
-      border: 1px solid #111827;
-      color: #e5e7eb;
-      position: relative;
+      border-radius: 24px;
+      background: #ffffff;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+      border: 1px solid rgba(148, 163, 184, 0.3);
       overflow: hidden;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.55);
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      min-height: 260px;
     }
 
-    .plan-card.highlight {
-      background: linear-gradient(135deg, #fed7aa, #fb923c, #ea580c);
-      border-color: #f97316;
-      color: #111827;
-      box-shadow: 0 22px 50px rgba(248, 113, 113, 0.55);
+    .plan-header {
+      padding: 18px 20px 16px;
+      color: #f9fafb;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .plan-header-dark {
+      background: #020617;
+    }
+
+    .plan-header-highlight {
+      background: linear-gradient(135deg, #fed7aa, #fdba74, #ea580c);
     }
 
     .plan-name {
       font-size: 15px;
       font-weight: 600;
-      margin-bottom: 2px;
     }
 
     .plan-label {
       font-size: 11px;
-      opacity: 0.85;
-      color: #9ca3af;
+      opacity: 0.9;
+    }
+
+    .plan-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      margin-top: 4px;
     }
 
     .plan-price {
       font-size: 22px;
       font-weight: 700;
-      margin-top: 4px;
-      margin-bottom: 0;
     }
 
     .plan-cycle {
       font-size: 11px;
       opacity: 0.9;
-      color: #9ca3af;
-      margin-bottom: 6px;
+    }
+
+    .plan-badge {
+      align-self: flex-start;
+      margin-left: auto;
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.15);
+      border: 1px solid rgba(15, 23, 42, 0.25);
+    }
+
+    .plan-header-highlight .plan-badge {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.35);
+      color: #111827;
+    }
+
+    .plan-body {
+      padding: 14px 20px 18px;
+      font-size: 12px;
+      color: var(--text-sub);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
     .plan-feature-list {
       margin: 0;
       padding-left: 18px;
       font-size: 12px;
-      color: #e5e7eb;
     }
 
     .plan-feature-list li + li {
       margin-top: 4px;
     }
 
-    .plan-badge {
-      position: absolute;
-      top: 10px;
-      right: 14px;
-      font-size: 10px;
-      padding: 3px 10px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.06);
-      color: #7c2d12;
-      border: 1px solid rgba(124, 45, 18, 0.4);
-      backdrop-filter: blur(6px);
-    }
-
     .plan-footer-note {
       font-size: 11px;
-      margin-top: 6px;
-      color: #9ca3af;
+      color: var(--text-sub);
+      margin-top: auto;
     }
 
-    /* Highlightカード内のテキスト色調整 */
-    .plan-card.highlight .plan-label,
-    .plan-card.highlight .plan-cycle,
-    .plan-card.highlight .plan-footer-note {
-      color: #4b5563;
+    .plan-cta {
+      margin-top: 10px;
+      padding-bottom: 2px;
     }
 
-    .plan-card.highlight .plan-feature-list {
-      color: #1f2937;
+    .plan-cta-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 11px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: #f9fafb;
+      color: #111827;
+    }
+
+    .plan-card.highlight .plan-cta-pill {
+      background: #111827;
+      color: #f9fafb;
+      border-color: #111827;
     }
 
     .pricing-table-wrapper {
@@ -770,23 +803,6 @@
       .faq-item {
         font-size: 12px;
       }
-
-      .phone-frame {
-        width: 55vw;
-        margin: 0 auto 4px;
-      }
-
-      .phone-inner {
-        padding: 8px 8px 6px;
-      }
-
-      .chat-bubble {
-        font-size: 10px;
-      }
-
-      .phone-footer {
-        font-size: 8px;
-      }
     }
   </style>
 </head>
@@ -979,81 +995,133 @@
           決済そのものは、公式LINEアカウント内のメニューから行っていただきます。
         </p>
 
+        <!-- 1段目 -->
         <div class="pricing-grid">
+          <!-- Free -->
           <div class="plan-card">
-            <div class="plan-name">Freeプラン</div>
-            <div class="plan-label">まずは様子を見たい人向け</div>
-            <div class="plan-price">0円</div>
-            <div class="plan-cycle">月5セッションまで</div>
-            <ul class="plan-feature-list">
-              <li>登録だけで即利用可</li>
-              <li>ISTP相談室の回答の雰囲気をチェック</li>
-              <li>そのまま使い続けるのもOK</li>
-            </ul>
-            <div class="plan-footer-note">
-              ※友だち追加するだけで自動的にFreeプランからスタートします。
+            <div class="plan-header plan-header-dark">
+              <div class="plan-name">Freeプラン</div>
+              <div class="plan-label">まずは様子を見たい人向け</div>
+              <div class="plan-price-row">
+                <div class="plan-price">0円</div>
+                <div class="plan-cycle">/ 月5セッションまで</div>
+              </div>
+            </div>
+            <div class="plan-body">
+              <ul class="plan-feature-list">
+                <li>登録だけで即利用可</li>
+                <li>ISTP相談室の回答の雰囲気をチェック</li>
+                <li>そのまま使い続けるのもOK</li>
+              </ul>
+              <div class="plan-footer-note">
+                ※友だち追加するだけで自動的にFreeプランからスタートします。
+              </div>
+              <div class="plan-cta">
+                <span class="plan-cta-pill">まずはFreeから自動スタート</span>
+              </div>
             </div>
           </div>
 
+          <!-- Light（おすすめ） -->
           <div class="plan-card highlight">
-            <div class="plan-badge">おすすめ</div>
-            <div class="plan-name">Lightプラン</div>
-            <div class="plan-label">月額サブスク</div>
-            <div class="plan-price">500円</div>
-            <div class="plan-cycle">月20セッションまで</div>
-            <ul class="plan-feature-list">
-              <li>状況が動くたびに壁打ちしたい人向け</li>
-              <li>回数をそこまで気にせず相談できる</li>
-              <li>解約はリッチメニューの「解約」ボタンからいつでも可能</li>
-            </ul>
-            <div class="plan-footer-note">
-              ※申込・解約はすべて公式LINE内のリッチメニューから行えます。
+            <div class="plan-header plan-header-highlight">
+              <div class="plan-name">Lightプラン</div>
+              <div class="plan-label">月額サブスク</div>
+              <div class="plan-price-row">
+                <div class="plan-price">500円</div>
+                <div class="plan-cycle">/ 月20セッションまで</div>
+              </div>
+              <div class="plan-badge">おすすめ</div>
+            </div>
+            <div class="plan-body">
+              <ul class="plan-feature-list">
+                <li>状況が動くたびに壁打ちしたい人向け</li>
+                <li>回数をそこまで気にせず相談できる</li>
+                <li>解約はリッチメニューの「解約」ボタンからいつでも可能</li>
+              </ul>
+              <div class="plan-footer-note">
+                ※申込・解約はすべて公式LINE内のリッチメニューから行えます。
+              </div>
+              <div class="plan-cta">
+                <span class="plan-cta-pill">迷ったらこのプラン</span>
+              </div>
             </div>
           </div>
 
+          <!-- 追加パック -->
           <div class="plan-card">
-            <div class="plan-name">追加15セッションパック</div>
-            <div class="plan-label">Free/Light向けオプション</div>
-            <div class="plan-price">500円</div>
-            <div class="plan-cycle">＋15セッション分（買い切り）</div>
-            <ul class="plan-feature-list">
-              <li>今月だけ相談が増えたときに追加</li>
-              <li>サブスクに切り替えるほどではない人向け</li>
-            </ul>
-            <div class="plan-footer-note">
-              ※Freeプランでの月またぎ時の扱いなど、詳細は利用規約にて定義します。
+            <div class="plan-header plan-header-dark">
+              <div class="plan-name">追加15セッションパック</div>
+              <div class="plan-label">Free/Light向けオプション</div>
+              <div class="plan-price-row">
+                <div class="plan-price">500円</div>
+                <div class="plan-cycle">/ ＋15セッション（買い切り）</div>
+              </div>
+            </div>
+            <div class="plan-body">
+              <ul class="plan-feature-list">
+                <li>今月だけ相談が増えたときに追加</li>
+                <li>サブスクに切り替えるほどではない人向け</li>
+              </ul>
+              <div class="plan-footer-note">
+                ※Freeプランでの月またぎ時の扱いなど、詳細は利用規約にて定義します。
+              </div>
+              <div class="plan-cta">
+                <span class="plan-cta-pill">必要な月だけ追加購入</span>
+              </div>
             </div>
           </div>
         </div>
 
+        <!-- 2段目 -->
         <div class="pricing-grid">
+          <!-- Standard -->
           <div class="plan-card">
-            <div class="plan-name">Standardプラン</div>
-            <div class="plan-label">買い切り / 相談し放題</div>
-            <div class="plan-price">2,500円</div>
-            <div class="plan-cycle">セッション回数 無制限</div>
-            <ul class="plan-feature-list">
-              <li>サブスクが苦手な人向け</li>
-              <li>月ごとの上限を気にせず相談できる</li>
-              <li>回答ロジックはFree/Lightと同じ</li>
-            </ul>
-          </div>
-
-          <div class="plan-card">
-            <div class="plan-name">Proプラン</div>
-            <div class="plan-label">買い切り / 研究プラン</div>
-            <div class="plan-price">5,000円</div>
-            <div class="plan-cycle">セッション回数 無制限</div>
-            <ul class="plan-feature-list">
-              <li>相談者と相手のプロファイルを作成</li>
-              <li>MBTI / エニアグラムなど類型情報も反映</li>
-              <li>毎回その人前提で深掘りコメント</li>
-              <li>ボットの口調や共感/事実のバランスも調整可能</li>
-            </ul>
-            <div class="plan-footer-note">
-              ※決済後、プロファイル入力フォームをお送りします。入力完了後に本運用開始です。
+            <div class="plan-header plan-header-dark">
+              <div class="plan-name">Standardプラン</div>
+              <div class="plan-label">買い切り / 相談し放題</div>
+              <div class="plan-price-row">
+                <div class="plan-price">2,500円</div>
+                <div class="plan-cycle">/ セッション回数 無制限</div>
+              </div>
+            </div>
+            <div class="plan-body">
+              <ul class="plan-feature-list">
+                <li>サブスクが苦手な人向け</li>
+                <li>月ごとの上限を気にせず相談できる</li>
+                <li>回答ロジックはFree/Lightと同じ</li>
+              </ul>
+              <div class="plan-footer-note">
+                ※一度購入すれば、そのアカウントでは回数上限なく相談できます。
+              </div>
             </div>
           </div>
+
+          <!-- Pro -->
+          <div class="plan-card">
+            <div class="plan-header plan-header-dark">
+              <div class="plan-name">Proプラン</div>
+              <div class="plan-label">買い切り / 研究プラン</div>
+              <div class="plan-price-row">
+                <div class="plan-price">5,000円</div>
+                <div class="plan-cycle">/ セッション回数 無制限</div>
+              </div>
+            </div>
+            <div class="plan-body">
+              <ul class="plan-feature-list">
+                <li>相談者と相手のプロファイルを作成</li>
+                <li>MBTI / エニアグラムなど類型情報も反映</li>
+                <li>毎回その人前提で深掘りコメント</li>
+                <li>ボットの口調や共感/事実のバランスも調整可能</li>
+              </ul>
+              <div class="plan-footer-note">
+                ※決済後、プロファイル入力フォームをお送りします。入力完了後に本運用開始です。
+              </div>
+            </div>
+          </div>
+
+          <!-- ダミースペース（2段目中央寄せ用） -->
+          <div class="plan-card" style="visibility:hidden;"></div>
         </div>
 
         <div class="pricing-table-wrapper">
@@ -1127,7 +1195,7 @@
     <section id="flow">
       <div class="container">
         <h2 class="section-title">ご利用の流れ</h2>
-        <p class="section-sub">
+      <p class="section-sub">
           友だち追加 → 無料お試し → 必要に応じてプラン変更、というシンプルな流れです。
         </p>
 
