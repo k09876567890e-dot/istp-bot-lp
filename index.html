@@ -631,7 +631,7 @@
       }
     }
 
- /* スマホ向けの読みやすさ調整 */
+/* スマホ向けの読みやすさ＋ヒーローのレイアウト調整 */
 @media (max-width: 600px) {
   body {
     line-height: 1.8;
@@ -650,14 +650,19 @@
     font-size: 13px;
   }
 
+  /* ▼ ヒーロー全体を「重ねられる」ようにする */
+  .hero-inner {
+    display: block;
+    position: relative;
+  }
+
+  /* ▼ タイトルの右側に、電話を置くスペースをあける */
   .hero-title {
     font-size: 24px;
+    margin-right: 140px; /* ←ここで電話の幅ぶん空ける */
   }
 
-  .hero-lead {
-    font-size: 13px;
-  }
-
+  .hero-lead,
   .hero-list {
     font-size: 13px;
   }
@@ -666,25 +671,19 @@
     font-size: 12px;
   }
 
-  .card {
-    padding: 16px 14px 18px;
+  /* ▼ スマホでは電話モックを右上に固定 */
+  .hero-right {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 
-  .card h3 {
-    font-size: 15px;
-  }
-
-  .card p {
-    font-size: 12px;
-  }
-
-  .faq-item {
-    font-size: 12px;
-  }
-
+  /* ▼ 電話モック自体を小さくする */
   .phone-frame {
-    width: 55vw;
-    margin: 0 auto 4px;
+    width: 38vw;         /* 画面幅の 38％くらい */
+    min-width: 120px;    /* 小さすぎ防止 */
+    margin: 0;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.7);
   }
 
   .phone-inner {
@@ -699,6 +698,7 @@
     font-size: 8px;
   }
 }
+
 
   </style>
 </head>
