@@ -279,18 +279,6 @@
       color: #f9fafb;
     }
 
-    .line-header {
-      height: 26px;
-      border-radius: 18px;
-      background: linear-gradient(90deg, #22c55e, #16a34a);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      color: #ecfdf5;
-      font-weight: 500;
-    }
-
     .chat-bubble {
       border-radius: 18px;
       padding: 8px 10px;
@@ -488,13 +476,14 @@
     .pricing-table-wrapper {
       margin-top: 12px;
       overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
       font-size: 12px;
-      min-width: 600px;
+      min-width: 800px;
       background: #ffffff;
     }
 
@@ -615,11 +604,12 @@
       .hero-inner {
         grid-template-columns: minmax(0, 1fr);
       }
-      .hero-right {
-        order: -1;
-      }
       nav {
         display: none;
+      }
+      .hero-right {
+        justify-self: flex-end;
+        margin-top: 16px;
       }
       .pricing-grid {
         grid-template-columns: minmax(0, 1fr);
@@ -678,7 +668,7 @@
 
       .phone-frame {
         width: 55vw;
-        margin: 0 auto 4px;
+        margin: 0 0 4px auto;
       }
 
       .phone-inner {
@@ -760,7 +750,6 @@
         <div class="hero-right">
           <div class="phone-frame">
             <div class="phone-inner">
-              <div class="line-header">ISTP相談室（公式）</div>
               <div class="chat-bubble chat-user">
                 ISTPに既読スルーされて2日です…。<br />
                 もともと返信遅めなんですけど、これは気にしたほうがいいんでしょうか？
