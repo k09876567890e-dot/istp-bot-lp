@@ -16,15 +16,19 @@
   />
   <style>
     :root {
-      /* 全体トーン：薄いグレー背景＋白カード */
+      /* ライトテーマ用のベースカラー */
       --bg: #f3f4f6;
       --bg-soft: #e5e7eb;
       --panel: #ffffff;
-      --accent: #fb923c; /* やや柔らかめのオレンジ */
-      --accent-soft: rgba(251, 146, 60, 0.12);
+
+      /* アクセントカラー：やや赤寄りのオレンジ */
+      --accent: #ea580c;
+      --accent-soft: rgba(234, 88, 12, 0.12);
+
+      /* 文字と境界線 */
       --text-main: #111827;
       --text-sub: #4b5563;
-      --border-soft: #d1d5db;
+      --border-soft: #e5e7eb;
     }
 
     * { box-sizing: border-box; }
@@ -62,10 +66,11 @@
       backdrop-filter: blur(16px);
       background: linear-gradient(
         to bottom,
-        rgba(15, 23, 42, 0.98),
+        rgba(15, 23, 42, 0.96),
         rgba(15, 23, 42, 0.9)
       );
-      border-bottom: 1px solid rgba(15, 23, 42, 0.9);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+      color: #e5e7eb;
     }
 
     .header-inner {
@@ -75,7 +80,6 @@
       padding: 10px 20px;
       max-width: 1100px;
       margin: 0 auto;
-      color: #e5e7eb;
     }
 
     .logo {
@@ -96,6 +100,7 @@
       align-items: center;
       justify-content: center;
       font-size: 15px;
+      color: #111827;
     }
 
     nav {
@@ -131,24 +136,24 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #fed7aa, #fb923c);
-      color: #111827;
-      box-shadow: 0 10px 24px rgba(248, 179, 102, 0.35);
+      background: linear-gradient(135deg, #fdba74, #ea580c);
+      color: #ffffff;
+      box-shadow: 0 10px 24px rgba(234, 88, 12, 0.28);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 14px 32px rgba(248, 179, 102, 0.45);
+      box-shadow: 0 14px 32px rgba(234, 88, 12, 0.36);
     }
 
     .btn-outline {
-      border: 1px solid rgba(148, 163, 184, 0.9);
-      background: #ffffff;
+      border: 1px solid rgba(148, 163, 184, 0.65);
+      background: rgba(243, 244, 246, 0.9);
       color: #111827;
     }
 
     .btn-outline:hover {
-      background: #f9fafb;
+      background: #e5e7eb;
     }
 
     main {
@@ -198,8 +203,8 @@
       border-radius: 999px;
       padding: 4px 10px;
       font-size: 11px;
-      background: #111827;
-      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.4);
       color: #e5e7eb;
       margin-bottom: 12px;
     }
@@ -257,7 +262,7 @@
       border-radius: 30px;
       padding: 10px;
       background: radial-gradient(circle at top, #111827, #020617 65%);
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.4);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.65);
       border: 1px solid rgba(148, 163, 184, 0.45);
       position: relative;
     }
@@ -271,6 +276,7 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
+      color: #f9fafb;
     }
 
     .line-header {
@@ -303,9 +309,9 @@
 
     .chat-bot {
       align-self: flex-start;
-      background: rgba(17, 24, 39, 0.96);
+      background: rgba(15, 23, 42, 0.96);
       color: #e5e7eb;
-      border: 1px solid rgba(148, 163, 184, 0.6);
+      border: 1px solid rgba(148, 163, 184, 0.45);
       border-bottom-left-radius: 4px;
     }
 
@@ -334,7 +340,7 @@
     .pill {
       padding: 3px 8px;
       border-radius: 999px;
-      background: #ffffff;
+      background: #e5e7eb;
       border: 1px solid rgba(148, 163, 184, 0.6);
       color: var(--text-sub);
     }
@@ -357,7 +363,7 @@
       background: var(--panel);
       border: 1px solid var(--border-soft);
       padding: 18px 18px 20px;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
     }
 
     .card h3 {
@@ -422,8 +428,8 @@
 
     .plan-card.highlight {
       border-color: var(--accent);
-      box-shadow: 0 18px 42px rgba(251, 146, 60, 0.25);
-      background: radial-gradient(circle at top, #fff7ed, #ffffff 65%);
+      box-shadow: 0 18px 42px rgba(234, 88, 12, 0.18);
+      background: linear-gradient(180deg, #ffffff, #fff7ed);
     }
 
     .plan-name {
@@ -470,7 +476,7 @@
       border-radius: 999px;
       background: var(--accent-soft);
       color: var(--accent);
-      border: 1px solid rgba(251, 146, 60, 0.6);
+      border: 1px solid rgba(250, 204, 21, 0.6);
     }
 
     .plan-footer-note {
@@ -494,17 +500,17 @@
 
     th, td {
       padding: 8px 10px;
-      border-bottom: 1px solid rgba(148, 163, 184, 0.5);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.4);
       text-align: left;
     }
 
     th {
-      background: #f3f4f6;
+      background: #f9fafb;
       font-weight: 500;
     }
 
     tr:nth-child(even) td {
-      background: #f9fafb;
+      background: #f3f4f6;
     }
 
     /* Flow */
@@ -521,7 +527,7 @@
       background: var(--panel);
       border: 1px solid var(--border-soft);
       position: relative;
-      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
     }
 
     .flow-step-index {
@@ -555,7 +561,7 @@
       background: var(--panel);
       border: 1px solid var(--border-soft);
       font-size: 12px;
-      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
     }
 
     .faq-q {
@@ -571,16 +577,16 @@
     .notice {
       padding: 14px 16px;
       border-radius: 14px;
-      background: #fef2f2;
-      border: 1px solid #fecaca;
+      background: rgba(185, 28, 28, 0.06);
+      border: 1px solid rgba(248, 113, 113, 0.6);
       font-size: 12px;
-      color: #7f1d1d;
+      color: #991b1b;
     }
 
     footer {
-      border-top: 1px solid #e5e7eb;
+      border-top: 1px solid rgba(148, 163, 184, 0.3);
       padding: 16px 0 26px;
-      background: #111827;
+      background: #020617;
       font-size: 11px;
       color: #9ca3af;
     }
@@ -605,7 +611,6 @@
       text-underline-offset: 3px;
     }
 
-    /* レイアウト崩さないための既存ブレークポイント */
     @media (max-width: 880px) {
       .hero-inner {
         grid-template-columns: minmax(0, 1fr);
@@ -639,14 +644,10 @@
       }
     }
 
-    /* スマホ向けの読みやすさ調整（600px以下） */
+    /* スマホ向けの細かい調整 */
     @media (max-width: 600px) {
       body {
         line-height: 1.8;
-      }
-
-      .container {
-        padding: 0 18px;
       }
 
       .section-title {
@@ -662,20 +663,13 @@
         font-size: 24px;
       }
 
-      .hero-lead {
-        font-size: 13px;
-      }
-
+      .hero-lead,
       .hero-list {
         font-size: 13px;
       }
 
       .pill-row {
         font-size: 12px;
-      }
-
-      .card p {
-        font-size: 13px;
       }
 
       .faq-item {
@@ -702,7 +696,6 @@
   </style>
 </head>
 <body>
-  <!-- TODO: YOUR_LINE_URL_HERE を自分の公式LINE URLに置き換える -->
   <header>
     <div class="header-inner">
       <div class="logo">
@@ -738,7 +731,7 @@
             シミュレーションする相談LINEボット
           </h1>
           <p class="hero-lead">
-            「ISTPが何を考えているのか分からない」  <br />
+            「ISTPが何を考えているのか分からない」<br />
             「ISTPの脈あり、脈なしを判断したい」——<br />
             そんなときに、ISTP当事者の視点から、行動と心理を言語化します。
           </p>
@@ -794,14 +787,48 @@
       <div class="container">
         <h2 class="section-title">ISTP相談室は、こんなときに使えます</h2>
         <p class="section-sub">
-          ISTP（っぽい）相手への相談を、プランごとの「よくある使い方」のイメージで整理しました。
+          ISTP（っぽい）相手への相談を、「共通でできること」と「プランごとの使い方」に分けて整理しています。
         </p>
 
-        <!-- 上段：プラン別のおすすめ用途 -->
+        <!-- 共通でできること -->
+        <div class="card-tag" style="margin-bottom:12px;">
+          <span></span>すべてのプラン共通
+        </div>
         <div class="grid-3" style="margin-bottom:28px;">
+          <div class="card">
+            <h3>1. ISTPの行動パターンに寄せた解釈</h3>
+            <p>
+              一般的なISTPの傾向と、監修者であるけいの実体験をベースに、<br />
+              一般論だけでなく「僕ならこう考える」もセットでお伝えします。
+            </p>
+          </div>
+          <div class="card">
+            <h3>2. DMではなく「ボット」に投げられる</h3>
+            <p>
+              個人アカウント宛てに長文DMを送るのは気が引ける、という人でも、<br />
+              LINEボット相手なら気楽に投げられます。深夜でも早朝でもOKです。
+            </p>
+          </div>
+          <div class="card">
+            <h3>3. 回数と深さに合わせた料金設計</h3>
+            <p>
+              無料で月5セッションから試せて、<br />
+              「たまに相談したい」「毎週壁打ちしたい」「一人を研究したい」など、<br />
+              使い方に応じてプランを選べるようにしています。
+            </p>
+          </div>
+        </div>
+
+        <!-- プランごとのよくある使い方 -->
+        <div class="card-tag" style="margin-bottom:12px;">
+          <span></span>プラン別のよくある使い方
+        </div>
+        <div class="grid-3">
           <!-- Free / Light / Standard 向け -->
           <div class="card">
-            <div class="card-tag"><span></span>Free / Light / Standard 向け</div>
+            <div class="card-tag" style="margin-top:0;margin-bottom:8px;">
+              <span></span>Free / Light / Standard 向け
+            </div>
             <h3>LINEの温度感が読めない</h3>
             <p>
               返信がそっけない、既読スルーが多い——。<br />
@@ -812,52 +839,28 @@
 
           <!-- Free / Light 向け -->
           <div class="card">
-            <div class="card-tag"><span></span>Free / Light 向け</div>
+            <div class="card-tag" style="margin-top:0;margin-bottom:8px;">
+              <span></span>Free / Light 向け
+            </div>
             <h3>どう接していけばいいか迷う</h3>
             <p>
               重くなりすぎず、でも自分の不安は伝えたい。<br />
-              相手の負担を増やしすぎない返事の方向性や、距離の詰め方について、<br />
+              相手の負担を増やしすぎない接し方や、距離の詰め方について、<br />
               いくつかのパターンをISTP目線で提案します。日常的な壁打ちはFree / Light想定です。
             </p>
           </div>
 
           <!-- Pro プラン向け -->
           <div class="card">
-            <div class="card-tag"><span></span>Pro プラン向け</div>
+            <div class="card-tag" style="margin-top:0;margin-bottom:8px;">
+              <span></span>Pro プラン向け
+            </div>
             <h3>1人の相手を長期で見ていきたい</h3>
             <p>
               Proプランでは、相談者と相手のプロファイルを作成し、<br />
               その前提で毎回の相談を積み上げていく「研究モード」を用意しています。<br />
-              「この人だけをじっくり追いかけたい」ケースに向いています。
-            </p>
-          </div>
-        </div>
-
-        <!-- 下段：すべてのプラン共通の特徴 -->
-        <div class="grid-3">
-          <div class="card">
-            <div class="card-tag"><span></span>すべてのプラン共通</div>
-            <h3>1. ISTPの行動パターンに寄せた解釈</h3>
-            <p>
-              一般的なISTPの傾向と、監修者であるけいの実体験をベースに、<br />
-              一般論だけでなく「僕ならこう考える」もセットでお伝えします。
-            </p>
-          </div>
-          <div class="card">
-            <div class="card-tag"><span></span>すべてのプラン共通</div>
-            <h3>2. DMではなく「ボット」に投げられる</h3>
-            <p>
-              個人アカウント宛てに長文DMを送るのは気が引ける、という人でも、<br />
-              LINEボット相手なら気楽に投げられます。深夜でも早朝でもOKです。
-            </p>
-          </div>
-          <div class="card">
-            <div class="card-tag"><span></span>すべてのプラン共通</div>
-            <h3>3. 回数と深さに合わせた料金設計</h3>
-            <p>
-              無料で月5セッションから試せて、<br />
-              「たまに相談したい」「毎週壁打ちしたい」「一人を研究したい」など、<br />
-              使い方に応じてプランを選べるようにしています。
+              ボットの口調や、共感寄り／事実寄りといったスタイルも調整しながら、<br />
+              「この人だけをじっくり追いかけたい」ケースを想定しています。
             </p>
           </div>
         </div>
@@ -898,10 +901,10 @@
             <ul class="plan-feature-list">
               <li>状況が動くたびに壁打ちしたい人向け</li>
               <li>回数をそこまで気にせず相談できる</li>
-              <li>解約はリッチメニューの「解約」ボタンをタップするだけ</li>
+              <li>解約はリッチメニューの「解約」ボタンからいつでも可能</li>
             </ul>
             <div class="plan-footer-note">
-              ※申込・解約はすべて公式LINE内のボタンから行えます。
+              ※申込・解約はすべて公式LINE内のリッチメニューから行えます。
             </div>
           </div>
 
@@ -942,24 +945,10 @@
               <li>相談者と相手のプロファイルを作成</li>
               <li>MBTI / エニアグラムなど類型情報も反映</li>
               <li>毎回その人前提で深掘りコメント</li>
+              <li>ボットの口調や共感/事実のバランスも調整可能</li>
             </ul>
             <div class="plan-footer-note">
               ※決済後、プロファイル入力フォームをお送りします。入力完了後に本運用開始です。
-            </div>
-          </div>
-
-          <div class="plan-card">
-            <div class="plan-name">申込方法</div>
-            <div class="plan-label">すべてLINEから</div>
-            <div class="plan-price">-</div>
-            <div class="plan-cycle">-</div>
-            <ul class="plan-feature-list">
-              <li>このページから友だち追加</li>
-              <li>LINEのリッチメニュー or 案内メッセージからプランを選択</li>
-              <li>Stripeの決済画面に遷移してお支払い</li>
-            </ul>
-            <div class="plan-footer-note">
-              ※Xなどから直接このLPに来た方も、必ず先にLINEを友だち追加してください。
             </div>
           </div>
         </div>
@@ -978,41 +967,45 @@
             <tbody>
               <tr>
                 <td>Free</td>
-                <td>0円</td>
+                <td>0</td>
                 <td>月5セッション</td>
                 <td>無料</td>
                 <td>まずは気軽に試したい</td>
               </tr>
               <tr>
                 <td>Light</td>
-                <td>月500円</td>
+                <td>500</td>
                 <td>月20セッション</td>
                 <td>月額サブスク</td>
                 <td>定期的にISTP相談したい</td>
               </tr>
               <tr>
                 <td>追加15セッション</td>
-                <td>1回500円</td>
+                <td>500</td>
                 <td>＋15セッション</td>
                 <td>買い切り</td>
                 <td>今月だけ枠を増やしたい</td>
               </tr>
               <tr>
                 <td>Standard</td>
-                <td>2,500円</td>
+                <td>2500</td>
                 <td>無制限</td>
                 <td>買い切り</td>
                 <td>サブスクなしで相談し放題にしたい</td>
               </tr>
               <tr>
                 <td>Pro</td>
-                <td>5,000円</td>
+                <td>5000</td>
                 <td>無制限</td>
                 <td>買い切り＋プロファイル作成</td>
                 <td>一人の相手を研究レベルで理解したい</td>
               </tr>
             </tbody>
           </table>
+        </div>
+
+        <div style="margin-top:16px;font-size:12px;color:var(--text-sub);">
+          ※Xなどから直接このLPに来た方も、必ず先に公式LINEを友だち追加してからお申し込みください。
         </div>
 
         <div style="margin-top:28px;text-align:center;">
@@ -1084,15 +1077,15 @@
           <div class="faq-item">
             <div class="faq-q">Q. 本当にISTPの人が答えているんですか？</div>
             <div class="faq-a">
-              A. 実際の回答はAIですが、その前提となるルールやスタンスはISTP男性「けい」が監修しています。<br />
+              A. 実際の回答はAIですが、その前提となるルールやスタンスはISTPのけいが監修しています。<br />
               一般的なISTPの傾向と、自分の実体験・価値観をもとにプロンプトを設計し、<br />
-              「ISTP当事者ならこう考えそう」というラインに寄せて返すように調整しています。
+              「ISTP当事者ならこう考えていそう」というラインに寄せて返すように調整しています。
             </div>
           </div>
           <div class="faq-item">
             <div class="faq-q">Q. ISTP以外のタイプの相談でも使えますか？</div>
             <div class="faq-a">
-              A. 可能ですが、想定しているメインは「ISTPっぽい相手」に対する相談です。<br />
+              A. 可能ですが、想定しているメインはISTP（っぽい）相手に対する相談です。<br />
               他タイプでも、「ISTP寄りの特徴が強い人」であればある程度参考になると思います。
             </div>
           </div>
