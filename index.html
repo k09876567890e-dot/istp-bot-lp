@@ -742,60 +742,62 @@
       color: #e5e7eb;
     }
 
-    @media (max-width: 880px) {
-      .hero-inner {
-        grid-template-columns: minmax(0, 1fr);
-      }
+  @media (max-width: 880px) {
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
 
-      .hero-right {
-        display: none;
-      }
+  .hero-right {
+    display: none;
+  }
 
-      nav {
-        display: none;
-      }
+  nav {
+    display: none;
+  }
 
-      /* 料金カードは横スクロール */
+  /* ▼料金プランを横スクロールにする */
   .pricing-grid {
     display: flex;
     flex-wrap: nowrap;
     gap: 14px;
-    padding-bottom: 10px;
     overflow-x: auto;
+    padding: 4px 4px 12px;
+    margin: 0 -16px; /* 画面端まで広げる */
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
   }
 
   .pricing-grid .plan-card {
-    min-width: 80vw;
-    max-width: 80vw;
+    flex: 0 0 82%;
+    max-width: 82%;
     scroll-snap-align: start;
   }
+  /* ▲ここまでが横スクロール設定 */
 
-      .grid-3 {
-        grid-template-columns: minmax(0, 1fr);
-      }
+  .grid-3 {
+    grid-template-columns: minmax(0, 1fr);
+  }
 
-      .grid-2 {
-        grid-template-columns: minmax(0, 1fr);
-      }
+  .grid-2 {
+    grid-template-columns: minmax(0, 1fr);
+  }
 
-      .flow-steps {
-        grid-template-columns: minmax(0, 1fr);
-      }
+  .flow-steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
 
-      .faq-list {
-        grid-template-columns: minmax(0, 1fr);
-      }
+  .faq-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
 
-      .hero {
-        padding-top: 64px;
-      }
+  .hero {
+    padding-top: 64px;
+  }
 
-      .container {
-        padding: 0 16px;
-      }
-    }
+  .container {
+    padding: 0 16px;
+  }
+}
 
     @media (max-width: 600px) {
       body {
