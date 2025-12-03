@@ -61,7 +61,7 @@
       top: 0;
       z-index: 20;
       backdrop-filter: blur(12px);
-      background: rgba(2, 6, 23, 0.96);
+      background: #020617;
       border-bottom: 1px solid #020617;
       color: #f9fafb;
     }
@@ -479,6 +479,11 @@
       margin-bottom: 28px;
     }
 
+    /* 下段だけ PC で 2 カラム */
+    .pricing-grid--two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .plan-card {
       border-radius: 24px;
       background: var(--panel);
@@ -492,7 +497,7 @@
 
     .plan-head {
       padding: 18px 20px 14px;
-      background: #020617;          /* Light以外は黒 */
+      background: #020617; /* Light 以外は黒 */
       color: #f9fafb;
     }
 
@@ -608,12 +613,12 @@
       color: #fefce8;
     }
 
-       .pricing-table-wrapper {
+    .pricing-table-wrapper {
       margin-top: 20px;
       padding: 16px;
       border-radius: 18px;
-      background: #ffffff; /* セクション背景よりしっかり白く */
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08); /* カードっぽく浮かせる */
+      background: #ffffff;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
       border: 1px solid #e5e7eb;
       overflow-x: auto;
     }
@@ -623,7 +628,7 @@
       border-collapse: collapse;
       font-size: 12px;
       min-width: 600px;
-      background: transparent; /* 背景は wrapper に任せる */
+      background: transparent;
       color: var(--text-main);
     }
 
@@ -635,12 +640,12 @@
     }
 
     th {
-      background: #f3f4f6; /* ヘッダーを少し濃く */
+      background: #f3f4f6;
       font-weight: 500;
     }
 
     tr:nth-child(even) td {
-      background: #f9fafb; /* 偶数行をうっすらグレーに */
+      background: #f9fafb;
     }
 
     /* Flow */
@@ -742,63 +747,65 @@
       color: #e5e7eb;
     }
 
-  @media (max-width: 880px) {
-  .hero-inner {
-    grid-template-columns: minmax(0, 1fr);
-  }
+    /* ---------- 880px以下（スマホ想定） ---------- */
+    @media (max-width: 880px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
 
-  .hero-right {
-    display: none;
-  }
+      .hero-right {
+        display: none;
+      }
 
-  nav {
-    display: none;
-  }
+      nav {
+        display: none;
+      }
 
-  /* ▼料金プランを横スクロールにする */
-  .pricing-grid {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 14px;
-    overflow-x: auto;
-    padding: 4px 4px 12px;
-    margin: 0 -16px; /* 画面端まで広げる */
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
+      /* ▼料金プランを横スクロールにする */
+      .pricing-grid {
+        display: flex !important;
+        flex-wrap: nowrap;
+        gap: 14px;
+        overflow-x: auto;
+        padding: 4px 4px 12px;
+        margin: 0 -16px 28px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+      }
 
-  .pricing-grid .plan-card {
-    flex: 0 0 82%;
-    max-width: 82%;
-    scroll-snap-align: start;
-  }
-  /* ▲ここまでが横スクロール設定 */
+      .pricing-grid .plan-card {
+        flex: 0 0 82%;
+        max-width: 82%;
+        scroll-snap-align: start;
+      }
+      /* ▲ここまで横スクロール */
 
-  .grid-3 {
-    grid-template-columns: minmax(0, 1fr);
-  }
+      .grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
 
-  .grid-2 {
-    grid-template-columns: minmax(0, 1fr);
-  }
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
 
-  .flow-steps {
-    grid-template-columns: minmax(0, 1fr);
-  }
+      .flow-steps {
+        grid-template-columns: minmax(0, 1fr);
+      }
 
-  .faq-list {
-    grid-template-columns: minmax(0, 1fr);
-  }
+      .faq-list {
+        grid-template-columns: minmax(0, 1fr);
+      }
 
-  .hero {
-    padding-top: 64px;
-  }
+      .hero {
+        padding-top: 64px;
+      }
 
-  .container {
-    padding: 0 16px;
-  }
-}
+      .container {
+        padding: 0 16px;
+      }
+    }
 
+    /* ---------- 600px以下の微調整 ---------- */
     @media (max-width: 600px) {
       body {
         line-height: 1.8;
@@ -1119,7 +1126,7 @@
         </div>
 
         <!-- 下段：Standard / Pro -->
-        <div class="pricing-grid" style="grid-template-columns: repeat(2,minmax(0,1fr));">
+        <div class="pricing-grid pricing-grid--two">
           <!-- Standard -->
           <div class="plan-card">
             <div class="plan-head">
