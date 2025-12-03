@@ -16,16 +16,13 @@
   />
   <style>
     :root {
-      /* ライトテーマ用のベースカラー */
       --bg: #f3f4f6;
       --bg-soft: #e5e7eb;
       --panel: #ffffff;
 
-      /* アクセントカラー：やや赤寄りのオレンジ */
       --accent: #ea580c;
       --accent-soft: rgba(234, 88, 12, 0.12);
 
-      /* 文字と境界線 */
       --text-main: #111827;
       --text-sub: #4b5563;
       --border-soft: #e5e7eb;
@@ -271,7 +268,7 @@
       justify-self: center;
     }
 
-    /* スマホ画面（ヒーロー内） */
+    /* phone mock */
     .phone-frame {
       width: 230px;
       aspect-ratio: 9 / 16;
@@ -393,7 +390,7 @@
       text-align: center;
     }
 
-    /* Pills */
+    /* pills */
     .pill-row {
       display: flex;
       flex-wrap: wrap;
@@ -410,7 +407,7 @@
       color: var(--text-sub);
     }
 
-    /* セクション用タグ */
+    /* section tag */
     .section-tag {
       display: inline-flex;
       align-items: center;
@@ -431,7 +428,7 @@
       background: var(--accent);
     }
 
-    /* Cards grid */
+    /* cards */
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -499,7 +496,7 @@
       margin-top: 4px;
     }
 
-    /* Pricing */
+    /* pricing */
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -510,7 +507,7 @@
     .plan-card {
       border-radius: 18px;
       padding: 18px 16px 18px;
-      background: var(--panel);
+      background: #f9fafb;             /* 全カード同じトーン */
       border: 1px solid var(--border-soft);
       position: relative;
       overflow: hidden;
@@ -521,9 +518,10 @@
     }
 
     .plan-card.highlight {
-      border-color: var(--accent);
-      box-shadow: 0 18px 42px rgba(234, 88, 12, 0.18);
-      background: linear-gradient(180deg, #ffffff, #fff7ed);
+      background: linear-gradient(135deg, #fed7aa, #ea580c);
+      border-color: transparent;
+      box-shadow: 0 18px 42px rgba(234, 88, 12, 0.28);
+      color: #fffbeb;
     }
 
     .plan-name {
@@ -573,15 +571,31 @@
       font-size: 10px;
       padding: 2px 8px;
       border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      border: 1px solid rgba(250, 204, 21, 0.6);
+      background: rgba(15, 23, 42, 0.14);
+      color: #fffbeb;
+      border: 1px solid rgba(15, 23, 42, 0.3);
     }
 
     .plan-footer-note {
       font-size: 11px;
       color: var(--text-sub);
       margin-top: 4px;
+    }
+
+    /* Lightカード内の文字色統一 */
+    .plan-card.highlight .plan-name,
+    .plan-card.highlight .plan-label,
+    .plan-card.highlight .plan-price,
+    .plan-card.highlight .plan-cycle,
+    .plan-card.highlight .plan-cycle strong,
+    .plan-card.highlight .plan-feature-list,
+    .plan-card.highlight .plan-feature-list li,
+    .plan-card.highlight .plan-footer-note {
+      color: #fffbeb;
+    }
+
+    .plan-card.highlight .plan-cycle strong {
+      font-weight: 700;
     }
 
     .pricing-table-wrapper {
@@ -612,7 +626,7 @@
       background: #f3f4f6;
     }
 
-    /* Flow */
+    /* flow */
     .flow-steps {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -672,7 +686,7 @@
       color: var(--text-sub);
     }
 
-    /* Notice */
+    /* notice */
     .notice {
       padding: 14px 16px;
       border-radius: 14px;
@@ -710,23 +724,17 @@
       text-underline-offset: 3px;
     }
 
-    /* タブレット以下 */
+    /* tablet以下 */
     @media (max-width: 880px) {
       .hero-inner {
         grid-template-columns: minmax(0, 1fr);
         row-gap: 24px;
       }
 
-      .hero-right {
-        order: -1;
-        margin-bottom: 4px;
-      }
-
       nav {
         display: none;
       }
 
-      /* プランは 2 カラム維持して比較しやすく */
       .pricing-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 14px;
@@ -757,7 +765,7 @@
       }
     }
 
-    /* スマホ向けの細かい調整 */
+    /* smartphone */
     @media (max-width: 600px) {
       body {
         line-height: 1.8;
@@ -798,6 +806,11 @@
         font-size: 12px;
       }
 
+      /* ★スマホではスマホ画面を非表示 */
+      .hero-right {
+        display: none;
+      }
+
       .phone-frame {
         width: 52vw;
         margin: 0 auto 2px;
@@ -815,7 +828,6 @@
         font-size: 8px;
       }
 
-      /* プランカードを少しコンパクトにして一画面に収めやすく */
       .plan-card {
         padding: 14px 10px 14px;
       }
@@ -861,7 +873,7 @@
   </header>
 
   <main>
-    <!-- Hero -->
+    <!-- hero -->
     <section class="hero" id="hero">
       <div class="container hero-inner">
         <div>
@@ -940,7 +952,7 @@
       </div>
     </section>
 
-    <!-- Features -->
+    <!-- features -->
     <section id="features">
       <div class="container">
         <h2 class="section-title">ISTP相談室は、こんなときに使えます</h2>
@@ -948,7 +960,6 @@
           ISTP（っぽい）相手への相談を、「共通でできること」と「プランごとの使い方」に分けて整理しています。
         </p>
 
-        <!-- 共通でできること -->
         <div class="section-tag">
           <span class="section-tag-dot"></span>すべてのプラン共通
         </div>
@@ -977,12 +988,10 @@
           </div>
         </div>
 
-        <!-- プランごとのよくある使い方 -->
         <div class="section-tag">
           <span class="section-tag-dot"></span>プラン別のよくある使い方
         </div>
         <div class="grid-3">
-          <!-- Free / Light / Standard 向け -->
           <div class="card">
             <div class="card-tag" style="margin-top:0;margin-bottom:8px;">
               <span></span>Free / Light / Standard 向け
@@ -995,7 +1004,6 @@
             </p>
           </div>
 
-          <!-- Free / Light 向け -->
           <div class="card">
             <div class="card-tag" style="margin-top:0;margin-bottom:8px;">
               <span></span>Free / Light 向け
@@ -1008,7 +1016,6 @@
             </p>
           </div>
 
-          <!-- Pro プラン向け -->
           <div class="card">
             <div class="card-tag" style="margin-top:0;margin-bottom:8px;">
               <span></span>Pro プラン向け
@@ -1025,7 +1032,7 @@
       </div>
     </section>
 
-    <!-- Pricing -->
+    <!-- pricing -->
     <section id="plans">
       <div class="container">
         <h2 class="section-title">料金プラン</h2>
@@ -1178,7 +1185,7 @@
       </div>
     </section>
 
-    <!-- Flow -->
+    <!-- flow -->
     <section id="flow">
       <div class="container">
         <h2 class="section-title">ご利用の流れ</h2>
