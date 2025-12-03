@@ -682,40 +682,50 @@
       text-underline-offset: 3px;
     }
 
-    /* タブレット以下 */
     @media (max-width: 880px) {
-      .hero-inner {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      /* スマホ画面はテキストの下に出す */
-      .hero-right {
-        margin-top: 20px;
-      }
-      nav {
-        display: none;
-      }
-      .pricing-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .grid-3 {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .grid-2 {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .flow-steps {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .faq-list {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .hero {
-        padding-top: 64px;
-      }
-      .container {
-        padding: 0 16px;
-      }
-    }
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero-right {
+    order: -1;
+  }
+
+  nav {
+    display: none;
+  }
+
+  /* ★ ここを 1 カラム → 2 カラムに変更 */
+  .pricing-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .grid-3 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .grid-2 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .flow-steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .faq-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero {
+    padding-top: 64px;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+}
+
 
     /* スマホ向けの細かい調整 */
     @media (max-width: 600px) {
