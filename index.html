@@ -16,16 +16,17 @@
   />
   <style>
     :root {
-      --bg: #0b1120;
-      --bg-soft: #0f172a;
-      --panel: #020617;
+      /* 全体をライトテーマに変更 */
+      --bg: #f3f4f6;
+      --bg-soft: #e5e7eb;
+      --panel: #ffffff;
 
       --accent: #ea580c;
-      --accent-soft: rgba(234, 88, 12, 0.16);
+      --accent-soft: rgba(234, 88, 12, 0.12);
 
-      --text-main: #f9fafb;
-      --text-sub: #9ca3af;
-      --border-soft: #1f2937;
+      --text-main: #111827;
+      --text-sub: #4b5563;
+      --border-soft: #e5e7eb;
     }
 
     * { box-sizing: border-box; }
@@ -34,7 +35,7 @@
       margin: 0;
       font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1e293b 0, #020617 55%);
+      background: var(--bg);
       color: var(--text-main);
       line-height: 1.7;
     }
@@ -61,13 +62,9 @@
       top: 0;
       z-index: 20;
       backdrop-filter: blur(16px);
-      background: linear-gradient(
-        to bottom,
-        rgba(15, 23, 42, 0.98),
-        rgba(15, 23, 42, 0.92)
-      );
-      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
-      color: #e5e7eb;
+      background: rgba(248, 250, 252, 0.96);
+      border-bottom: 1px solid var(--border-soft);
+      color: var(--text-main);
     }
 
     .header-inner {
@@ -91,7 +88,7 @@
       width: 28px;
       height: 28px;
       border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, #f9fafb, #1f2937 60%);
+      background: radial-gradient(circle at 30% 20%, #f9fafb, #e5e7eb 60%);
       border: 2px solid var(--accent);
       display: flex;
       align-items: center;
@@ -104,11 +101,12 @@
       display: flex;
       gap: 18px;
       font-size: 13px;
-      color: #e5e7eb;
+      color: var(--text-sub);
     }
 
     nav a {
       opacity: 0.85;
+      cursor: pointer;
     }
 
     nav a:hover {
@@ -135,22 +133,22 @@
     .btn-primary {
       background: linear-gradient(135deg, #fdba74, #ea580c);
       color: #ffffff;
-      box-shadow: 0 10px 24px rgba(234, 88, 12, 0.38);
+      box-shadow: 0 10px 24px rgba(234, 88, 12, 0.3);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 16px 36px rgba(234, 88, 12, 0.5);
+      box-shadow: 0 16px 36px rgba(234, 88, 12, 0.45);
     }
 
     .btn-outline {
       border: 1px solid rgba(148, 163, 184, 0.65);
-      background: rgba(15, 23, 42, 0.9);
-      color: #e5e7eb;
+      background: #ffffff;
+      color: var(--text-main);
     }
 
     .btn-outline:hover {
-      background: rgba(30, 64, 175, 0.7);
+      background: var(--bg-soft);
     }
 
     main {
@@ -166,7 +164,7 @@
     }
 
     section:nth-of-type(even) {
-      background: radial-gradient(circle at top, #111827 0, #020617 60%);
+      background: #f9fafb;
     }
 
     .section-title {
@@ -240,7 +238,7 @@
       border-radius: 30px;
       padding: 10px;
       background: radial-gradient(circle at top, #111827, #020617 65%);
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.4);
       border: 1px solid rgba(148, 163, 184, 0.45);
       position: relative;
     }
@@ -367,7 +365,7 @@
     .pill {
       padding: 3px 8px;
       border-radius: 999px;
-      background: #0f172a;
+      background: #ffffff;
       border: 1px solid rgba(148, 163, 184, 0.6);
       color: var(--text-sub);
     }
@@ -380,8 +378,8 @@
       padding: 3px 10px;
       font-size: 11px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.96);
-      color: #e5e7eb;
+      background: #ffffff;
+      color: var(--text-main);
       border: 1px solid rgba(148, 163, 184, 0.6);
       margin-bottom: 12px;
     }
@@ -408,10 +406,10 @@
 
     .card {
       border-radius: 18px;
-      background: #020617;
-      border: 1px solid rgba(30, 64, 175, 0.5);
+      background: var(--panel);
+      border: 1px solid rgba(148, 163, 184, 0.25);
       padding: 18px 18px 20px;
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.7);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
     }
 
     .card h3 {
@@ -449,9 +447,9 @@
       font-size: 10px;
       border-radius: 999px;
       border: 1px solid rgba(148, 163, 184, 0.7);
-      color: #e5e7eb;
+      color: var(--text-main);
       margin-bottom: 8px;
-      background: #020617;
+      background: #f9fafb;
     }
 
     .card-tag span {
@@ -483,9 +481,9 @@
 
     .plan-card {
       border-radius: 24px;
-      background: #020617;
-      border: 1px solid rgba(15, 23, 42, 0.9);
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.85);
+      background: var(--panel);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.08);
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -494,8 +492,8 @@
 
     .plan-head {
       padding: 18px 20px 14px;
-      background: #020617;
-      color: #e5e7eb;
+      background: var(--panel);
+      color: var(--text-main);
     }
 
     .plan-head-label {
@@ -507,8 +505,8 @@
       border: 1px solid rgba(148, 163, 184, 0.55);
       font-size: 11px;
       margin-bottom: 12px;
-      color: #e5e7eb;
-      background: rgba(15, 23, 42, 0.85);
+      color: var(--text-sub);
+      background: #f9fafb;
     }
 
     .plan-name {
@@ -519,8 +517,8 @@
 
     .plan-body {
       padding: 16px 20px 18px;
-      background: #020617;
-      color: #e5e7eb;
+      background: var(--panel);
+      color: var(--text-main);
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -578,13 +576,13 @@
       border-radius: 999px;
       border: 1px solid rgba(148, 163, 184, 0.7);
       font-size: 11px;
-      background: rgba(15, 23, 42, 0.9);
-      color: #e5e7eb;
+      background: #f9fafb;
+      color: var(--text-main);
     }
 
     .plan-card.highlight {
-      border-color: rgba(248, 250, 252, 0.35);
-      box-shadow: 0 22px 60px rgba(248, 113, 113, 0.22);
+      border-color: rgba(234, 88, 12, 0.6);
+      box-shadow: 0 22px 50px rgba(234, 88, 12, 0.18);
       position: relative;
     }
 
@@ -592,7 +590,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at top, rgba(251, 191, 36, 0.35), transparent 60%);
+      background: radial-gradient(circle at top, rgba(251, 191, 36, 0.25), transparent 60%);
       opacity: 1;
       pointer-events: none;
     }
@@ -600,16 +598,19 @@
     .plan-card.highlight .plan-head {
       position: relative;
       background: linear-gradient(135deg, #f97316, #ea580c);
+      color: #fefce8;
     }
 
     .plan-card.highlight .plan-head-label {
       border-color: rgba(254, 249, 195, 0.9);
       background: rgba(15, 23, 42, 0.12);
+      color: #fefce8;
     }
 
     .plan-card.highlight .plan-body {
       position: relative;
-      background: #020617;
+      background: var(--panel);
+      color: var(--text-main);
     }
 
     .pricing-table-wrapper {
@@ -622,25 +623,25 @@
       border-collapse: collapse;
       font-size: 12px;
       min-width: 600px;
-      background: #020617;
-      color: #e5e7eb;
+      background: var(--panel);
+      color: var(--text-main);
       border-radius: 16px;
       overflow: hidden;
     }
 
     th, td {
       padding: 8px 10px;
-      border-bottom: 1px solid rgba(30, 64, 175, 0.6);
+      border-bottom: 1px solid var(--border-soft);
       text-align: left;
     }
 
     th {
-      background: #020617;
+      background: #f9fafb;
       font-weight: 500;
     }
 
     tr:nth-child(even) td {
-      background: #020617;
+      background: #f9fafb;
     }
 
     /* Flow */
@@ -654,10 +655,10 @@
     .flow-step {
       padding: 14px 12px 14px;
       border-radius: 16px;
-      background: #020617;
-      border: 1px solid rgba(30, 64, 175, 0.5);
+      background: var(--panel);
+      border: 1px solid rgba(148, 163, 184, 0.4);
       position: relative;
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.7);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
     }
 
     .flow-step-index {
@@ -688,10 +689,10 @@
     .faq-item {
       padding: 14px 14px 16px;
       border-radius: 16px;
-      background: #020617;
-      border: 1px solid rgba(30, 64, 175, 0.5);
+      background: var(--panel);
+      border: 1px solid rgba(148, 163, 184, 0.4);
       font-size: 12px;
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.7);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
     }
 
     .faq-q {
@@ -707,18 +708,18 @@
     .notice {
       padding: 14px 16px;
       border-radius: 14px;
-      background: rgba(185, 28, 28, 0.12);
-      border: 1px solid rgba(248, 113, 113, 0.6);
+      background: #fef2f2;
+      border: 1px solid #fecaca;
       font-size: 12px;
-      color: #fecaca;
+      color: #991b1b;
     }
 
     footer {
-      border-top: 1px solid rgba(30, 64, 175, 0.7);
+      border-top: 1px solid var(--border-soft);
       padding: 16px 0 26px;
-      background: #020617;
+      background: #ffffff;
       font-size: 11px;
-      color: #9ca3af;
+      color: #6b7280;
     }
 
     .footer-inner {
