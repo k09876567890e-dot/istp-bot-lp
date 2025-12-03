@@ -6,14 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --istp-yellow: #F3B300;
-      --istp-yellow-soft: rgba(243, 179, 0, 0.08);
-      --istp-navy: #020617;
-      --istp-bg: #F3F4F6;
-      --istp-card-radius: 18px;
-      --istp-shadow-soft: 0 14px 30px rgba(15, 23, 42, 0.14);
+      /* ISTP相談室 共通カラー */
+      --accent: #f97316; /* オレンジ（ISTPバンダナ寄り） */
+      --accent-soft: rgba(249, 115, 22, 0.12);
+      --navy: #020617;
+      --bg: #f3f4f6;
+      --card-radius: 18px;
+      --shadow-soft: 0 14px 30px rgba(15, 23, 42, 0.12);
       --text-main: #111827;
-      --text-muted: #6B7280;
+      --text-muted: #6b7280;
     }
 
     * {
@@ -24,7 +25,7 @@
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         sans-serif;
-      background: var(--istp-bg);
+      background: var(--bg);
       color: var(--text-main);
       line-height: 1.7;
     }
@@ -37,66 +38,75 @@
     .page {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 32px 20px 80px;
+      padding: 20px 20px 80px;
     }
+
+    /* ── ヘッダー / ナビ ───────────────── */
 
     header {
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
 
-    .logo-row {
+    .site-header {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      margin-bottom: 20px;
+      justify-content: space-between;
+      padding: 10px 4px 16px;
     }
 
     .logo {
-      font-weight: 700;
-      font-size: 1.1rem;
       display: flex;
       align-items: center;
       gap: 8px;
+      font-weight: 700;
+      font-size: 1.1rem;
     }
 
     .logo-mark {
       width: 26px;
       height: 26px;
       border-radius: 999px;
-      background: var(--istp-yellow);
+      background: var(--accent);
       display: inline-flex;
       align-items: center;
       justify-content: center;
       font-size: 0.8rem;
       font-weight: 800;
-      color: var(--istp-navy);
+      color: #fff7ed;
     }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .site-nav a {
+      cursor: pointer;
+    }
+
+    .site-nav-cta {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      background: #ffffff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    /* ── ヒーロー ───────────────── */
 
     .hero {
       background: #ffffff;
       border-radius: 26px;
-      box-shadow: var(--istp-shadow-soft);
-      padding: 28px 24px 28px;
+      box-shadow: var(--shadow-soft);
+      padding: 24px 24px 24px;
       display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
       gap: 20px;
-    }
-
-    .hero-title {
-      font-size: 1.6rem;
-      font-weight: 750;
-      margin-bottom: 10px;
-    }
-
-    .hero-lead {
-      color: var(--text-muted);
-      font-size: 0.93rem;
-      margin-bottom: 18px;
-    }
-
-    .hero-note {
-      font-size: 0.8rem;
-      color: var(--text-muted);
     }
 
     .hero-badge {
@@ -104,33 +114,51 @@
       align-items: center;
       padding: 4px 12px;
       border-radius: 999px;
-      background: var(--istp-yellow-soft);
-      color: var(--istp-yellow);
+      background: var(--accent-soft);
+      color: var(--accent);
       font-size: 0.78rem;
       font-weight: 650;
-      margin-bottom: 10px;
       gap: 6px;
+      margin-bottom: 10px;
     }
 
     .hero-badge-dot {
       width: 8px;
       height: 8px;
       border-radius: 999px;
-      background: var(--istp-yellow);
+      background: var(--accent);
+    }
+
+    .hero-title {
+      font-size: 1.7rem;
+      font-weight: 750;
+      margin: 0 0 10px;
+    }
+
+    .hero-lead {
+      color: var(--text-muted);
+      font-size: 0.93rem;
+      margin: 0 0 18px;
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 10px;
     }
 
     .hero-cta {
       display: flex;
-      gap: 10px;
-      margin-top: 18px;
       flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 6px;
     }
 
     .btn-primary {
       padding: 10px 18px;
       border-radius: 999px;
       border: none;
-      background: var(--istp-navy);
+      background: var(--navy);
       color: #ffffff;
       font-weight: 650;
       font-size: 0.9rem;
@@ -147,7 +175,7 @@
     .btn-outline {
       padding: 9px 16px;
       border-radius: 999px;
-      border: 1px solid rgba(15, 23, 42, 0.18);
+      border: 1px solid rgba(15, 23, 42, 0.15);
       background: #ffffff;
       color: var(--text-main);
       font-weight: 600;
@@ -159,7 +187,7 @@
       border-radius: 18px;
       background: #0b1120;
       color: #f9fafb;
-      padding: 18px 18px 16px;
+      padding: 16px 18px 14px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -168,13 +196,13 @@
     .hero-side-title {
       font-size: 0.98rem;
       font-weight: 650;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .hero-side-ul {
       padding-left: 18px;
       font-size: 0.82rem;
-      margin: 0 0 14px;
+      margin: 0 0 12px;
       color: #e5e7eb;
     }
 
@@ -187,9 +215,10 @@
       color: #9ca3af;
     }
 
-    /* section label & title（ここが「目立たせるところ」） */
+    /* ── セクション共通 ───────────────── */
+
     .section {
-      margin-top: 48px;
+      margin-top: 46px;
     }
 
     .section-label {
@@ -197,8 +226,8 @@
       align-items: center;
       padding: 4px 12px;
       border-radius: 999px;
-      background: var(--istp-yellow-soft);
-      color: var(--istp-yellow);
+      background: var(--accent-soft);
+      color: var(--accent);
       font-weight: 650;
       font-size: 0.8rem;
       gap: 8px;
@@ -208,7 +237,7 @@
       width: 8px;
       height: 8px;
       border-radius: 999px;
-      background: var(--istp-yellow);
+      background: var(--accent);
     }
 
     .section-title {
@@ -217,7 +246,7 @@
       font-weight: 750;
       display: inline-block;
       padding-bottom: 6px;
-      border-bottom: 3px solid var(--istp-yellow); /* 下線は必ず残す */
+      border-bottom: 3px solid var(--accent); /* 下線は絶対に残す */
     }
 
     .section-desc {
@@ -226,7 +255,8 @@
       max-width: 720px;
     }
 
-    /* 共通のカード */
+    /* 共通カード */
+
     .card-grid-3 {
       margin-top: 20px;
       display: grid;
@@ -236,9 +266,9 @@
 
     .card {
       background: #ffffff;
-      border-radius: var(--istp-card-radius);
+      border-radius: var(--card-radius);
       padding: 18px 18px 18px;
-      box-shadow: var(--istp-shadow-soft);
+      box-shadow: var(--shadow-soft);
     }
 
     .card-title {
@@ -252,7 +282,8 @@
       color: var(--text-muted);
     }
 
-    /* プラン別の使い方カード（タグ付き） */
+    /* プラン別の使い方カード ＋ タグ */
+
     .usecase-grid {
       margin-top: 20px;
       display: grid;
@@ -262,9 +293,9 @@
 
     .usecase-card {
       background: #ffffff;
-      border-radius: var(--istp-card-radius);
+      border-radius: var(--card-radius);
       padding: 16px 18px 18px;
-      box-shadow: var(--istp-shadow-soft);
+      box-shadow: var(--shadow-soft);
     }
 
     .plan-tag {
@@ -272,9 +303,9 @@
       align-items: center;
       padding: 3px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(243, 179, 0, 0.6);
-      background: rgba(243, 179, 0, 0.06);
-      color: var(--istp-yellow);
+      border: 1px solid rgba(249, 115, 22, 0.65);
+      background: rgba(249, 115, 22, 0.06);
+      color: var(--accent);
       font-size: 0.74rem;
       font-weight: 650;
       margin-bottom: 8px;
@@ -285,7 +316,7 @@
       width: 7px;
       height: 7px;
       border-radius: 999px;
-      background: var(--istp-yellow);
+      background: var(--accent);
     }
 
     .usecase-title {
@@ -299,11 +330,11 @@
       color: var(--text-muted);
     }
 
-    /* 料金プラン */
+    /* ── 料金プラン ───────────────── */
 
     .pricing-scroll {
       margin-top: 22px;
-      overflow-x: auto;            /* スマホで横スクロールできる */
+      overflow-x: auto; /* スマホ時に横スクロール */
       padding-bottom: 8px;
     }
 
@@ -311,7 +342,7 @@
       display: grid;
       grid-template-columns: repeat(5, minmax(240px, 1fr));
       gap: 18px;
-      min-width: 1180px;           /* カードが横並びになる幅を確保 */
+      min-width: 1180px; /* PCでは5枚並ぶ幅を確保 */
     }
 
     .price-card {
@@ -319,12 +350,12 @@
       padding: 20px 18px 18px;
       color: #0f172a;
       position: relative;
-      box-shadow: var(--istp-shadow-soft);
+      box-shadow: var(--shadow-soft);
       background: #ffffff;
     }
 
     .price-card.dark {
-      background: var(--istp-navy);
+      background: var(--navy);
       color: #f9fafb;
     }
 
@@ -343,7 +374,7 @@
 
     .price-sub {
       font-size: 0.78rem;
-      opacity: 0.85;
+      opacity: 0.88;
     }
 
     .badge-recommend {
@@ -351,10 +382,11 @@
       align-items: center;
       padding: 3px 10px;
       border-radius: 999px;
-      background: var(--istp-yellow);
-      color: #111827;
+      background: #ffffff;
+      color: #0f172a;
       font-weight: 700;
       font-size: 0.74rem;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.06);
     }
 
     .price-main {
@@ -390,7 +422,7 @@
 
     .price-note {
       font-size: 0.76rem;
-      opacity: 0.85;
+      opacity: 0.88;
       line-height: 1.5;
     }
 
@@ -421,7 +453,26 @@
       color: #e5e7eb;
     }
 
-    /* FAQ とフッターは簡易で */
+    /* 料金カード下部タグ（Standard / Pro 用） */
+    .price-bottom-tags {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 0.74rem;
+    }
+
+    .price-bottom-tag {
+      padding: 2px 9px;
+      border-radius: 999px;
+      background: rgba(249, 115, 22, 0.06);
+      color: var(--accent);
+      border: 1px solid rgba(249, 115, 22, 0.55);
+      font-weight: 600;
+    }
+
+    /* ── FAQ／フッター ───────────────── */
+
     .faq-grid {
       margin-top: 20px;
       display: grid;
@@ -431,9 +482,9 @@
 
     .faq-item {
       background: #ffffff;
-      border-radius: var(--istp-card-radius);
+      border-radius: var(--card-radius);
       padding: 16px 18px;
-      box-shadow: var(--istp-shadow-soft);
+      box-shadow: var(--shadow-soft);
     }
 
     .faq-q {
@@ -462,11 +513,13 @@
       text-underline-offset: 2px;
     }
 
-    /* レスポンシブ */
+    /* ── レスポンシブ ───────────────── */
+
     @media (max-width: 960px) {
       .hero {
         grid-template-columns: minmax(0, 1fr);
       }
+
       .card-grid-3,
       .usecase-grid,
       .faq-grid {
@@ -476,13 +529,22 @@
 
     @media (max-width: 640px) {
       .page {
-        padding: 24px 14px 60px;
+        padding: 18px 14px 60px;
+      }
+      .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
       }
       .hero {
         padding: 20px 18px 20px;
       }
       .hero-title {
-        font-size: 1.35rem;
+        font-size: 1.38rem;
+      }
+      .site-nav {
+        font-size: 0.8rem;
+        gap: 12px;
       }
     }
   </style>
@@ -490,11 +552,17 @@
 <body>
   <div class="page">
     <header>
-      <div class="logo-row">
+      <div class="site-header">
         <div class="logo">
           <div class="logo-mark">I</div>
           <span>ISTP相談室</span>
         </div>
+        <nav class="site-nav">
+          <a href="#common">このボットについて</a>
+          <a href="#pricing">料金プラン</a>
+          <a href="#faq">FAQ</a>
+          <button class="site-nav-cta">公式LINEを開く</button>
+        </nav>
       </div>
 
       <div class="hero">
@@ -534,7 +602,7 @@
             </ul>
           </div>
           <div class="hero-side-foot">
-            ※回答はすべて、ISTPの監修者が作ったプロンプトを通して自動生成されます。
+            ※回答は、ISTP監修のプロンプトを通して自動生成されます。
           </div>
         </aside>
       </div>
@@ -621,7 +689,7 @@
           <div class="usecase-body">
             Proプランでは、相談者と相手のプロフィールを作成したうえで、
             その前提で毎回の相談を積み上げていく「研究モード」を用意しています。
-            ボットの口調や共感寄り / 事実寄りのバランスも調整しつつ、
+            共感寄り / 事実寄りのバランスも調整しつつ、
             「この人だけをじっくり追いかけたい」というケースを想定しています。
           </div>
         </div>
@@ -672,7 +740,7 @@
             </button>
           </article>
 
-          <!-- Light -->
+          <!-- Light（オレンジで強調。周りのラベルも同系色なので浮かない） -->
           <article class="price-card" style="background:#f97316; color:#111827;">
             <div class="price-header-row">
               <div>
@@ -757,6 +825,12 @@
               ※一度購入すれば、そのアカウントでは回数上限なく相談できます。
             </div>
 
+            <!-- カード下部タグ（ISTPカラーで統一） -->
+            <div class="price-bottom-tags">
+              <span class="price-bottom-tag">買い切り</span>
+              <span class="price-bottom-tag">上限なし</span>
+            </div>
+
             <button class="price-cta-btn price-cta-main">
               サブスクなしで使い倒したい人向け
             </button>
@@ -786,6 +860,12 @@
 
             <div class="price-note">
               ※ご決済後、プロフィール入力フォームをお送りします。入力完了後に本運用開始です。
+            </div>
+
+            <!-- カード下部タグ（Standardと同じスタイル） -->
+            <div class="price-bottom-tags">
+              <span class="price-bottom-tag">買い切り</span>
+              <span class="price-bottom-tag">研究モード</span>
             </div>
 
             <button class="price-cta-btn price-cta-main">
