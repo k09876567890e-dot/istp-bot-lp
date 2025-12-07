@@ -99,6 +99,7 @@
       font-size: 15px;
       color: #111827;
     }
+
     .site-nav {
       display: flex;
       gap: 18px;
@@ -131,6 +132,7 @@
       border: none;
       background: transparent;
       padding: 0;
+      cursor: pointer;
     }
 
     .nav-toggle span {
@@ -867,7 +869,7 @@
     }
 
     /* ---------- 600px以下の微調整 ---------- */
-     (max-width: 600px) {
+    @media (max-width: 600px) {
       body {
         line-height: 1.8;
       }
@@ -933,6 +935,11 @@
       <a href="https://lin.ee/LgEC1UT" class="btn btn-primary header-cta">
         公式LINEを友だち追加する
       </a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開閉">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
     <nav class="site-nav-drawer" aria-label="メインナビゲーション（モバイル）">
       <a href="#features">特徴</a>
@@ -1436,7 +1443,8 @@
       </div>
     </div>
   </footer>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const header = document.querySelector(".site-header");
