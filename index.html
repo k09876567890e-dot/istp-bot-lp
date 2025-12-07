@@ -99,43 +99,6 @@
       font-size: 15px;
       color: #111827;
     }
-/* メニューバー */
-    #header .site-nav {
-    /* ボタン全体サイズを50pxの正方形に設定 */
-    width: 50px;
-    height: 50px;
-    /* マウスポインターを指に変更 */
-    cursor: pointer;
-    position: fixed;
-    top: 5px;
-    right: 10px;
-    /* 優先度を変更 */
-    z-index: 30;
-  }
-
-/* ハンバーガーアイコンの内側の線 */
-#header .site-nav span {
-    /* ボタン横線の長さと高さを設定 */
-    width: 30px;
-    height: 3px;
-    background-color: #000;
-    /* 絶対位置指定（親は.hamburger） */
-    position: absolute;
-    left: 10px;
-    /* ボタンが押されてXに切り替わるときの動作設定 */
-    transition: all 0.4s;
-  }
-
-/* ハンバーガーメニュー3本の線の縦の位置を設定 */
-#header .site-nav span:nth-of-type(1) {
-    top: 16px;
-  }
-#header .site-nav span:nth-of-type(2) {
-    top: 25px;
-  }
-#header .site-nav span:nth-of-type(3) {
-    top: 34px;
-  }
     .site-nav {
       display: flex;
       gap: 18px;
@@ -967,25 +930,14 @@
         <div>ISTP相談室</div>
       </a>
       <nav class="site-nav" aria-label="メインナビゲーション">
-        <ul>
-          <li> <a href="#features">特徴</a></li>
-          <li><a href="#plans">料金プラン</a></li>
-          <li><a href="#flow">利用の流れ</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul>
-       
-        
-        
-        
+        <li> <a href="#features">特徴</a></li>
+        <a href="#plans">料金プラン</a>
+        <a href="#flow">利用の流れ</a>
+        <a href="#faq">FAQ</a>
       </nav>
       <a href="https://lin.ee/LgEC1UT" class="btn btn-primary header-cta">
         公式LINEを友だち追加する
       </a>
-      <button class="nav-toggle" type="button" aria-label="メニューを開く">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
     </div>
     <nav class="site-nav-drawer" aria-label="メインナビゲーション（モバイル）">
       <a href="#features">特徴</a>
