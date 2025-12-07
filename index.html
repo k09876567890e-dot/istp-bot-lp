@@ -135,14 +135,15 @@
 }
 
 
-    .nav-toggle span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      margin: 4px auto;
-      background: #f9fafb;
-      border-radius: 999px;
-    }
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  margin: 2px 0;          /* 縦方向だけ余白 */
+  background: #f9fafb;
+  border-radius: 999px;
+}
+
 
     .site-nav-drawer {
       display: none;
@@ -826,11 +827,12 @@
       }
 
       .nav-toggle {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        margin-left: auto;
-      }
+    display: inline-flex;
+    flex-direction: column;    /* ← 縦並びにする */
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+  }
 
       .site-nav-drawer {
         padding-inline: 16px;
