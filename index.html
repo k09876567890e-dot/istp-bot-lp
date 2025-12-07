@@ -126,20 +126,20 @@
     .nav-toggle {
       display: none;
       margin-left: 8px;
-      width: 32px;
-      height: 32px;
+      width: 40px;
+      height: 40px;
       border-radius: 999px;
-      border: none;
-      background: transparent;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      background: rgba(15, 23, 42, 0.85);
       padding: 0;
       cursor: pointer;
     }
 
     .nav-toggle span {
       display: block;
-      width: 18px;
+      width: 22px;
       height: 2px;
-      margin: 3px auto;
+      margin: 4px auto;
       background: #f9fafb;
       border-radius: 999px;
     }
@@ -161,6 +161,17 @@
 
     .site-nav-drawer a + a {
       border-top: 1px solid rgba(55, 65, 81, 0.7);
+    }
+
+    .site-nav-drawer .drawer-cta {
+      font-weight: 500;
+      text-align: center;
+      border-radius: 999px;
+      margin-bottom: 6px;
+      padding: 10px 14px;
+      background: linear-gradient(135deg, #fdba74, #ea580c);
+      color: #fff;
+      border: 1px solid rgba(248, 250, 252, 0.4);
     }
 
     .btn {
@@ -810,10 +821,15 @@
         display: none;
       }
 
+      .header-cta {
+        display: none;
+      }
+
       .nav-toggle {
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        margin-left: auto;
       }
 
       .site-nav-drawer {
@@ -942,6 +958,7 @@
       </button>
     </div>
     <nav class="site-nav-drawer" aria-label="メインナビゲーション（モバイル）">
+      <a href="https://lin.ee/LgEC1UT" class="drawer-cta">公式LINEを友だち追加する</a>
       <a href="#features">特徴</a>
       <a href="#plans">料金プラン</a>
       <a href="#flow">利用の流れ</a>
