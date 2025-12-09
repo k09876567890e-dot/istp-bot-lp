@@ -123,27 +123,25 @@
       white-space: nowrap;
     }
 
-.nav-toggle {
-  display: none;
-  margin-left: 8px;
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  border: none;          /* 枠線なし */
-  background: transparent; /* 背景なし */
-  cursor: pointer;
-}
+    .nav-toggle {
+      display: none;
+      margin-left: 8px;
+      width: 32px;
+      height: 32px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
 
-
-.nav-toggle span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  margin: 2px 0;          /* 縦方向だけ余白 */
-  background: #f9fafb;
-  border-radius: 999px;
-}
-
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      margin: 2px 0;
+      background: #f9fafb;
+      border-radius: 999px;
+    }
 
     .site-nav-drawer {
       display: none;
@@ -704,6 +702,13 @@
       background: #f9fafb;
     }
 
+    /* ←ここ追加 */
+    .pricing-note {
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--text-sub);
+    }
+
     /* Flow */
     .flow-steps {
       display: grid;
@@ -827,12 +832,12 @@
       }
 
       .nav-toggle {
-    display: inline-flex;
-    flex-direction: column;    /* ← 縦並びにする */
-    align-items: center;
-    justify-content: center;
-    margin-left: auto;
-  }
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+      }
 
       .site-nav-drawer {
         padding-inline: 16px;
@@ -1322,6 +1327,16 @@
             </tbody>
           </table>
         </div>
+
+        <!-- ▼ここ追加：noteへのリンク -->
+        <p class="pricing-note">
+          ※相談回数のカウント方法や、各プランの細かいルールは
+          <a href="https://note.com/shin1mgmg/n/n339465eb17b1" target="_blank" rel="noopener">
+            こちらのnote「ISTP相談室の料金プラン・相談回数のルール解説」
+          </a>
+          にまとめています。
+        </p>
+        <!-- ▲追加ここまで -->
 
         <div style="margin-top:16px;font-size:12px;color:var(--text-sub);">
           ※Xなどから直接このLPに来た方も、必ず先に公式LINEを友だち追加してからお申し込みください。
