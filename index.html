@@ -26,6 +26,10 @@
       --text-main: #111827;
       --text-sub: #4b5563;
       --border-soft: #e5e7eb;
+      
+      /* 命運の羅針盤用カラー */
+      --destiny-gold: #b45309;
+      --destiny-bg: #fffbeb;
     }
 
     * { box-sizing: border-box; }
@@ -208,6 +212,18 @@
 
     .btn-outline:hover {
       background: var(--bg-soft);
+    }
+
+    /* 命運の羅針盤用ボタン */
+    .btn-destiny {
+      background: linear-gradient(135deg, #fcd34d, #d97706);
+      color: #000;
+      box-shadow: 0 10px 24px rgba(217, 119, 6, 0.3);
+      font-weight: 700;
+    }
+    .btn-destiny:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 36px rgba(217, 119, 6, 0.4);
     }
 
     main {
@@ -520,17 +536,6 @@
       margin-right: 6px;
     }
 
-    .card-list {
-      margin: 8px 0 0;
-      padding-left: 18px;
-      font-size: 12px;
-      color: var(--text-sub);
-    }
-
-    .card-list li + li {
-      margin-top: 4px;
-    }
-
     /* Pricing */
     .pricing-grid {
       display: grid;
@@ -702,11 +707,78 @@
       background: #f9fafb;
     }
 
-    /* ←ここ追加 */
-    .pricing-note {
-      margin-top: 12px;
-      font-size: 12px;
-      color: var(--text-sub);
+    /* Destiny App Section */
+    .destiny-banner {
+      background: #020617;
+      border-radius: 24px;
+      padding: 32px 24px;
+      color: #f9fafb;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    }
+    
+    .destiny-banner::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(251, 191, 36, 0.2), transparent 70%);
+      pointer-events: none;
+    }
+
+    .destiny-flex {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .destiny-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: #fbbf24;
+      border: 1px solid #fbbf24;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+    }
+
+    .destiny-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0 0 10px;
+      background: linear-gradient(90deg, #fefce8, #facc15);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .destiny-desc {
+      font-size: 13px;
+      color: #cbd5e1;
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    @media (min-width: 768px) {
+      .destiny-flex {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .destiny-text {
+        flex: 1;
+        padding-right: 40px;
+      }
+      .destiny-action {
+        flex-shrink: 0;
+      }
     }
 
     /* Flow */
@@ -974,7 +1046,6 @@
   </header>
 
   <main>
-    <!-- Hero -->
     <section class="hero" id="hero">
       <div class="container hero-inner">
         <div>
@@ -1049,7 +1120,6 @@
       </div>
     </section>
 
-    <!-- Features -->
     <section id="features">
       <div class="container">
         <h2 class="section-title">ISTP相談室は、こんなときに使えます</h2>
@@ -1057,7 +1127,6 @@
           ISTP（っぽい）相手への相談を、「共通でできること」と「プランごとの使い方」に分けて整理しています。
         </p>
 
-        <!-- 共通でできること -->
         <div class="section-tag">
           <span class="section-tag-dot"></span>プラン共通
         </div>
@@ -1086,12 +1155,10 @@
           </div>
         </div>
 
-        <!-- プランごとのよくある使い方 -->
         <div class="section-tag">
           <span class="section-tag-dot"></span>プラン別おすすめの使い方
         </div>
         <div class="grid-3">
-          <!-- Free / Light / Standard 向け -->
           <div class="card">
             <div class="card-tag" style="margin-top:0;margin-bottom:8px;">
               <span></span>Free / Light / Standard 向け
@@ -1104,7 +1171,6 @@
             </p>
           </div>
 
-          <!-- Free / Light 向け -->
           <div class="card">
             <div class="card-tag" style="margin-top:0;margin-bottom:8px;">
               <span></span>Free / Light 向け
@@ -1117,7 +1183,6 @@
             </p>
           </div>
 
-          <!-- Pro プラン向け -->
           <div class="card">
             <div class="card-tag" style="margin-top:0;margin-bottom:8px;">
               <span></span>Pro プラン向け
@@ -1134,7 +1199,6 @@
       </div>
     </section>
 
-    <!-- Pricing -->
     <section id="plans">
       <div class="container">
         <h2 class="section-title">料金プラン</h2>
@@ -1144,7 +1208,6 @@
         </p>
 
         <div class="pricing-grid">
-          <!-- Free -->
           <div class="plan-card">
             <div class="plan-head">
               <div class="plan-head-label">まずは様子を見たい人向け</div>
@@ -1170,7 +1233,6 @@
             </div>
           </div>
 
-          <!-- Light -->
           <div class="plan-card highlight">
             <div class="plan-head">
               <div class="plan-head-label">月額サブスク</div>
@@ -1196,7 +1258,6 @@
             </div>
           </div>
 
-          <!-- 追加15 -->
           <div class="plan-card">
             <div class="plan-head">
               <div class="plan-head-label">Free/Light向けオプション</div>
@@ -1223,7 +1284,6 @@
             </div>
           </div>
 
-          <!-- Standard -->
           <div class="plan-card">
             <div class="plan-head">
               <div class="plan-head-label">買い切り / 相談し放題</div>
@@ -1249,7 +1309,6 @@
             </div>
           </div>
 
-          <!-- Pro -->
           <div class="plan-card">
             <div class="plan-head">
               <div class="plan-head-label">買い切り / 研究プラン</div>
@@ -1353,7 +1412,29 @@
       </div>
     </section>
 
-    <!-- Flow -->
+    <section id="destiny" style="background:var(--destiny-bg);">
+      <div class="container">
+        <div class="destiny-banner">
+          <div class="destiny-flex">
+            <div class="destiny-text">
+              <div class="destiny-label">Insight Lab New Service</div>
+              <h2 class="destiny-title">命運の羅針盤 - Celestial Destiny</h2>
+              <p class="destiny-desc">
+                ISTP相談室の運営元「Insight Lab」が開発した、新しい四柱推命アプリです。<br>
+                性格だけでなく、運勢のバイオリズムや生まれ持った宿命を「データ」として解析したい方へ。<br>
+                生年月日を入力するだけで、あなたの命式と運命の羅針盤を導き出します。
+              </p>
+              <a href="https://destiny-app-five.vercel.app/" target="_blank" rel="noopener" class="btn btn-destiny">
+                命運の羅針盤を試す（Webアプリ）
+              </a>
+            </div>
+            <div class="destiny-action">
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="flow">
       <div class="container">
         <h2 class="section-title">ご利用の流れ</h2>
@@ -1398,7 +1479,6 @@
       </div>
     </section>
 
-    <!-- FAQ -->
     <section id="faq">
       <div class="container">
         <h2 class="section-title">よくある質問</h2>
@@ -1468,7 +1548,7 @@
 
   <footer>
     <div class="container footer-inner">
-      <div>© ISTP相談室 LINEボット</div>
+      <div>© Insight Lab</div>
       <div class="footer-links">
         <a href="tokutei.html">特定商取引法に基づく表記</a>
         <a href="terms.html">利用規約</a>
