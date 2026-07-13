@@ -26,10 +26,6 @@
       --text-main: #111827;
       --text-sub: #4b5563;
       --border-soft: #e5e7eb;
-      
-      /* 命運の羅針盤用カラー */
-      --destiny-gold: #b45309;
-      --destiny-bg: #fffbeb;
     }
 
     * { box-sizing: border-box; }
@@ -212,18 +208,6 @@
 
     .btn-outline:hover {
       background: var(--bg-soft);
-    }
-
-    /* 命運の羅針盤用ボタン */
-    .btn-destiny {
-      background: linear-gradient(135deg, #fcd34d, #d97706);
-      color: #000;
-      box-shadow: 0 10px 24px rgba(217, 119, 6, 0.3);
-      font-weight: 700;
-    }
-    .btn-destiny:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 16px 36px rgba(217, 119, 6, 0.4);
     }
 
     main {
@@ -705,80 +689,6 @@
 
     tr:nth-child(even) td {
       background: #f9fafb;
-    }
-
-    /* Destiny App Section */
-    .destiny-banner {
-      background: #020617;
-      border-radius: 24px;
-      padding: 32px 24px;
-      color: #f9fafb;
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(251, 191, 36, 0.3);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-    }
-    
-    .destiny-banner::before {
-      content: "";
-      position: absolute;
-      top: -50px;
-      right: -50px;
-      width: 200px;
-      height: 200px;
-      background: radial-gradient(circle, rgba(251, 191, 36, 0.2), transparent 70%);
-      pointer-events: none;
-    }
-
-    .destiny-flex {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .destiny-label {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 700;
-      color: #fbbf24;
-      border: 1px solid #fbbf24;
-      padding: 4px 10px;
-      border-radius: 999px;
-      margin-bottom: 8px;
-    }
-
-    .destiny-title {
-      font-size: 24px;
-      font-weight: 700;
-      margin: 0 0 10px;
-      background: linear-gradient(90deg, #fefce8, #facc15);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .destiny-desc {
-      font-size: 13px;
-      color: #cbd5e1;
-      margin-bottom: 20px;
-      line-height: 1.8;
-    }
-
-    @media (min-width: 768px) {
-      .destiny-flex {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .destiny-text {
-        flex: 1;
-        padding-right: 40px;
-      }
-      .destiny-action {
-        flex-shrink: 0;
-      }
     }
 
     /* Flow */
@@ -1443,29 +1353,6 @@
           <a href="https://lin.ee/LgEC1UT" class="btn btn-primary">
             公式LINEを友だち追加する
           </a>
-        </div>
-      </div>
-    </section>
-
-    <section id="destiny" style="background:var(--destiny-bg);">
-      <div class="container">
-        <div class="destiny-banner">
-          <div class="destiny-flex">
-            <div class="destiny-text">
-              <div class="destiny-label">Insight Lab New Service</div>
-              <h2 class="destiny-title">命運の羅針盤 - Celestial Destiny</h2>
-              <p class="destiny-desc">
-                ISTP相談室の運営元「Insight Lab」が開発した、新しい四柱推命アプリです。<br>
-                性格だけでなく、運勢のバイオリズムや生まれ持った宿命を「データ」として解析したい方へ。<br>
-                生年月日を入力するだけで、あなたの命式と運命の羅針盤を導き出します。
-              </p>
-              <a href="https://destiny-app-five.vercel.app/" target="_blank" rel="noopener" class="btn btn-destiny">
-                命運の羅針盤を試す（Webアプリ）
-              </a>
-            </div>
-            <div class="destiny-action">
-              </div>
-          </div>
         </div>
       </div>
     </section>
