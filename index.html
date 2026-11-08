@@ -922,7 +922,36 @@
         font-size: 8px;
       }
     }
-  </style>
+  
+    /* 作者のゲーム「霧の村と消えた灯り」 */
+    .kiri-card {
+      background: #f3ead8;
+      border: 1px solid #d8c9aa;
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 16px 40px rgba(43, 36, 28, 0.12);
+    }
+    .kiri-card img { width: 100%; display: block; aspect-ratio: 1200 / 630; object-fit: cover; }
+    .kiri-body { padding: 24px; color: #2b241c; }
+    .kiri-label {
+      display: inline-block; font-size: 11px; font-weight: 700; color: #b5402f;
+      border: 1px solid #b5402f; padding: 4px 10px; border-radius: 999px; margin-bottom: 10px;
+    }
+    .kiri-title { font-size: 22px; font-weight: 700; margin: 0 0 10px; }
+    .kiri-desc { font-size: 14px; line-height: 1.9; color: #4b4033; margin: 0 0 18px; }
+    .btn-kiri {
+      display: inline-block; padding: 12px 22px; border: 1.5px solid #b5402f; color: #b5402f;
+      border-radius: 999px; font-weight: 700; text-decoration: none;
+    }
+    .btn-kiri:hover { background: #b5402f; color: #f3ead8; }
+    @media (min-width: 768px) {
+      .kiri-card { flex-direction: row; align-items: stretch; }
+      .kiri-card img { width: 46%; aspect-ratio: auto; }
+      .kiri-body { padding: 32px; flex: 1; }
+    }
+</style>
 </head>
 <body>
   <header class="site-header">
@@ -1476,6 +1505,25 @@
             本サービスは、恋愛や対人関係に関するアドバイス・情報提供を目的としたものであり、<br />
             医療行為、法律相談、投資助言等を行うものではありません。<br />
             心身の不調や暴力被害などの問題を抱えている場合は、医療機関や公的機関等への相談をおすすめします。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kiri-game">
+      <div class="container">
+        <h2 class="section-title">ISTP相談室の作者が作ったゲーム</h2>
+        <p class="section-sub">心理機能に興味がある方へ。無料で遊べます。</p>
+        <div class="kiri-card">
+          <img src="https://kiri-no-mura.pages.dev/og/top.jpg" alt="霧の村と消えた灯り" loading="lazy">
+          <div class="kiri-body">
+            <div class="kiri-label">無料・ブラウザで遊べる</div>
+            <h3 class="kiri-title">霧の村と消えた灯り</h3>
+            <p class="kiri-desc">
+              旅の途中で選んだ行動と心の声から、あなたの心理機能と16の型を推定する、十分ほどの短い旅です。<br>
+              おまけの謎解き付き。スマホでもそのまま遊べます。
+            </p>
+            <a href="https://kiri-no-mura.pages.dev/" target="_blank" rel="noopener" class="btn-kiri">霧の村へ旅に出る</a>
           </div>
         </div>
       </div>
